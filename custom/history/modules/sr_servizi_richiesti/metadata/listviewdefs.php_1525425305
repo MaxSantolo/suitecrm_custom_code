@@ -1,0 +1,52 @@
+<?php
+$module_name = 'sr_servizi_richiesti';
+$listViewDefs [$module_name] = 
+array (
+  'CENTRO_SCELTO' => 
+  array (
+    'type' => 'enum',
+    'studio' => 'visible',
+    'label' => 'LBL_CENTRO_SCELTO',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'SERVIZIO_SCELTO' => 
+  array (
+    'type' => 'enum',
+    'studio' => 'visible',
+    'label' => 'LBL_SERVIZIO_SCELTO',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'NUM_UFFICI' => 
+  array (
+    'type' => 'int',
+    'label' => 'LBL_NUM_UFFICI',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'NUM_POSTAZIONI' => 
+  array (
+    'type' => 'int',
+    'label' => 'LBL_NUM_POSTAZIONI',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'width' => '9%',
+    'label' => 'LBL_ASSIGNED_TO_NAME',
+    'module' => 'Employees',
+    'id' => 'ASSIGNED_USER_ID',
+    'default' => false,
+  ),
+  'NAME' => 
+  array (
+    'width' => '32%',
+    'label' => 'LBL_NAME',
+    'default' => false,
+    'link' => true,
+  ),
+);
+;
+?>

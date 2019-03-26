@@ -1,0 +1,25 @@
+<?php
+// created: 2018-06-15 12:33:26
+$mod_strings = array (
+  'LBL_CONTACT_NAME' => 'Nome Cliente:',
+  'LBL_CONTACT' => 'Cliente:',
+  'LBL_CONTACT_ID' => 'ID Cliente:',
+  'LBL_CONTACT_PHONE' => 'Telefono Cliente:',
+  'LBL_ACCOUNT' => 'Azienda',
+  'LBL_LEADS' => 'Contatto',
+  'LBL_DESCRIPTION' => 'Descrizione',
+  'LBL_TASK_LEAD_LEAD_ID' => 'Relativo a (relativo Contatto ID)',
+  'LBL_TASK_LEAD' => 'Relativo a',
+  'LBL_CASE' => 'Ticket',
+  'LBL_TASK_SOLUZIONE' => 'Soluzione',
+  'LBL_STATUS' => 'Stato:',
+  'LBL_DATA_APPTOCALL' => 'Data appuntamento/call',
+  'LBL_LIST_RELATED_TO' => 'Relativo a',
+  'LBL_TASK_DOVE' => 'Dove',
+  'LBL_APPTO_FISSATO' => 'appto fissato',
+  'LBL_EMAIL_INVIARE' => 'Invia Email',
+  'LBL_CLOSEDWHY' => 'Nota chiusura',
+  'LBL_TELEFONO_CONTATTO' => 'Telefono',
+  'LBL_CELLULARE_CONTATTO' => 'Cellulare',
+  'LBL_SR_SERVIZI_RICHIESTI_TASKS_1_FROM_SR_SERVIZI_RICHIESTI_TITLE' => 'Commerciale - Servizi Richiesti',
+);

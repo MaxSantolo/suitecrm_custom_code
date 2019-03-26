@@ -1,0 +1,34 @@
+<?php
+// created: 2018-05-04 11:17:42
+$layout_defs = array (
+  'centro_scelto' => 
+  array (
+    'type' => 'enum',
+    'studio' => 'visible',
+    'vname' => 'LBL_CENTRO_SCELTO',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'servizio_scelto' => 
+  array (
+    'type' => 'enum',
+    'studio' => 'visible',
+    'vname' => 'LBL_SERVIZIO_SCELTO',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'num_uffici' => 
+  array (
+    'type' => 'int',
+    'vname' => 'LBL_NUM_UFFICI',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'num_postazioni' => 
+  array (
+    'type' => 'int',
+    'vname' => 'LBL_NUM_POSTAZIONI',
+    'width' => '10%',
+    'default' => true,
+  ),
+);

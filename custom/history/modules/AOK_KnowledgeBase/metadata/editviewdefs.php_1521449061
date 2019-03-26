@@ -1,0 +1,94 @@
+<?php
+// created: 2018-03-19 09:43:45
+$viewdefs['AOK_KnowledgeBase']['EditView'] = array (
+  'templateMeta' => 
+  array (
+    'maxColumns' => '2',
+    'widths' => 
+    array (
+      0 => 
+      array (
+        'label' => '10',
+        'field' => '30',
+      ),
+      1 => 
+      array (
+        'label' => '10',
+        'field' => '30',
+      ),
+    ),
+    'includes' => 
+    array (
+      0 => 
+      array (
+        'file' => 'include/javascript/tiny_mce/tiny_mce.js',
+      ),
+    ),
+    'useTabs' => false,
+    'tabDefs' => 
+    array (
+      'DEFAULT' => 
+      array (
+        'newTab' => false,
+        'panelDefault' => 'expanded',
+      ),
+    ),
+    'syncDetailEditViews' => true,
+  ),
+  'panels' => 
+  array (
+    'default' => 
+    array (
+      0 => 
+      array (
+        0 => 'name',
+      ),
+      1 => 
+      array (
+        0 => 
+        array (
+          'name' => 'revision',
+          'label' => 'LBL_REVISION',
+        ),
+        1 => 
+        array (
+          'name' => 'status',
+          'studio' => 'visible',
+          'label' => 'LBL_STATUS',
+        ),
+      ),
+      2 => 
+      array (
+        0 => 'description',
+      ),
+      3 => 
+      array (
+        0 => 
+        array (
+          'name' => 'additional_info',
+          'comment' => 'Full text of the note',
+          'studio' => 'visible',
+          'label' => 'LBL_ADDITIONAL_INFO',
+        ),
+      ),
+      4 => 
+      array (
+        0 => 
+        array (
+          'name' => 'author',
+          'studio' => 'visible',
+          'label' => 'LBL_AUTHOR',
+        ),
+      ),
+      5 => 
+      array (
+        0 => 
+        array (
+          'name' => 'approver',
+          'studio' => 'visible',
+          'label' => 'LBL_APPROVER',
+        ),
+      ),
+    ),
+  ),
+);

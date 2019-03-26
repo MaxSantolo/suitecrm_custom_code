@@ -1,0 +1,3 @@
+<?php
+//THIS FILE IS AUTO GENERATED, DO NOT MODIFY
+$mod_strings['LBL_DB_EVENTI_LEADS_FROM_DB_EVENTI_TITLE'] = 'Dashboard Reception';

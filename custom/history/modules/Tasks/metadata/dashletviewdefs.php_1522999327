@@ -1,0 +1,40 @@
+<?php
+$dashletData['TasksDashlet']['searchFields'] = array (
+  'name' => 
+  array (
+    'default' => '',
+  ),
+  'priority' => 
+  array (
+    'default' => '',
+  ),
+  'status' => 
+  array (
+    'default' => 
+    array (
+      0 => 'Not Started',
+      1 => 'In Progress',
+      2 => 'Pending Input',
+    ),
+  ),
+  'date_entered' => 
+  array (
+    'default' => '',
+  ),
+  'date_start' => 
+  array (
+    'default' => '',
+  ),
+  'date_due' => 
+  array (
+    'default' => '',
+  ),
+  'assigned_user_id' => 
+  array (
+    'type' => 'assigned_user_name',
+    'label' => 'LBL_ASSIGNED_TO',
+    'default' => 'Administrator',
+  ),
+);
+$dashletData['TasksDashlet']['columns'] = array (
+);

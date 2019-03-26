@@ -1,0 +1,55 @@
+<?php
+// created: 2018-05-30 16:11:10
+$layout_defs = array (
+  'date_entered' => 
+  array (
+    'type' => 'datetime',
+    'vname' => 'LBL_DATE_ENTERED',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'accounts_sr_servizi_richiesti_1_name' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'vname' => 'LBL_ACCOUNTS_SR_SERVIZI_RICHIESTI_1_FROM_ACCOUNTS_TITLE',
+    'id' => 'ACCOUNTS_SR_SERVIZI_RICHIESTI_1ACCOUNTS_IDA',
+    'width' => '10%',
+    'default' => true,
+    'widget_class' => 'SubPanelDetailViewLink',
+    'target_module' => 'Accounts',
+    'target_record_key' => 'accounts_sr_servizi_richiesti_1accounts_ida',
+  ),
+  'centro_scelto' => 
+  array (
+    'type' => 'enum',
+    'studio' => 'visible',
+    'vname' => 'LBL_CENTRO_SCELTO',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'servizio_scelto' => 
+  array (
+    'type' => 'enum',
+    'studio' => 'visible',
+    'vname' => 'LBL_SERVIZIO_SCELTO',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'edit_button' => 
+  array (
+    'vname' => 'LBL_EDIT_BUTTON',
+    'widget_class' => 'SubPanelEditButton',
+    'module' => 'sr_servizi_richiesti',
+    'width' => '4%',
+    'default' => true,
+  ),
+  'remove_button' => 
+  array (
+    'vname' => 'LBL_REMOVE',
+    'widget_class' => 'SubPanelRemoveButton',
+    'module' => 'sr_servizi_richiesti',
+    'width' => '5%',
+    'default' => true,
+  ),
+);

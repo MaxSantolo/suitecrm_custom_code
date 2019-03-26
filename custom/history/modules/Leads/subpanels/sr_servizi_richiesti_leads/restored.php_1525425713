@@ -1,0 +1,48 @@
+<?php
+// created: 2018-05-04 11:21:48
+$layout_defs = array (
+  'centro_scelto' => 
+  array (
+    'type' => 'enum',
+    'studio' => 'visible',
+    'vname' => 'LBL_CENTRO_SCELTO',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'servizio_scelto' => 
+  array (
+    'type' => 'enum',
+    'studio' => 'visible',
+    'vname' => 'LBL_SERVIZIO_SCELTO',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'num_uffici' => 
+  array (
+    'type' => 'int',
+    'vname' => 'LBL_NUM_UFFICI',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'num_postazioni' => 
+  array (
+    'type' => 'int',
+    'vname' => 'LBL_NUM_POSTAZIONI',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'edit_button' => 
+  array (
+    'width' => '4%',
+    'vname' => 'LBL_EDIT_BUTTON',
+    'default' => true,
+    'widget_class' => 'SubPanelEditButton',
+  ),
+  'remove_button' => 
+  array (
+    'width' => '5%',
+    'vname' => 'LBL_REMOVE',
+    'default' => true,
+    'widget_class' => 'SubPanelRemoveButton',
+  ),
+);

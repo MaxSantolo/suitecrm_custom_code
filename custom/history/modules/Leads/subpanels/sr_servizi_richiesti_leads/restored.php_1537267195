@@ -1,0 +1,79 @@
+<?php
+// created: 2018-09-18 12:39:51
+$layout_defs = array (
+  'date_entered' => 
+  array (
+    'type' => 'datetime',
+    'vname' => 'LBL_DATE_ENTERED',
+    'width' => '10%',
+    'default' => true,
+    'widget_class' => 'SubPanelDetailViewLink',
+  ),
+  'centro_scelto' => 
+  array (
+    'type' => 'enum',
+    'studio' => 'visible',
+    'vname' => 'LBL_CENTRO_SCELTO',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'servizio_scelto' => 
+  array (
+    'type' => 'enum',
+    'studio' => 'visible',
+    'vname' => 'LBL_SERVIZIO_SCELTO',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'num_uffici' => 
+  array (
+    'type' => 'int',
+    'vname' => 'LBL_NUM_UFFICI',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'num_postazioni' => 
+  array (
+    'type' => 'int',
+    'vname' => 'LBL_NUM_POSTAZIONI',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'centro_quotato_c' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'studio' => 'visible',
+    'vname' => 'LBL_CENTRO_QUOTATO',
+    'width' => '10%',
+  ),
+  'inviata_offerta_c' => 
+  array (
+    'type' => 'bool',
+    'default' => true,
+    'vname' => 'LBL_INVIATA_OFFERTA',
+    'width' => '10%',
+  ),
+  'description' => 
+  array (
+    'type' => 'text',
+    'vname' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => true,
+  ),
+  'edit_button' => 
+  array (
+    'width' => '4%',
+    'vname' => 'LBL_EDIT_BUTTON',
+    'default' => true,
+    'widget_class' => 'SubPanelEditButton',
+  ),
+  'remove_button' => 
+  array (
+    'width' => '5%',
+    'vname' => 'LBL_REMOVE',
+    'default' => true,
+    'widget_class' => 'SubPanelRemoveButton',
+  ),
+);
