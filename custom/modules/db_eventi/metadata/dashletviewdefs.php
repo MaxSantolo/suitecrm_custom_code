@@ -1,7 +1,6 @@
 <?php
 $dashletData['db_eventiDashlet']['searchFields'] = array (
-
-    'event_date' =>
+  'event_date' => 
   array (
     'default' => '',
   ),
@@ -19,14 +18,13 @@ $dashletData['db_eventiDashlet']['searchFields'] = array (
   ),
 );
 $dashletData['db_eventiDashlet']['columns'] = array (
-    'set_complete' =>
-        array (
-            'width' => '1%',
-            'label' => 'LBL_LIST_CLOSE',
-            'default' => true,
-            'sortable' => false,
-            'name' => 'set_complete',
-             ),
+    'set_complete' => array(
+        'width' => '1',
+        'label' => 'LBL_LIST_CLOSE',
+        'default' => true,
+        'sortable' => false,
+        'name' => 'set_complete',
+        ),
   'event_date' => 
   array (
     'type' => 'datetimecombo',

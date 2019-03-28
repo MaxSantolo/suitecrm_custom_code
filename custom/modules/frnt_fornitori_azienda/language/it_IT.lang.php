@@ -1,7 +1,5 @@
 <?php
-// created: 2017-11-16 17:05:34
+// created: 2018-09-13 09:29:01
 $mod_strings = array (
-  'LBL_RIFERIMENTO' => 'Persona di riferimento',
-  'LBL_PIVA' => 'Partita IVA',
-  'LBL_CFISC' => 'Codice Fiscale',
+  'LBL_DR_EVENTI_FRNT_FORNITORI_AZIENDA_FROM_DR_EVENTI_TITLE' => 'Evento Reception',
 );

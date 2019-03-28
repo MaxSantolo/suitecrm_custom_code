@@ -178,3 +178,14 @@ $GLOBALS['app_list_strings']['account_type_dom']=array (
   'Reseller' => 'Rivenditore',
   'Press' => 'Stampa',
 );
+
+$GLOBALS['app_list_strings']['status_0']=array (
+  'rinviata' => 'Annullata-Rinviata',
+);
+
+$GLOBALS['app_list_strings']['meeting_status_dom']=array (
+  'Planned' => 'Pianificata',
+  'Held' => 'Effettuata',
+  'Not Held' => 'Non Effettuata',
+  'canc' => 'Annullata-Rinviata',
+);

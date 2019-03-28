@@ -1,5 +1,5 @@
 <?php
-// created: 2017-11-13 15:01:28
+// created: 2018-06-13 09:36:01
 $mod_strings = array (
-  'LBL_AOS_QUOTES' => 'Quotazione',
+  'LBL_AOS_INVOICES' => 'Cedolino',
 );
