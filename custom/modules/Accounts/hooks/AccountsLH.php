@@ -14,8 +14,9 @@ class AccountsLH {
 
     function MailFE($bean) {
         require_once 'include/SugarPHPMailer.php';
+        require_once 'custom/Extension/application/PickLog.php';
         $mailbody = "";
-        if (!empty($bean->fetched_row) && ($bean->fetched_row['pec_c'] != $bean->pec_c || $bean->fetched_row['cdu_c'] != $bean->cdu_c)) {
+        if (!empty($bean->fetched_row) && ($bean->fetched_row['pec_c'] != $bean->pec_c || $bean->fetched_row['cdu_c'] != $bean->cdu_c) && $bean->account_type == 'Customer') {
             $mailbody .= "
                 <strong>Azienda: </strong>{$bean->name}<br>
                 <strong>Codice Fiscale: </strong>{$bean->lead_cf_c}<br>
@@ -24,7 +25,7 @@ class AccountsLH {
                 <strong>CDU: </strong>{$bean->cdu_c}<br>
             ";
 
-        } else return true;
+        } else return;
 
         if ($mailbody != "") {
             $mail = new SugarPHPMailer();
@@ -43,7 +44,24 @@ class AccountsLH {
             $mail->setMailerForSystem();
             $mail->send();
 
+            global $current_user;
+            $user = $current_user->first_name . " " . $current_user->last_name;
+            $content = $mailbody;
+            $params = array(
+                'app' => 'CRM',
+                'action' => 'COMUNICAZIONE_PEC_CDU_A',
+                'content' => $content,
+                'user' => $user,
+                'description' => 'Invia PEC e CDU amministrazione dal CRM',
+                'origin' => 'crm.leads.pec_c, crm.leads.cdu_c',
+                'destination' => 'email a Ilaria e Raffaella',);
+            sendLog($params);
+
+
+
         }
+
+
 
 
     }

@@ -36,6 +36,8 @@ class LeadsLH {
     function LeadCheckIn($bean) {
 
         include 'custom/Extension/application/amanda_connect.php';
+        require_once 'custom/Extension/application/PickLog.php';
+
         if ($this->inStates($bean->status)) {
 
         //push to FOP / ACS
@@ -68,6 +70,26 @@ class LeadsLH {
         $id_acs = $id_acs_array['id'];
         $id_pin = $id_acs_array['pin'];
         $bean->acs_url_c = "http://acs.pickcenter.com/pinutils/vbdetail.php?vbid=".$id_acs."&vbpin=".$id_pin;
+
+        //pick log
+        global $current_user;
+        $user = $current_user->first_name . " " . $current_user->last_name;
+        $content = "Effettuato check-in ACS per cliente con id:" . $bean->id . PHP_EOL .
+                   "SQL=--" . $update_sql . "--" .PHP_EOL .
+                   "ACS=--" . $bean->acs_url_c . "--" .
+                   "RIGHE=--" . $conn2->affected_rows . "--";
+        $params = array(
+            'app' => 'CRM',
+            'action' => 'CHECKIN_ACS',
+            'content' => $content,
+            'user' => $user,
+            'description' => 'Aggiunto/aggiornato un utente ACS',
+            'origin' => 'crm.leads',
+            'destination' => 'PBX Visual Phonebook => ACS',);
+        sendLog($params);
+
+
+
     }
 
     function getPhoneBookId($id) {
@@ -82,17 +104,44 @@ class LeadsLH {
         include 'custom/Extension/application/amanda_connect.php';
         if (!$this->inStates($bean->status)) {
             $vbid = $this->getPhoneBookId($bean->id);
-            $conn2->query("DELETE FROM visual_phonebook WHERE crm_id = '".$bean->id."'");
-            $conn->query("delete from acs_phoneb_doors where phoneb_id = '{$vbid}'");
+
+            $sqldelvb = "DELETE FROM visual_phonebook WHERE crm_id = '".$bean->id."'";
+            $sqldelacs = "delete from acs_phoneb_doors where phoneb_id = '{$vbid}'";
+
+            $conn2->query($sqldelvb);
+            $conn->query($sqldelacs);
+
             $bean->acs_url_c = '';
             $bean->load_relationship('wifi_wifi_accounts_leads');
 
             //elimina wifi quando diventa ex-cliente
             $wifis = $bean->wifi_wifi_accounts_leads->getBeans();
+            $numwifi = count($wifis);
+
                 foreach ( $wifis as $wifi ) {
                     $wifi->mark_deleted($wifi->id);
                     $wifi->Save();
                 }
+
+            //pick log
+            global $current_user;
+            $user = $current_user->first_name . " " . $current_user->last_name;
+            $righe = $conn->affected_rows + $conn2->affected_rows;
+            $content = "Effettuato check-out ACS per cliente con id:" . $bean->id . PHP_EOL .
+                "SQL1=--" . $sqldelvb . "--" . PHP_EOL .
+                "SQL2=--" . $sqldelacs . "--" . PHP_EOL .
+                "Eliminate #". $numwifi . " WiFi associate" . PHP_EOL .
+                "RIGHE=--" . $righe . "--";
+            $params = array(
+                'app' => 'CRM',
+                'action' => 'CHECKOUT_ACS',
+                'content' => $content,
+                'user' => $user,
+                'description' => 'Eliminato utente ACS e relative WiFi',
+                'origin' => 'crm.leads',
+                'destination' => 'PBX Visual Phonebook => ACS',);
+            sendLog($params);
+
         }
 
     }
@@ -106,9 +155,12 @@ class LeadsLH {
     }
 
     function MailFE($bean) {
+
         require_once 'include/SugarPHPMailer.php';
+        require_once 'custom/Extension/application/PickLog.php';
+
         $mailbody = "";
-        if (!empty($bean->fetched_row) && ($bean->fetched_row['pec_c'] != $bean->pec_c || $bean->fetched_row['cdu_c'] != $bean->cdu_c) && $bean->status == 'converted') {
+        if (!empty($bean->fetched_row) && ($bean->fetched_row['pec_c'] != $bean->pec_c || $bean->fetched_row['cdu_c'] != $bean->cdu_c) && $bean->status == 'Converted') {
             $mailbody .= "
                 <strong>Cliente: </strong>{$bean->first_name} {$bean->last_name}<br>
                 <strong>Codice Fiscale: </strong>{$bean->lead_cf_c}<br>
@@ -116,7 +168,6 @@ class LeadsLH {
                 <strong>PEC: </strong>{$bean->pec_c}<br>
                 <strong>CDU: </strong>{$bean->cdu_c}<br>
             ";
-
         } else return true;
 
         if ($mailbody != "") {
@@ -131,11 +182,24 @@ class LeadsLH {
             $mail->isHTML(true);
             $mail->addAddress('raffaella@pickcenter.com','RN');
             $mail->addAddress('ilaria@pickcenter.com','IQ');
-            //$mail->addAddress('max@swhub.io','MS');
+            $mail->addAddress('max@swhub.io','MS');
             $mail->prepForOutbound();
             $mail->setMailerForSystem();
             $mail->send();
         }
+
+        global $current_user;
+        $user = $current_user->first_name . " " . $current_user->last_name;
+        $content = $mailbody;
+        $params = array(
+            'app' => 'CRM',
+            'action' => 'COMUNICAZIONE_PEC_CDU_C',
+            'content' => $content,
+            'user' => $user,
+            'description' => 'Invia PEC e CDU amministrazione dal CRM',
+            'origin' => 'crm.leads.pec_c, crm.leads.cdu_c',
+            'destination' => 'email a Ilaria e Raffaella',);
+        sendLog($params);
 
     }
 
@@ -159,5 +223,6 @@ class LeadsLH {
 
         }
     }
+
 
 }

@@ -12,7 +12,7 @@ $hook_array['before_save'][] = Array(4, 'checkin', 'custom/modules/Leads/hooks/L
 $hook_array['before_save'][] = Array(5, 'checkout', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'LeadCheckOut');
 $hook_array['before_save'][] = Array(6, 'assegna CDU', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'CDU');
 $hook_array['before_save'][] = Array(7, 'mail fatturazione elettronica', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'MailFE');
-$hook_array['before_save'][] = Array(7, 'descrizione', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'removeAccountRel');
+$hook_array['before_save'][] = Array(8, 'descrizione', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'removeAccountRel');
 $hook_array['before_save'][] = Array(77, 'updateGeocodeInfo', 'modules/Leads/LeadsJjwg_MapsLogicHook.php','LeadsJjwg_MapsLogicHook', 'updateGeocodeInfo');
 
 $hook_array['after_save'] = Array();

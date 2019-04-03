@@ -65,6 +65,8 @@ class SRServiziRichiestiLH {
 
     function PushSRMeeting($bean) {
 
+
+        require_once 'custom/Extension/application/PickLog.php';
         //riconosce appuntamento -> modulo Meetings
         $status_array = array('appuntamento');
         $now = (new DateTime())->format('Y-m-d H:i:s');
@@ -111,11 +113,30 @@ class SRServiziRichiestiLH {
                 $meeting->assigned_user_id = $this->Assign2Id($bean);
                 $meeting->description = $bean->description;
                 $meeting->save();
+
+                //.logs -> creazione riunione
+
+                global $current_user;
+                $user = $current_user->first_name . " " . $current_user->last_name;
+                $content = $name . " | " . $sede_c . " | " . $bean->data_ora_appuntamento_c;
+                $params = array(
+                    'app' => 'CRM',
+                    'action' => 'INSERIMENTO_APPUNTAMENTO',
+                    'content' => $content,
+                    'user' => $user,
+                    'description' => 'Inserito appuntamento automatico',
+                    'origin' => 'crm.sr_servizi_richiesti',
+                    'destination' => 'crm.meetings',);
+                sendLog($params);
+
             } else return true;
         } else return true;
     }
 
     function PushSRCall($bean) {
+
+        require_once 'custom/Extension/application/PickLog.php';
+
         //riconosce appuntamento -> modulo Calls
         $status_array = array('call') /*,'callback','attdec','Pending Input')*/;
         if (in_array($bean->stato_c,$status_array) && strtotime($bean->data_ora_appuntamento_c) >= strtotime($this->Now()) ) {
@@ -151,6 +172,22 @@ class SRServiziRichiestiLH {
             $call->celcont_c = $bean->cellulare_contatto_c;
             $call->assigned_user_id = $this->Assign2Id($bean);
             $call->save();
+
+            //.logs -> creazione riunione
+
+            global $current_user;
+            $user = $current_user->first_name . " " . $current_user->last_name;
+            $content = $name . " | " . $bean->data_ora_appuntamento_c;
+            $params = array(
+                'app' => 'CRM',
+                'action' => 'INSERIMENTO_CALL',
+                'content' => $content,
+                'user' => $user,
+                'description' => 'Inserita chiamata automatica',
+                'origin' => 'crm.sr_servizi_richiesti',
+                'destination' => 'crm.calls',);
+            sendLog($params);
+
         } else return;
     }
 
@@ -176,7 +213,10 @@ class SRServiziRichiestiLH {
 
     //invia la mail di nuova richiesta
     function sendNewMail($bean) {
+
         require_once 'include/SugarPHPMailer.php';
+        require_once 'custom/Extension/application/PickLog.php';
+
         if (self::$alreadyran == true) return;
         self::$alreadyran = true;
 
@@ -225,7 +265,7 @@ class SRServiziRichiestiLH {
             <hr>
             <p><b>Inserito da: </b>{$username}<br>
             <a href='http://crm.pickcenter.com/index.php?action=ajaxui#ajaxUILoc=index.php%3Fmodule%3Dsr_servizi_richiesti%26action%3DDetailView%26record%3D{$bean->id}'
-            target='_blank'>Vedilo sul CRM (dalla rete Pick o su VPN)</p>
+            target='_blank'>Vedilo sul CRM (dalla rete Pick o su VPN)</a></p>
             ";
 
             $mail = new SugarPHPMailer();
@@ -247,6 +287,21 @@ class SRServiziRichiestiLH {
             $mail->setMailerForSystem();
 
             $mail->send();
+
+            //.logs -> mail nuovo servizio
+
+            global $current_user;
+            $user = $current_user->first_name . " " . $current_user->last_name;
+            $content = $emailbody;
+            $params = array(
+                'app' => 'CRM',
+                'action' => 'NUOVA_RICHIESTA_SERVIZIO',
+                'content' => $content,
+                'user' => $user,
+                'description' => 'Comunicazione inserimento servizio richiesto da cliente',
+                'origin' => 'crm.sr_servizi_richiesti',
+                'destination' => 'Email',);
+            sendLog($params);
 
         }
 

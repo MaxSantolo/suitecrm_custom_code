@@ -15,12 +15,28 @@ class WiFiAccountsLH
 
     static $alreadyran = false;
 
+    function sendLog($params) {
+
+        $curlSES=curl_init();
+
+        curl_setopt($curlSES,CURLOPT_URL,"http://logs.pickcenter.com/API/create_log.php");
+        curl_setopt($curlSES,CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($curlSES,CURLOPT_HEADER, false);
+        curl_setopt($curlSES, CURLOPT_POST, true);
+        curl_setopt($curlSES, CURLOPT_POSTFIELDS,$params);
+        curl_setopt($curlSES, CURLOPT_CONNECTTIMEOUT,10);
+        curl_setopt($curlSES, CURLOPT_TIMEOUT,30);
+        $return = curl_exec($curlSES);
+        curl_close($curlSES);
+
+        return $return;
+    }
+
     function radius_delete($conn, $username)
     {
-
-
         $conn->query("delete from radcheck where username = '" . $username . "'");
         $conn->query("delete from radreply where username = '" . $username . "'");
+
     }
 
     function radius_create($conn, $username, $password, $expdate, $devices, $maxup, $maxdown)
@@ -35,6 +51,7 @@ class WiFiAccountsLH
         $conn->query("INSERT INTO radreply (username, attribute, op, value) VALUES ('" . $username . "', 'Acct-Interim-Interval', ':=', '60')");
         $conn->query("INSERT INTO radreply (username, attribute, op, value) VALUES ('" . $username . "', 'WISPr-Bandwidth-Max-Up', ':=', '" . $maxup . "')");
         $conn->query("INSERT INTO radreply (username, attribute, op, value) VALUES ('" . $username . "', 'WISPr-Bandwidth-Max-Down', ':=', '" . $maxdown . "')");
+
     }
 
     function aggiorna_crm($bean, $status)
@@ -125,7 +142,18 @@ class WiFiAccountsLH
         $addmail->status = 'sent';
         $addmail->save();
 
-
+        global $current_user;
+        $user = $current_user->first_name . " " . $current_user->last_name;
+        $content = "Inviata mail di creazione WiFi a: " . $email_address . "per WiFi con username: " . $username;
+        $params = array(
+            'app' => 'CRM',
+            'action' => 'NOTIFICA_WIFI',
+            'content' => $content,
+            'user' => $user,
+            'description' => 'Notifica della creazione di un account WiFi',
+            'origin' => 'crm.wifi_wifi_accounts',
+            'destination' => 'Mail a utente e alle segreterie',);
+        $this->sendLog($params);
 
     }
 
@@ -136,6 +164,19 @@ class WiFiAccountsLH
         $this->radius_delete($conn_prod_radius, $bean->user_name); //cancella precedente
         $this->radius_create($conn_prod_radius, $bean->user_name, $bean->password, date('M d Y', strtotime($bean->expiration_date)), $bean->sim_uses, $bean->up_speed, $bean->down_speed);
 
+        global $current_user;
+        $user = $current_user->first_name . " " . $current_user->last_name;
+        $content = "Creato account Wifi con username: " . $username;
+        $params = array(
+            'app' => 'CRM',
+            'action' => 'CREA_WIFI',
+            'content' => $content,
+            'user' => $user,
+            'description' => 'Creato account WiFi',
+            'origin' => 'crm.wifi_wifi_accounts',
+            'destination' => 'Modifica automatica a DB Radius',);
+        $this->sendLog($params);
+
     }
 
     function DeleteWiFiAccount($bean)
@@ -144,6 +185,20 @@ class WiFiAccountsLH
         include 'custom/Extension/application/amanda_connect.php';
         $this->radius_delete($conn_prod_radius, $bean->user_name); //cancella precedente
         $bean->deleted = 1;
+
+        global $current_user;
+        $user = $current_user->first_name . " " . $current_user->last_name;
+        $content = "Eliminato account Wifi con username: " . $bean->user_name;
+        $params = array(
+            'app' => 'CRM',
+            'action' => 'ELIMINA_WIFI',
+            'content' => $content,
+            'user' => $user,
+            'description' => 'Eliminato account WiFi',
+            'origin' => 'crm.wifi_wifi_accounts',
+            'destination' => 'Modifica automatica a DB Radius',);
+        $this->sendLog($params);
+
 
     }
 
@@ -191,6 +246,20 @@ class WiFiAccountsLH
 
         if ($bean->password == '' || $bean->password == $bean->user_name) {
             $bean->password = $this->RandomString(8);
+
+            global $current_user;
+            $user = $current_user->first_name . " " . $current_user->last_name;
+            $content = "Generata password casuale per account Wifi con username: " . $bean->user_name;
+            $params = array(
+                'app' => 'CRM',
+                'action' => 'GENERAPASS_WIFI',
+                'content' => $content,
+                'user' => $user,
+                'description' => 'Generata password casuale per account WiFi',
+                'origin' => 'crm.wifi_wifi_accounts',
+                'destination' => 'crm.wifi_wifi_accounts.password',);
+            $this->sendLog($params);
+
         }
 
     }
