@@ -37,17 +37,13 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_ADDRESS_INFORMATION' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
         'LBL_LINE_ITEMS' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
       ),
+      'syncDetailEditViews' => false,
     ),
     'panels' => 
     array (
@@ -66,69 +62,18 @@ array (
           ),
           1 => 
           array (
-            'name' => 'opportunity',
-            'label' => 'LBL_OPPORTUNITY',
+            'name' => 'number',
+            'label' => 'LBL_QUOTE_NUMBER',
+            'customCode' => '{$fields.number.value}',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'number',
-            'label' => 'LBL_QUOTE_NUMBER',
-            'customCode' => '{$fields.number.value}',
+            'name' => 'leads_aos_quotes_1_name',
           ),
           1 => 
-          array (
-            'name' => 'stage',
-            'label' => 'LBL_STAGE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'expiration',
-            'label' => 'LBL_EXPIRATION',
-          ),
-          1 => 
-          array (
-            'name' => 'invoice_status',
-            'label' => 'LBL_INVOICE_STATUS',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'term',
-            'label' => 'LBL_TERM',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'approval_status',
-            'label' => 'LBL_APPROVAL_STATUS',
-          ),
-          1 => 
-          array (
-            'name' => 'approval_issue',
-            'label' => 'LBL_APPROVAL_ISSUE',
-          ),
-        ),
-      ),
-      'lbl_address_information' => 
-      array (
-        0 => 
-        array (
-          0 => 
           array (
             'name' => 'billing_account',
             'label' => 'LBL_BILLING_ACCOUNT',
@@ -148,51 +93,45 @@ array (
               'shippingKey' => 'shipping',
             ),
           ),
-          1 => '',
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_contact',
-            'label' => 'LBL_BILLING_CONTACT',
-            'displayParams' => 
-            array (
-              'initial_filter' => '&account_name="+this.form.{$fields.billing_account.name}.value+"',
-            ),
-          ),
-          1 => '',
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'billing_address_street',
-            'hideLabel' => true,
-            'type' => 'address',
-            'displayParams' => 
-            array (
-              'key' => 'billing',
-              'rows' => 2,
-              'cols' => 30,
-              'maxlength' => 150,
-            ),
-            'label' => 'LBL_BILLING_ADDRESS_STREET',
+            'name' => 'quot_promo_c',
+            'studio' => 'visible',
+            'label' => 'LBL_QUOT_PROMO',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'quotes_sede_c',
+            'studio' => 'visible',
+            'label' => 'LBL_QUOTES_SEDE',
           ),
           1 => 
           array (
-            'name' => 'shipping_address_street',
-            'hideLabel' => true,
-            'type' => 'address',
-            'displayParams' => 
-            array (
-              'key' => 'shipping',
-              'copy' => 'billing',
-              'rows' => 2,
-              'cols' => 30,
-              'maxlength' => 150,
-            ),
-            'label' => 'LBL_SHIPPING_ADDRESS_STREET',
+            'name' => 'promo_sconto_c',
+            'label' => 'LBL_PROMO_SCONTO',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'quotes_promodesc_c',
+            'studio' => 'visible',
+            'label' => 'LBL_QUOTES_PROMODESC',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
         ),
       ),
@@ -202,24 +141,11 @@ array (
         array (
           0 => 
           array (
-            'name' => 'currency_id',
-            'studio' => 'visible',
-            'label' => 'LBL_CURRENCY',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
             'name' => 'line_items',
             'label' => 'LBL_LINE_ITEMS',
           ),
         ),
-        2 => 
-        array (
-          0 => '',
-        ),
-        3 => 
+        1 => 
         array (
           0 => 
           array (
@@ -227,7 +153,7 @@ array (
             'label' => 'LBL_TOTAL_AMT',
           ),
         ),
-        4 => 
+        2 => 
         array (
           0 => 
           array (
@@ -235,7 +161,7 @@ array (
             'label' => 'LBL_DISCOUNT_AMOUNT',
           ),
         ),
-        5 => 
+        3 => 
         array (
           0 => 
           array (
@@ -243,30 +169,7 @@ array (
             'label' => 'LBL_SUBTOTAL_AMOUNT',
           ),
         ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'shipping_amount',
-            'label' => 'LBL_SHIPPING_AMOUNT',
-            'displayParams' => 
-            array (
-              'field' => 
-              array (
-                'onblur' => 'calculateTotal(\'lineItems\');',
-              ),
-            ),
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'shipping_tax_amt',
-            'label' => 'LBL_SHIPPING_TAX_AMT',
-          ),
-        ),
-        8 => 
+        4 => 
         array (
           0 => 
           array (
@@ -274,7 +177,7 @@ array (
             'label' => 'LBL_TAX_AMOUNT',
           ),
         ),
-        9 => 
+        5 => 
         array (
           0 => 
           array (
@@ -286,3 +189,5 @@ array (
     ),
   ),
 );
+;
+?>

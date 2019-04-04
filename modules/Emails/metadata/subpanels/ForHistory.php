@@ -60,6 +60,10 @@ $subpanel_layout = array(
 			 'vname'				=> 'LBL_LIST_STATUS',
 			 'width'				=> '15%',
 		),
+/*        'attachment' => array(
+            'vname'				=> 'LBL_HAS_ATTACHMENT_INDICATOR',
+            'width'				=> '15%',
+        ),*/
 		'reply_to_status' => array(
 			 'usage'				=> 'query_only',
              'force_exists'			=> true,
@@ -95,9 +99,9 @@ $subpanel_layout = array(
             'usage'=>'query_only',
 			'force_exists'=>true
         ),
-		'date_modified' => array(
+/*		'date_modified' => array(
 			'width'					=> '10%',
-		),
+		),*/
 		'date_entered'=>array(
 			'vname' => 'LBL_LIST_DATE_ENTERED',
 			'width' => '10%',

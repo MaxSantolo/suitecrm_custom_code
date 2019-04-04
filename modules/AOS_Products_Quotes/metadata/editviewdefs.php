@@ -1,102 +1,98 @@
 <?php
-$module_name = 'AOS_Products_Quotes';
-$viewdefs [$module_name] = 
-array (
-  'EditView' => 
+// created: 2018-06-07 14:54:38
+$viewdefs['AOS_Products_Quotes']['EditView'] = array (
+  'templateMeta' => 
   array (
-    'templateMeta' => 
+    'maxColumns' => '2',
+    'widths' => 
     array (
-      'maxColumns' => '2',
-      'widths' => 
+      0 => 
       array (
-        0 => 
-        array (
-          'label' => '10',
-          'field' => '30',
-        ),
-        1 => 
-        array (
-          'label' => '10',
-          'field' => '30',
-        ),
+        'label' => '10',
+        'field' => '30',
+      ),
+      1 => 
+      array (
+        'label' => '10',
+        'field' => '30',
       ),
     ),
-    'panels' => 
+  ),
+  'panels' => 
+  array (
+    'default' => 
     array (
-      'default' => 
+      0 => 
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'name',
-            'label' => 'LBL_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'product_qty',
-            'label' => 'LBL_PRODUCT_QTY',
-          ),
+          'name' => 'name',
+          'label' => 'LBL_NAME',
         ),
         1 => 
         array (
-          0 => 
-          array (
-            'name' => 'product_cost_price',
-            'label' => 'LBL_PRODUCT_COST_PRICE',
-          ),
-          1 => 
-          array (
-            'name' => 'product_list_price',
-            'label' => 'LBL_PRODUCT_LIST_PRICE',
-          ),
+          'name' => 'product_qty',
+          'label' => 'LBL_PRODUCT_QTY',
         ),
-        2 => 
+      ),
+      1 => 
+      array (
+        0 => 
         array (
-          0 => 
-          array (
-            'name' => 'product_unit_price',
-            'label' => 'LBL_PRODUCT_UNIT_PRICE',
-          ),
-          1 => 
-          array (
-            'name' => 'vat',
-            'label' => 'LBL_VAT',
-          ),
+          'name' => 'product_cost_price',
+          'label' => 'LBL_PRODUCT_COST_PRICE',
         ),
-        3 => 
+        1 => 
         array (
-          0 => 
-          array (
-            'name' => 'vat_amt',
-            'label' => 'LBL_VAT_AMT',
-          ),
-          1 => 
-          array (
-            'name' => 'product_total_price',
-            'label' => 'LBL_PRODUCT_TOTAL_PRICE',
-          ),
+          'name' => 'product_list_price',
+          'label' => 'LBL_PRODUCT_LIST_PRICE',
         ),
-        4 => 
+      ),
+      2 => 
+      array (
+        0 => 
         array (
-          0 => 
-          array (
-            'name' => 'product',
-            'label' => 'LBL_PRODUCT',
-          ),
-          1 => 
-          array (
-            'name' => 'parent_name',
-            'label' => 'LBL_FLEX_RELATE',
-          ),
+          'name' => 'product_unit_price',
+          'label' => 'LBL_PRODUCT_UNIT_PRICE',
         ),
-        5 => 
+        1 => 
         array (
-          0 => 
-          array (
-            'name' => 'description',
-            'label' => 'LBL_DESCRIPTION',
-          ),
+          'name' => 'vat',
+          'label' => 'LBL_VAT',
+        ),
+      ),
+      3 => 
+      array (
+        0 => 
+        array (
+          'name' => 'vat_amt',
+          'label' => 'LBL_VAT_AMT',
+        ),
+        1 => 
+        array (
+          'name' => 'product_total_price',
+          'label' => 'LBL_PRODUCT_TOTAL_PRICE',
+        ),
+      ),
+      4 => 
+      array (
+        0 => 
+        array (
+          'name' => 'product',
+          'label' => 'LBL_PRODUCT',
+        ),
+        1 => 
+        array (
+          'name' => 'parent_name',
+          'label' => 'LBL_FLEX_RELATE',
+        ),
+      ),
+      5 => 
+      array (
+        0 => 
+        array (
+          'name' => 'description',
+          'label' => 'LBL_DESCRIPTION',
         ),
       ),
     ),

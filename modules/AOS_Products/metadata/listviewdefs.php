@@ -1,6 +1,6 @@
 <?php
-$listViewDefs ['AOS_Products'] = 
-array (
+// created: 2018-06-07 14:54:38
+$listViewDefs['AOS_Products'] = array (
   'NAME' => 
   array (
     'width' => '15%',
@@ -12,13 +12,6 @@ array (
   array (
     'width' => '10%',
     'label' => 'LBL_PART_NUMBER',
-    'default' => true,
-  ),
-  'COST' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_COST',
-    'currency_format' => true,
     'default' => true,
   ),
   'PRICE' => 
@@ -37,24 +30,38 @@ array (
     'link' => true,
     'width' => '10%',
     'default' => true,
-    'related_fields' =>
-      array (
-          'aos_product_category_id',
-      ),
+    'related_fields' => 
+    array (
+      0 => 'aos_product_category_id',
+    ),
   ),
-  'CREATED_BY_NAME' => 
+  'TXT_PRODOTTI_ESOLVER_C' => 
   array (
-    'width' => '10%',
-    'label' => 'LBL_CREATED',
+    'type' => 'varchar',
     'default' => true,
-    'module' => 'Users',
-    'link' => true,
-    'id' => 'CREATED_BY',
+    'label' => 'LBL_TXT_PRODOTTI_ESOLVER',
+    'width' => '10%',
   ),
   'DATE_ENTERED' => 
   array (
     'width' => '5%',
     'label' => 'LBL_DATE_ENTERED',
     'default' => true,
+  ),
+  'CREATED_BY_NAME' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_CREATED',
+    'default' => false,
+    'module' => 'Users',
+    'link' => true,
+    'id' => 'CREATED_BY',
+  ),
+  'COST' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_COST',
+    'currency_format' => true,
+    'default' => false,
   ),
 );

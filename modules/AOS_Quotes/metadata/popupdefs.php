@@ -1,42 +1,88 @@
 <?php
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-/**
- * Advanced OpenSales, Advanced, robust set of sales modules.
- * @package Advanced OpenSales for SugarCRM
- * @copyright SalesAgility Ltd http://www.salesagility.com
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE as published by
- * the Free Software Foundation; either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU AFFERO GENERAL PUBLIC LICENSE
- * along with this program; if not, see http://www.gnu.org/licenses
- * or write to the Free Software Foundation,Inc., 51 Franklin Street,
- * Fifth Floor, Boston, MA 02110-1301  USA
- *
- * @author SalesAgility <info@salesagility.com>
- */
-
-$module_name = 'AOS_Quotes';
-$_module_name = 'aos_quotes';
-$popupMeta = array('moduleMain' => $module_name,
-						'varName' => $module_name,
-						'orderBy' => $_module_name.'.name',
-						'whereClauses' => 
-							array('name' => $_module_name.'.name', 
-									'billing_address_city' => $_module_name.'.billing_address_city',
-									'phone_office' => $_module_name.'.phone_office'),
-						'searchInputs' =>
-							array('name', 
-								  'billing_address_city',
-								  'phone_office',
-								  'industry'
-								  
-							),
-						);
+$popupMeta = array (
+    'moduleMain' => 'AOS_Quotes',
+    'varName' => 'AOS_Quotes',
+    'orderBy' => 'aos_quotes.name',
+    'whereClauses' => array (
+  'name' => 'aos_quotes.name',
+  'number' => 'aos_quotes.number',
+  'date_entered' => 'aos_quotes.date_entered',
+  'leads_aos_quotes_1_name' => 'aos_quotes.leads_aos_quotes_1_name',
+  'billing_account' => 'aos_quotes.billing_account',
+  'total_amount' => 'aos_quotes.total_amount',
+  'created_by_name' => 'aos_quotes.created_by_name',
+  'assigned_user_id' => 'aos_quotes.assigned_user_id',
+),
+    'searchInputs' => array (
+  0 => 'name',
+  4 => 'number',
+  5 => 'date_entered',
+  6 => 'leads_aos_quotes_1_name',
+  7 => 'billing_account',
+  8 => 'total_amount',
+  9 => 'created_by_name',
+  10 => 'assigned_user_id',
+),
+    'searchdefs' => array (
+  'number' => 
+  array (
+    'name' => 'number',
+    'width' => '10%',
+  ),
+  'date_entered' => 
+  array (
+    'type' => 'datetime',
+    'label' => 'LBL_DATE_ENTERED',
+    'width' => '10%',
+    'name' => 'date_entered',
+  ),
+  'name' => 
+  array (
+    'name' => 'name',
+    'width' => '10%',
+  ),
+  'leads_aos_quotes_1_name' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_LEADS_AOS_QUOTES_1_FROM_LEADS_TITLE',
+    'id' => 'LEADS_AOS_QUOTES_1LEADS_IDA',
+    'width' => '10%',
+    'name' => 'leads_aos_quotes_1_name',
+  ),
+  'billing_account' => 
+  array (
+    'name' => 'billing_account',
+    'width' => '10%',
+  ),
+  'total_amount' => 
+  array (
+    'name' => 'total_amount',
+    'width' => '10%',
+  ),
+  'created_by_name' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_CREATED',
+    'id' => 'CREATED_BY',
+    'width' => '10%',
+    'name' => 'created_by_name',
+  ),
+  'assigned_user_id' => 
+  array (
+    'name' => 'assigned_user_id',
+    'type' => 'enum',
+    'label' => 'LBL_ASSIGNED_TO',
+    'function' => 
+    array (
+      'name' => 'get_user_array',
+      'params' => 
+      array (
+        0 => false,
+      ),
+    ),
+    'width' => '10%',
+  ),
+),
+);

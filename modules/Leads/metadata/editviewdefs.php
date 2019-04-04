@@ -35,12 +35,32 @@ array (
         ),
       ),
       'javascript' => '<script type="text/javascript" language="Javascript">function copyAddressRight(form)  {ldelim} form.alt_address_street.value = form.primary_address_street.value;form.alt_address_city.value = form.primary_address_city.value;form.alt_address_state.value = form.primary_address_state.value;form.alt_address_postalcode.value = form.primary_address_postalcode.value;form.alt_address_country.value = form.primary_address_country.value;return true; {rdelim} function copyAddressLeft(form)  {ldelim} form.primary_address_street.value =form.alt_address_street.value;form.primary_address_city.value = form.alt_address_city.value;form.primary_address_state.value = form.alt_address_state.value;form.primary_address_postalcode.value =form.alt_address_postalcode.value;form.primary_address_country.value = form.alt_address_country.value;return true; {rdelim} </script>',
-      'useTabs' => false,
+      'useTabs' => true,
       'tabDefs' => 
       array (
         'LBL_CONTACT_INFORMATION' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL1' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL2' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL3' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL4' => 
+        array (
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_PANEL_ADVANCED' => 
@@ -48,12 +68,8 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_PANEL_ASSIGNMENT' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
       ),
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -63,35 +79,123 @@ array (
         array (
           0 => 
           array (
-            'name' => 'first_name',
-            'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
           ),
         ),
         1 => 
         array (
-          0 => 'last_name',
-          1 => 'phone_work',
+          0 => 
+          array (
+            'name' => 'first_name',
+            'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
+          ),
+          1 => 'last_name',
         ),
         2 => 
         array (
-          0 => 'title',
+          0 => 'phone_work',
           1 => 'phone_mobile',
         ),
         3 => 
         array (
-          0 => 'department',
+          0 => 
+          array (
+            'name' => 'phone_other',
+            'comment' => 'Other phone number for the contact',
+            'label' => 'LBL_OTHER_PHONE',
+          ),
           1 => 'phone_fax',
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'account_name',
-            'type' => 'varchar',
-            'validateDependency' => false,
-            'customCode' => '<input name="account_name" id="EditView_account_name" {if ($fields.converted.value == 1)}disabled="true"{/if} size="30" maxlength="255" type="text" value="{$fields.account_name.value}">',
+            'name' => 'cellulare_notifiche_c',
+            'label' => 'LBL_CELLULARE_NOTIFICHE',
           ),
-          1 => 'website',
+        ),
+        5 => 
+        array (
+          0 => 'email1',
+          1 => 
+          array (
+            'name' => 'book_email_c',
+            'label' => 'LBL_BOOK_EMAIL',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 'description',
+        ),
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'lead_azienda_c',
+            'studio' => 'visible',
+            'label' => 'LBL_LEAD_AZIENDA',
+          ),
+          1 => 
+          array (
+            'name' => 'azienda_tipo_c',
+            'studio' => 'visible',
+            'label' => 'LBL_AZIENDA_TIPO',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'lead_funzione_c',
+            'studio' => 'visible',
+            'label' => 'LBL_LEAD_FUNZIONE',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'lead_azn_ateco_c',
+            'studio' => 'visible',
+            'label' => 'LBL_LEAD_AZN_ATECO',
+          ),
+          1 => 
+          array (
+            'name' => 'categoria_text_c',
+            'label' => 'LBL_CATEGORIA_TEXT',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'lead_cf_c',
+            'label' => 'LBL_LEAD_CF',
+            'tabindex' => '1',
+          ),
+          1 => 
+          array (
+            'name' => 'lead_piva_c',
+            'label' => 'LBL_LEAD_PIVA',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'pec_c',
+            'label' => 'LBL_PEC',
+          ),
+          1 => 
+          array (
+            'name' => 'cdu_c',
+            'label' => 'LBL_CDU',
+          ),
         ),
         5 => 
         array (
@@ -125,11 +229,145 @@ array (
         ),
         6 => 
         array (
-          0 => 'email1',
+          0 => 
+          array (
+            'name' => 'lead_azn_startup_c',
+            'label' => 'LBL_LEAD_AZN_STARTUP',
+          ),
         ),
-        7 => 
+      ),
+      'lbl_editview_panel2' => 
+      array (
+        0 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'mailing_status_c',
+            'studio' => 'visible',
+            'label' => 'LBL_MAILING_STATUS',
+          ),
+          1 => 
+          array (
+            'name' => 'mailing_date_c',
+            'label' => 'LBL_MAILING_DATE',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 'website',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'lead_linkedin_c',
+            'label' => 'LBL_LEAD_LINKEDIN',
+          ),
+          1 => 
+          array (
+            'name' => 'email_linkedin_c',
+            'label' => 'LBL_EMAIL_LINKEDIN',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'lead_facebook_c',
+            'label' => 'LBL_LEAD_FACEBOOK',
+          ),
+          1 => 
+          array (
+            'name' => 'profilo_instagram_c',
+            'label' => 'LBL_PROFILO_INSTAGRAM',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'pagina_googlep_c',
+            'label' => 'LBL_PAGINA_GOOGLEP',
+          ),
+          1 => 
+          array (
+            'name' => 'twitter_name_c',
+            'label' => 'LBL_TWITTER_NAME',
+          ),
+        ),
+      ),
+      'lbl_editview_panel3' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'tcmcodes_c',
+            'label' => 'LBL_TCMCODES',
+          ),
+          1 => 
+          array (
+            'name' => 'tccode_c',
+            'label' => 'LBL_TCCODE',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'selpass_c',
+            'label' => 'LBL_SELPASS',
+          ),
+          1 => '',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'foptext_c',
+            'studio' => 'visible',
+            'label' => 'LBL_FOPTEXT',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'fopanswer_c',
+            'studio' => 'visible',
+            'label' => 'LBL_FOPANSWER',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'instructions_c',
+            'studio' => 'visible',
+            'label' => 'LBL_INSTRUCTIONS',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'acs_url_c',
+            'label' => 'LBL_ACS_URL',
+          ),
+        ),
+      ),
+      'lbl_editview_panel4' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'account_name',
+            'type' => 'varchar',
+            'validateDependency' => false,
+            'customCode' => '<input name="account_name" id="EditView_account_name" {if ($fields.converted.value == 1)}disabled="true"{/if} size="30" maxlength="255" type="text" value="{$fields.account_name.value}">',
+          ),
+          1 => '',
         ),
       ),
       'LBL_PANEL_ADVANCED' => 
@@ -137,14 +375,16 @@ array (
         0 => 
         array (
           0 => 'status',
-          1 => 'lead_source',
+          1 => 
+          array (
+            'name' => 'centro_scelto_c',
+            'studio' => 'visible',
+            'label' => 'LBL_CENTRO_SCELTO',
+          ),
         ),
         1 => 
         array (
-          0 => 
-          array (
-            'name' => 'status_description',
-          ),
+          0 => 'lead_source',
           1 => 
           array (
             'name' => 'lead_source_description',
@@ -152,17 +392,20 @@ array (
         ),
         2 => 
         array (
-          0 => 'opportunity_amount',
-          1 => 'refered_by',
+          0 => 
+          array (
+            'name' => 'referral_c',
+            'studio' => 'visible',
+            'label' => 'LBL_REFERRAL',
+          ),
+          1 => 
+          array (
+            'name' => 'lead_fonte_broker_c',
+            'studio' => 'visible',
+            'label' => 'LBL_LEAD_FONTE_BROKER',
+          ),
         ),
         3 => 
-        array (
-          0 => 'campaign_name',
-        ),
-      ),
-      'LBL_PANEL_ASSIGNMENT' => 
-      array (
-        0 => 
         array (
           0 => 
           array (
@@ -174,3 +417,5 @@ array (
     ),
   ),
 );
+;
+?>

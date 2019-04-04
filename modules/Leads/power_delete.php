@@ -8,6 +8,18 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * Date: 05/10/2018
  * Time: 11:52
  */
+$id = $_GET['lead_id'];
 
-echo '<table><tr><th>1</th><th>2</th></tr><tr><td>2</td><td>4</td></tr>';
-echo '<h1>SONO QUI!</h1>';
+$update_delete_query = "UPDATE sr_servizi_richiesti
+                        LEFT JOIN sr_servizi_richiesti_leads_c ON sr_servizi_richiesti.id = sr_servizi_richiesti_leadssr_servizi_richiesti_idb
+                        LEFT JOIN leads ON leads.id = '".$id."'
+                        SET sr_servizi_richiesti.deleted = '1',
+                        leads.deleted = '1'
+                        WHERE sr_servizi_richiesti_leadsleads_ida = '".$id."'";
+
+$GLOBALS['db']->query($update_delete_query);
+
+//$conn->query($update_delete_query,true);
+
+
+header('Location:http://crm.pickcenter.com/index.php?action=ajaxui#ajaxUILoc=index.php%3Fmodule%3DLeads%26action%3Dindex');

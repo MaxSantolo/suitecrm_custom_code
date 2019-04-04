@@ -97,12 +97,7 @@ array (
       'useTabs' => true,
       'tabDefs' => 
       array (
-        'LBL_PANEL_OVERVIEW' =>
-        array (
-          'newTab' => true,
-          'panelDefault' => 'expanded',
-        ),
-        'LBL_QUOTE_TO' =>
+        'LBL_ACCOUNT_INFORMATION' => 
         array (
           'newTab' => true,
           'panelDefault' => 'expanded',
@@ -112,16 +107,12 @@ array (
           'newTab' => true,
           'panelDefault' => 'expanded',
         ),
-        'LBL_PANEL_ASSIGNMENT' =>
-          array (
-              'newTab' => true,
-              'panelDefault' => 'expanded',
-          ),
       ),
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
-      'LBL_PANEL_OVERVIEW' =>
+      'lbl_account_information' => 
       array (
         0 => 
         array (
@@ -132,115 +123,66 @@ array (
           ),
           1 => 
           array (
-            'name' => 'opportunity',
-            'label' => 'LBL_OPPORTUNITY',
+            'name' => 'number',
+            'label' => 'LBL_QUOTE_NUMBER',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'number',
-            'label' => 'LBL_QUOTE_NUMBER',
+            'name' => 'leads_aos_quotes_1_name',
           ),
           1 => 
           array (
-            'name' => 'stage',
-            'label' => 'LBL_STAGE',
+            'name' => 'billing_account',
+            'label' => 'LBL_BILLING_ACCOUNT',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'expiration',
-            'label' => 'LBL_EXPIRATION',
-          ),
-          1 => 
-          array (
-            'name' => 'invoice_status',
-            'label' => 'LBL_INVOICE_STATUS',
+            'name' => 'quot_promo_c',
+            'studio' => 'visible',
+            'label' => 'LBL_QUOT_PROMO',
           ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
+            'name' => 'quotes_sede_c',
+            'studio' => 'visible',
+            'label' => 'LBL_QUOTES_SEDE',
           ),
           1 => 
           array (
-            'name' => 'term',
-            'label' => 'LBL_TERM',
+            'name' => 'promo_sconto_c',
+            'label' => 'LBL_PROMO_SCONTO',
           ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'approval_status',
-            'label' => 'LBL_APPROVAL_STATUS',
-          ),
-          1 => 
-          array (
-            'name' => 'approval_issue',
-            'label' => 'LBL_APPROVAL_ISSUE',
+            'name' => 'quotes_promodesc_c',
+            'studio' => 'visible',
+            'label' => 'LBL_QUOTES_PROMODESC',
           ),
         ),
-      ),
-      'LBL_QUOTE_TO' =>
-      array (
-        0 => 
+        5 => 
         array (
           0 => 
           array (
-            'name' => 'billing_account',
-            'label' => 'LBL_BILLING_ACCOUNT',
-          ),
-          1 => 
-          array (
-            'name' => 'billing_contact',
-            'label' => 'LBL_BILLING_CONTACT',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_street',
-            'label' => 'LBL_BILLING_ADDRESS',
-            'type' => 'address',
-            'displayParams' => 
-            array (
-              'key' => 'billing',
-            ),
-          ),
-          1 => 
-          array (
-            'name' => 'shipping_address_street',
-            'label' => 'LBL_SHIPPING_ADDRESS',
-            'type' => 'address',
-            'displayParams' => 
-            array (
-              'key' => 'shipping',
-            ),
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
           ),
         ),
       ),
       'lbl_line_items' => 
       array (
-        0 =>
-        array (
-          0 =>
-              array (
-                  'name' => 'currency_id',
-                  'studio' => 'visible',
-                  'label' => 'LBL_CURRENCY',
-              ),
-          1 => '',
-          ),
-        1 =>
+        0 => 
         array (
           0 => 
           array (
@@ -248,7 +190,7 @@ array (
             'label' => 'LBL_LINE_ITEMS',
           ),
         ),
-        2 =>
+        1 => 
         array (
           0 => 
           array (
@@ -256,7 +198,7 @@ array (
             'label' => 'LBL_TOTAL_AMT',
           ),
         ),
-        3 =>
+        2 => 
         array (
           0 => 
           array (
@@ -264,7 +206,7 @@ array (
             'label' => 'LBL_DISCOUNT_AMOUNT',
           ),
         ),
-        4 =>
+        3 => 
         array (
           0 => 
           array (
@@ -272,23 +214,7 @@ array (
             'label' => 'LBL_SUBTOTAL_AMOUNT',
           ),
         ),
-        5 =>
-        array (
-          0 => 
-          array (
-            'name' => 'shipping_amount',
-            'label' => 'LBL_SHIPPING_AMOUNT',
-          ),
-        ),
-        6 =>
-        array (
-          0 => 
-          array (
-            'name' => 'shipping_tax_amt',
-            'label' => 'LBL_SHIPPING_TAX_AMT',
-          ),
-        ),
-        7 =>
+        4 => 
         array (
           0 => 
           array (
@@ -296,7 +222,7 @@ array (
             'label' => 'LBL_TAX_AMOUNT',
           ),
         ),
-        8 =>
+        5 => 
         array (
           0 => 
           array (
@@ -305,23 +231,8 @@ array (
           ),
         ),
       ),
-      'LBL_PANEL_ASSIGNMENT' =>
-        array (
-            0 =>
-                array (
-                    0 =>
-                        array (
-                            'name' => 'date_entered',
-                            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
-                        ),
-                    1 =>
-                        array (
-                            'name' => 'date_modified',
-                            'label' => 'LBL_DATE_MODIFIED',
-                            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
-                        ),
-                ),
-        ),
     ),
   ),
 );
+;
+?>

@@ -1,7 +1,6 @@
 <?php
-$module_name = 'AOS_Products_Quotes';
-$listViewDefs [$module_name] = 
-array (
+// created: 2018-06-07 14:54:39
+$listViewDefs['AOS_Products_Quotes'] = array (
   'NAME' => 
   array (
     'width' => '32%',
@@ -9,10 +8,12 @@ array (
     'default' => true,
     'link' => true,
   ),
-  'PRODUCT_COST_PRICE' => 
+  'PRODUCT_LIST_PRICE' => 
   array (
+    'type' => 'currency',
+    'label' => 'LBL_PRODUCT_LIST_PRICE',
+    'currency_format' => true,
     'width' => '10%',
-    'label' => 'LBL_PRODUCT_COST_PRICE',
     'default' => true,
   ),
   'ASSIGNED_USER_NAME' => 

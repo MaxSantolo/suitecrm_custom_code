@@ -30,6 +30,16 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'tabDefs' => 
+      array (
+        'DEFAULT' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+      ),
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -38,16 +48,49 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => 'date_entered',
-          1 => 'date_modified',
+          0 => 
+          array (
+            'name' => 'campaign_react_date',
+            'label' => 'LBL_CAMPAIGN_REACT_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'title',
+            'label' => 'LBL_TITLE',
+          ),
         ),
         2 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'type',
+            'studio' => 'visible',
+            'label' => 'LBL_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'reazione',
+            'label' => 'LBL_REAZIONE',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'csb_reazioni_leads_name',
+            'label' => 'LBL_CSB_REAZIONI_LEADS_FROM_LEADS_TITLE',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'url_sb_c',
+            'label' => 'LBL_URL_SB',
+          ),
         ),
       ),
     ),

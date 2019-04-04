@@ -42,7 +42,16 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
+          0 => 
+          array (
+            'name' => 'wifi_wifi_accounts_leads_name',
+            'label' => 'LBL_WIFI_WIFI_ACCOUNTS_LEADS_FROM_LEADS_TITLE',
+          ),
+          1 => 
+          array (
+            'name' => 'wifi_wifi_accounts_accounts_name',
+            'label' => 'LBL_WIFI_WIFI_ACCOUNTS_ACCOUNTS_FROM_ACCOUNTS_TITLE',
+          ),
         ),
         1 => 
         array (
@@ -94,6 +103,11 @@ array (
             'label' => 'LBL_CENTER',
           ),
           1 => 'description',
+        ),
+        5 => 
+        array (
+          0 => '',
+          1 => '',
         ),
       ),
       'lbl_editview_panel1' => 

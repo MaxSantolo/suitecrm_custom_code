@@ -43,7 +43,7 @@ $layout_defs['Accounts'] = array(
     // list of what Subpanels to show in the DetailView
     'subpanel_setup' => array(
 
-       'activities' => array(
+        'activities' => array(
             'order' => 10,
             'sort_order' => 'desc',
             'sort_by' => 'date_start',
@@ -116,80 +116,13 @@ $layout_defs['Accounts'] = array(
                     'subpanel_name' => 'ForHistory',
                     'get_subpanel_data' => 'notes',
                 ),
-
-                //allegati quotazioni
                 'quotesnotes' => array(
                     'module' => 'Notes',
                     'subpanel_name' => 'ForHistory',
                     'get_subpanel_data' => 'function:get_quotes_notes_accounts',
-                    'generate_select' => true,
                     'set_subpanel_data' => 'quotesnotes',
-                ),
-
-                //note allegate alle quotazioni
-                'quotesnotesleads' => array(
-                    'module' => 'Notes',
-                    'subpanel_name' => 'ForHistory',
-                    'get_subpanel_data' => 'function:get_notes_quotes_leads',
                     'generate_select' => true,
-                    'set_subpanel_data' => 'quotesnotesleads',
                 ),
-
-                //note legate ai lead
-                'notesleads' => array(
-                    'module' => 'Notes',
-                    'subpanel_name' => 'ForHistory',
-                    'get_subpanel_data' => 'function:get_notes_leads',
-                    'generate_select' => true,
-                    'set_subpanel_data' => 'notesleads',
-                ),
-
-                //email dei lead
-                'emailsleads' => array(
-                    'module' => 'Emails',
-                    'subpanel_name' => 'ForHistory',
-                    'get_subpanel_data' => 'function:get_emails_leads',
-                    'generate_select' => true,
-                    'set_subpanel_data' => 'emailsleads',
-                ),
-
-                //meetings dei lead (dirette con parent_id)
-                'meetingsleadsd' => array(
-                    'module' => 'Meetings',
-                    'subpanel_name' => 'ForHistory',
-                    'get_subpanel_data' => 'function:get_meetings_leads_d',
-                    'generate_select' => true,
-                    'set_subpanel_data' => 'meetingsleadsd',
-                ),
-
-                //meetings indiretti con i contatti invitati (tabella: crm.meetings_leads)
-                'meetingsleadsi' => array(
-                    'module' => 'Meetings',
-                    'subpanel_name' => 'ForHistory',
-                    'get_subpanel_data' => 'function:get_meetings_leads_i',
-                    'generate_select' => true,
-                    'set_subpanel_data' => 'meetingsleadsi',
-                ),
-
-                //calls dei lead (dirette con parent_id)
-                'callsleadsd' => array(
-                    'module' => 'Calls',
-                    'subpanel_name' => 'ForHistory',
-                    'get_subpanel_data' => 'function:get_calls_leads_d',
-                    'generate_select' => true,
-                    'set_subpanel_data' => 'callsleadsd',
-                ),
-
-                //calls dei lead indirette (tabella: crm.calls_leads)
-                'callsleadsi' => array(
-                    'module' => 'Calls',
-                    'subpanel_name' => 'ForHistory',
-                    'get_subpanel_data' => 'function:get_calls_leads_i',
-                    'generate_select' => true,
-                    'set_subpanel_data' => 'callsleadsi',
-                ),
-
-
                 'emails' => array(
                     'module' => 'Emails',
                     'subpanel_name' => 'ForUnlinkedEmailHistory',
@@ -296,6 +229,7 @@ $layout_defs['Accounts'] = array(
                     'mode' => 'MultiSelect',
                 ),
             ),
+
         ),
         'cases' => array(
             'order' => 100,
@@ -362,41 +296,14 @@ $layout_defs['Accounts'] = array(
             'subpanel_name' => 'ForTargets',
             'title_key' => 'LBL_CAMPAIGNS',
         ),
-
-        'aos_quotes_collection' => array(
-            'order' => 20,
-            'sort_order' => 'desc',
+        'account_aos_quotes' => array(
+            'order' => 101,
+            'module' => 'AOS_Quotes',
+            'subpanel_name' => 'default',
+            'sort_order' => 'asc',
             'sort_by' => 'id',
             'title_key' => 'AOS_Quotes',
-            'type' => 'collection',
-            'subpanel_name' => 'AOS_Quotes',   //this values is not associated with a physical file.
-            'header_definition_from_subpanel' => 'AOS_Quotes',
-            'module' => 'AOS_Quotes',
-
-            'top_buttons' => array(
-                array('widget_class' => 'SubPanelTopCreateNoteButton'),
-                array('widget_class' => 'SubPanelTopArchiveEmailButton'),
-                array('widget_class' => 'SubPanelTopSummaryButton'),
-                array('widget_class' => 'SubPanelTopFilterButton'),
-            ),
-
-            'collection_list' => array(
-
-                'account_aos_quotes' => array(
-                'module' => 'AOS_Quotes',
-                'subpanel_name' => 'default',
-                'get_subpanel_data' => 'aos_quotes',
-                ),
-
-            //quotazioni dei lead
-            'quotesleads' => array(
-                'module' => 'AOS_Quotes',
-                'subpanel_name' => 'default',
-                'get_subpanel_data' => 'function:get_quotes_leads',
-                'generate_select' => true,
-                'set_subpanel_data' => 'quotesleads',
-            ),
-            ),
+            'get_subpanel_data' => 'aos_quotes',
         ),
         'account_aos_invoices' => array(
             'order' => 102,

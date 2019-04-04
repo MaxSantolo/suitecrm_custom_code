@@ -1,43 +1,4 @@
 <?php
-/**
- *
- * SugarCRM Community Edition is a customer relationship management program developed by
- * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
- *
- * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
- * Copyright (C) 2011 - 2018 SalesAgility Ltd.
- *
- * This program is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Affero General Public License version 3 as published by the
- * Free Software Foundation with the addition of the following permission added
- * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
- * IN WHICH THE COPYRIGHT IS OWNED BY SUGARCRM, SUGARCRM DISCLAIMS THE WARRANTY
- * OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
- *
- * This program is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
- * details.
- *
- * You should have received a copy of the GNU Affero General Public License along with
- * this program; if not, see http://www.gnu.org/licenses or write to the Free
- * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
- * 02110-1301 USA.
- *
- * You can contact SugarCRM, Inc. headquarters at 10050 North Wolfe Road,
- * SW2-130, Cupertino, CA 95014, USA. or at email address contact@sugarcrm.com.
- *
- * The interactive user interfaces in modified source and object code versions
- * of this program must display Appropriate Legal Notices, as required under
- * Section 5 of the GNU Affero General Public License version 3.
- *
- * In accordance with Section 7(b) of the GNU Affero General Public License version 3,
- * these Appropriate Legal Notices must retain the display of the "Powered by
- * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
- * reasonably feasible for technical reasons, the Appropriate Legal Notices must
- * display the words "Powered by SugarCRM" and "Supercharged by SuiteCRM".
- */
-
 $viewdefs ['Contacts'] = 
 array (
   'DetailView' => 
@@ -47,8 +8,7 @@ array (
       'form' => 
       array (
         'buttons' => 
-        array(
-            'SEND_CONFIRM_OPT_IN_EMAIL' => EmailAddress::getSendConfirmOptInEmailActionLinkDefs('Contacts'),
+        array (
           0 => 'EDIT',
           1 => 'DUPLICATE',
           2 => 'DELETE',
@@ -148,7 +108,7 @@ array (
       array (
         0 => 
         array (
-          'file' => 'modules/Contacts/Contact.js',
+          'file' => 'modules/Leads/Lead.js',
         ),
       ),
       'useTabs' => true,
@@ -164,7 +124,7 @@ array (
           'newTab' => true,
           'panelDefault' => 'expanded',
         ),
-        'LBL_PANEL_ASSIGNMENT' =>
+        'LBL_PANEL_ASSIGNMENT' => 
         array (
           'newTab' => true,
           'panelDefault' => 'expanded',
@@ -194,27 +154,27 @@ array (
         array (
           0 => 
           array (
-            'name' => 'phone_work',
-            'label' => 'LBL_OFFICE_PHONE',
+            'name' => 'lead_funzione_c',
+            'studio' => 'visible',
+            'label' => 'LBL_LEAD_FUNZIONE_C',
           ),
           1 => 
           array (
-            'name' => 'phone_mobile',
-            'label' => 'LBL_MOBILE_PHONE',
+            'name' => 'phone_work',
+            'label' => 'LBL_OFFICE_PHONE',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'title',
-            'comment' => 'The title of the contact',
-            'label' => 'LBL_TITLE',
+            'name' => 'phone_fax',
+            'label' => 'LBL_FAX_PHONE',
           ),
           1 => 
           array (
-            'name' => 'department',
-            'label' => 'LBL_DEPARTMENT',
+            'name' => 'phone_mobile',
+            'label' => 'LBL_MOBILE_PHONE',
           ),
         ),
         3 => 
@@ -226,8 +186,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'phone_fax',
-            'label' => 'LBL_FAX_PHONE',
+            'name' => 'lead_azn_ateco_c',
+            'studio' => 'visible',
+            'label' => 'LBL_LEAD_AZN_ATECO_C',
           ),
         ),
         4 => 
@@ -238,8 +199,26 @@ array (
             'studio' => 'false',
             'label' => 'LBL_EMAIL_ADDRESS',
           ),
+          1 => 
+          array (
+            'name' => 'website_c',
+            'label' => 'LBL_WEBSITE',
+          ),
         ),
         5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'lead_piva_c',
+            'label' => 'LBL_LEAD_PIVA_C',
+          ),
+          1 => 
+          array (
+            'name' => 'lead_cf_c',
+            'label' => 'LBL_LEAD_CF_C',
+          ),
+        ),
+        6 => 
         array (
           0 => 
           array (
@@ -262,7 +241,7 @@ array (
             ),
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -270,9 +249,8 @@ array (
             'comment' => 'Full text of the note',
             'label' => 'LBL_DESCRIPTION',
           ),
-          1 => '',
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
@@ -287,12 +265,27 @@ array (
         array (
           0 => 
           array (
+            'name' => 'centro_scelto_c',
+            'studio' => 'visible',
+            'label' => 'LBL_CENTRO_SCELTO',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
             'name' => 'lead_source',
             'comment' => 'How did the contact come about',
             'label' => 'LBL_LEAD_SOURCE',
           ),
+          1 => 
+          array (
+            'name' => 'lead_fonte_broker_c',
+            'studio' => 'visible',
+            'label' => 'LBL_LEAD_FONTE_BROKER',
+          ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (
@@ -306,25 +299,8 @@ array (
           ),
         ),
       ),
-      'LBL_PANEL_ASSIGNMENT' =>
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
-            'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
-      ),
     ),
   ),
 );
-
+;
+?>

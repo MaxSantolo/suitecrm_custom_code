@@ -494,9 +494,6 @@ class EmailsController extends SugarController
 
         if(!empty($_REQUEST['id'])){
             $bean = BeanFactory::getBean('Emails', $_REQUEST['id']);
-
-
-
             $data['draft'] = $bean->status == 'draft' ? 1 : 0;
             $attachmentBeans = BeanFactory::getBean('Notes')
                 ->get_full_list('', "parent_id = '" . $_REQUEST['id'] . "'");
@@ -774,10 +771,9 @@ class EmailsController extends SugarController
 
         if ($mode === self::COMPOSE_BEAN_MODE_REPLY_TO || $mode === self::COMPOSE_BEAN_MODE_REPLY_TO_ALL) {
             // Move email addresses from the "from" field to the "to" field
+
             $this->bean->to_addrs .= ',' . $this->bean->from_addr;
-            $this->bean->to_addrs_names .= ',' . $this->bean->from_addr_name;
-            //$this->bean->to_addrs .= ',' . $this->bean->from_addr . ',' . $this->bean->cc_addrs;
-            //$this->bean->to_addrs_names .= ',' . $this->bean->from_addr_name . ',' . $this->bean->cc_addrs_names;
+            $this->bean->to_addrs_names = ',' . $this->bean->from_addr_name;
         } else {
             if ($mode === self::COMPOSE_BEAN_MODE_FORWARD) {
                 $this->bean->to_addrs = '';
@@ -809,8 +805,10 @@ class EmailsController extends SugarController
                         $parent_name = $row2['name'];
                         $parent_email = $row2['email_address'];
                         $parent_id = $row2['id'];
+                    }
 
-                }
+
+
                     $this->bean->parent_id = $parent_id;
                     $this->bean->parent_name = $parent_name;
                     $this->bean->to_addrs_emails = $parent_email;

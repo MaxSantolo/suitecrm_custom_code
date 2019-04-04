@@ -40,7 +40,7 @@
 *}
 <div id="popupDiv_ara"
      style="display:none;position:fixed;top: 39%; left: 41%;opacity:1;z-index:9999;background:#FFFFFF;">
-    <form id="popupForm" action="index.php?entryPoint=generatePdf" method="post">
+    <form id="popupForm" action="index.php?entryPoint=generatePdf" method="post" style="border: solid 2px; position:fixed; background: rgb(255,255,255); top:30%; bottom: 30%; overflow:auto;">
         <table style="border: #000 solid 2px; padding-left:40px; padding-right:40px; padding-top:10px; padding-bottom:10px; font-size:110%;">
             <tr height="20">
                 <td colspan="2">

@@ -603,6 +603,10 @@ class Lead extends Person implements EmailInterface {
         return $return_array;
     }
 
+    /**
+     * @return mixed
+     * Mostra gli allegati delle note nella cronologia del contatto (rif. a metadata/subpaneldefs.php)
+     */
     public function get_related_notes()
     {
         $return_array['select'] = "SELECT notes.id";
@@ -614,8 +618,11 @@ class Lead extends Person implements EmailInterface {
         return $return_array;
 
     }
-
-    public function get_quotes_notes()
+    /**
+     * @return mixed
+     * Mostra gli allegati delle note legate alle mail quotazioni nella cronologia del contatto (rif. a metadata/subpaneldefs.php)
+     */
+    public function get_quotes_notes_accounts()
     {
         $return_array['select'] = "SELECT notes.id";
         $return_array['from']="FROM notes  ";
@@ -629,6 +636,8 @@ class Lead extends Person implements EmailInterface {
         return $return_array;
 
     }
+
+
 
 
     /**
