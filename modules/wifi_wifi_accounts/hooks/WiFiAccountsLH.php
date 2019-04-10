@@ -14,6 +14,10 @@ class WiFiAccountsLH
 {
 
     static $alreadyran = false;
+    static $alreadyran1 = false;
+    static $alreadyran2 = false;
+    static $alreadyran3 = false;
+
 
     function sendLog($params) {
 
@@ -34,24 +38,36 @@ class WiFiAccountsLH
 
     function radius_delete($conn, $username)
     {
-        $conn->query("delete from radcheck where username = '" . $username . "'");
-        $conn->query("delete from radreply where username = '" . $username . "'");
+
+        try {
+            $radcheckdel = $conn->query("delete from radcheck where username = '" . $username . "'");
+            $radreplydel = $conn->query("delete from radreply where username = '" . $username . "'");
+            if ($radcheckdel === FALSE || $radreplydel === FALSE) {
+                throw new Exception($conn->error);
+            }
+            else { return $e = ""; }
+        } catch(Exception $e) { return $e; }
 
     }
 
     function radius_create($conn, $username, $password, $expdate, $devices, $maxup, $maxdown)
     {
+        try {
+            $rcCreateUser = $conn->query("INSERT INTO radcheck (username, attribute, op, value) VALUES ('" . $username . "', 'User-Password', ':=', '" . $password . "')");
+            if ($expdate != 0) {
+                $conn->query("INSERT INTO radcheck (username, attribute, op, value) VALUES ('" . $username . "', 'Expiration', ':=', '" . date('M d Y', $expdate) . "')"); //data di scadenza solo se la data � espressa
+            }
+            $rcDevices = $conn->query("INSERT INTO radcheck (username, attribute, op, value) VALUES ('" . $username . "', 'Simultaneous-Use', ':=', '" . $devices . "')");
+            $rrTimeout = $conn->query("INSERT INTO radreply (username, attribute, op, value) VALUES ('" . $username . "', 'Idle-Timeout', ':=', '28800')");
+            $rrInterimInterval = $conn->query("INSERT INTO radreply (username, attribute, op, value) VALUES ('" . $username . "', 'Acct-Interim-Interval', ':=', '60')");
+            $rrMaxUL = $conn->query("INSERT INTO radreply (username, attribute, op, value) VALUES ('" . $username . "', 'WISPr-Bandwidth-Max-Up', ':=', '" . $maxup . "')");
+            $rrMaxDL = $conn->query("INSERT INTO radreply (username, attribute, op, value) VALUES ('" . $username . "', 'WISPr-Bandwidth-Max-Down', ':=', '" . $maxdown . "')");
 
-        $conn->query("INSERT INTO radcheck (username, attribute, op, value) VALUES ('" . $username . "', 'User-Password', ':=', '" . $password . "')");
-        if ($expdate != 0) {
-            $conn->query("INSERT INTO radcheck (username, attribute, op, value) VALUES ('" . $username . "', 'Expiration', ':=', '" . date('M d Y', $expdate) . "')"); //data di scadenza solo se la data � espressa
-        }
-        $conn->query("INSERT INTO radcheck (username, attribute, op, value) VALUES ('" . $username . "', 'Simultaneous-Use', ':=', '" . $devices . "')");
-        $conn->query("INSERT INTO radreply (username, attribute, op, value) VALUES ('" . $username . "', 'Idle-Timeout', ':=', '28800')");
-        $conn->query("INSERT INTO radreply (username, attribute, op, value) VALUES ('" . $username . "', 'Acct-Interim-Interval', ':=', '60')");
-        $conn->query("INSERT INTO radreply (username, attribute, op, value) VALUES ('" . $username . "', 'WISPr-Bandwidth-Max-Up', ':=', '" . $maxup . "')");
-        $conn->query("INSERT INTO radreply (username, attribute, op, value) VALUES ('" . $username . "', 'WISPr-Bandwidth-Max-Down', ':=', '" . $maxdown . "')");
-
+            if ($rcCreateUser === FALSE || $rcDevices === FALSE || $rrTimeout === FALSE || $rrInterimInterval === FALSE || $rrMaxUL === FALSE || $rrMaxDL === FALSE) {
+                throw new Exception($conn->error);
+            }
+            else { return $e = ""; }
+        } catch (Exception $e) { return $e; }
     }
 
     function aggiorna_crm($bean, $status)
@@ -64,7 +80,6 @@ class WiFiAccountsLH
     {
 
     require_once 'include/SugarPHPMailer.php';
-    //require_once 'modules/Administraztion/Administration.php';
 
         if (self::$alreadyran == true) return;
         self::$alreadyran = true;
@@ -128,23 +143,38 @@ class WiFiAccountsLH
         $mail->prepForOutbound();
         $mail->setMailerForSystem();
 
-        $mail->send();
+        if(!$mail->send()) {
 
-        //create Email item
-        $addmail = BeanFactory::getBean('Emails');
-        $addmail->name = 'Benvenuto nella rete WiFi di Pick Center';
-        $addmail->parent_type = 'Leads';
-        $addmail->parent_id = $parentid;
-        $addmail->to_addrs = $email_address;
-        $addmail->from_addr = 'info@pickcenter.com';
-        $addmail->cc_addrs = $center_mail;
-        $addmail->description_html = $mailbody;
-        $addmail->status = 'sent';
-        $addmail->save();
+            //se l'invio non va a buon fine
+            $content =  "Email per WiFi non inviata a: " . $email_address . PHP_EOL .  "Errore riscontrato: " . $mail->ErrorInfo;
+            $this->sendErrorMail($content);
 
+        } else {
+
+            //se l'invio va a buon fine
+
+            //.log content
+            $content = "Inviata mail di creazione WiFi a: " . $email_address . " per WiFi con username: " . $username;
+
+            //create Email item
+            $addmail = BeanFactory::getBean('Emails');
+            $addmail->name = 'Benvenuto nella rete WiFi di Pick Center';
+            $addmail->parent_type = 'Leads';
+            $addmail->parent_id = $parentid;
+            $addmail->to_addrs = $email_address;
+            $addmail->from_addr = 'info@pickcenter.com';
+            $addmail->cc_addrs = $center_mail;
+            $addmail->description_html = $mailbody;
+            $addmail->status = 'sent';
+            $addmail->save();
+
+        }
+
+
+    //.logs
         global $current_user;
         $user = $current_user->first_name . " " . $current_user->last_name;
-        $content = "Inviata mail di creazione WiFi a: " . $email_address . "per WiFi con username: " . $username;
+
         $params = array(
             'app' => 'CRM',
             'action' => 'NOTIFICA_WIFI',
@@ -160,19 +190,36 @@ class WiFiAccountsLH
     function CreateUpdateWiFiAccount($bean)
     {
 
+        if (self::$alreadyran1 == true) return;
+        self::$alreadyran1 = true;
+
         include 'custom/Extension/application/amanda_connect.php';
-        $this->radius_delete($conn_prod_radius, $bean->user_name); //cancella precedente
-        $this->radius_create($conn_prod_radius, $bean->user_name, $bean->password, date('M d Y', strtotime($bean->expiration_date)), $bean->sim_uses, $bean->up_speed, $bean->down_speed);
+        $deleteError = $this->radius_delete($conn_prod_radius, $bean->user_name); //cancella precedente
+        $createError = $this->radius_create($conn_prod_radius, $bean->user_name, $bean->password, date('M d Y', strtotime($bean->expiration_date)), $bean->sim_uses, $bean->up_speed, $bean->down_speed);
+
+        if ($deleteError == "" && $createError == "") {
+
+            $content = "Creato account Wifi con username: " . $bean->user_name;
+            $description = "Creato account WiFi";
+            $this->MailUserWiFiAccount($bean);
+
+        } else {
+
+            $content = "Errore nella creazione account WiFi: " . $bean->user_name . PHP_EOL . $deleteError . PHP_EOL . $createError;
+            $description = "Errore nella creazione account WiFi";
+            $this->sendErrorMail($content);
+
+        }
 
         global $current_user;
         $user = $current_user->first_name . " " . $current_user->last_name;
-        $content = "Creato account Wifi con username: " . $username;
+
         $params = array(
             'app' => 'CRM',
             'action' => 'CREA_WIFI',
             'content' => $content,
             'user' => $user,
-            'description' => 'Creato account WiFi',
+            'description' => $description,
             'origin' => 'crm.wifi_wifi_accounts',
             'destination' => 'Modifica automatica a DB Radius',);
         $this->sendLog($params);
@@ -182,21 +229,38 @@ class WiFiAccountsLH
     function DeleteWiFiAccount($bean)
     {
 
+        if (self::$alreadyran2 == true) return;
+        self::$alreadyran2 = true;
+
         include 'custom/Extension/application/amanda_connect.php';
-        $this->radius_delete($conn_prod_radius, $bean->user_name); //cancella precedente
-        $bean->deleted = 1;
+        $delerror = $this->radius_delete($conn_prod_radius, $bean->user_name); //cancella precedente
+
+        if ($delerror == "") {
+
+            $bean->deleted = 1;
+            $content = "Eliminato account Wifi con username: " . $bean->user_name;
+            $description = "Eliminato account WiFi";
+
+        } else {
+
+            $content = "Eliminazione WiFi non andata a buon fine con errore: " . $delerror;
+            $description = "Errore nell'eliminazione della connessione WiFi con username: " . $bean->user_name;
+            $this->sendErrorMail($content);
+
+        }
 
         global $current_user;
         $user = $current_user->first_name . " " . $current_user->last_name;
-        $content = "Eliminato account Wifi con username: " . $bean->user_name;
+
         $params = array(
             'app' => 'CRM',
             'action' => 'ELIMINA_WIFI',
             'content' => $content,
             'user' => $user,
-            'description' => 'Eliminato account WiFi',
+            'description' => $description,
             'origin' => 'crm.wifi_wifi_accounts',
             'destination' => 'Modifica automatica a DB Radius',);
+
         $this->sendLog($params);
 
 
@@ -271,6 +335,35 @@ class WiFiAccountsLH
         $parentAccount = BeanFactory::getBean('Accounts',$parentLead->account_id_c);
         $bean->load_relationship('wifi_wifi_accounts_accounts');
         $bean->wifi_wifi_accounts_accounts->add($parentAccount);
+
+    }
+
+    function sendErrorMail($content,$subject="Errore gestione WiFi") {
+
+        require_once 'include/SugarPHPMailer.php';
+
+        if (self::$alreadyran3 == true) return;
+        self::$alreadyran3 = true;
+
+        $mail = new SugarPHPMailer();
+        $mail->CharSet="UTF-8";
+        $mail->isSMTP();
+        $mail->From = 'info@pickcenter.com';
+        $mail->FromName = 'Pick Center CRM';
+        $mail->Subject = $subject;
+
+        $mail->Body_html = from_html($content);
+        $mail->Body = wordwrap($content,1000);
+        $mail->isHTML(true);
+        $mail->addAddress('cea@pickcenter.com','LC');
+        $mail->addAddress('bucci@pickcenter.com','MB');
+        $mail->addAddress('roberta@pickcenter.com','RG');
+        $mail->addAddress('max@swhub.io','MS'); //for testing
+
+        $mail->prepForOutbound();
+        $mail->setMailerForSystem();
+
+        $mail->send();
 
     }
 

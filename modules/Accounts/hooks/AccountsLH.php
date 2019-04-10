@@ -42,17 +42,25 @@ class AccountsLH {
             //$mail->addAddress('max@swhub.io','MS');
             $mail->prepForOutbound();
             $mail->setMailerForSystem();
-            $mail->send();
+
+            if (!$mail->send()) {
+                $content = "Errore invio mail PEC/CDU: " . $mail->ErrorInfo;
+                $subject = $content;
+                $this->sendErrorMail($content);
+            } else {
+                $content = $mailbody;
+                $subject = "Inviate PEC e CDU amministrazione dal CRM";
+            }
 
             global $current_user;
             $user = $current_user->first_name . " " . $current_user->last_name;
-            $content = $mailbody;
+
             $params = array(
                 'app' => 'CRM',
                 'action' => 'COMUNICAZIONE_PEC_CDU_A',
                 'content' => $content,
                 'user' => $user,
-                'description' => 'Invia PEC e CDU amministrazione dal CRM',
+                'description' => $subject,
                 'origin' => 'crm.leads.pec_c, crm.leads.cdu_c',
                 'destination' => 'email a Ilaria e Raffaella',);
             sendLog($params);
@@ -60,10 +68,33 @@ class AccountsLH {
 
 
         }
+    }
 
+    function sendErrorMail($content,$subject="Errore nell'invio di PEC e CDU") {
 
+        require_once 'include/SugarPHPMailer.php';
 
+        $mail = new SugarPHPMailer();
+        $mail->CharSet="UTF-8";
+        $mail->isSMTP();
+        $mail->From = 'info@pickcenter.com';
+        $mail->FromName = 'Pick Center CRM';
+        $mail->Subject = $subject;
+
+        $mail->Body_html = from_html($content);
+        $mail->Body = wordwrap($content,1000);
+        $mail->isHTML(true);
+        $mail->addAddress('cea@pickcenter.com','LC');
+        $mail->addAddress('bucci@pickcenter.com','MB');
+        $mail->addAddress('roberta@pickcenter.com','RG');
+        $mail->addAddress('max@swhub.io','MS'); //for testing
+
+        $mail->prepForOutbound();
+        $mail->setMailerForSystem();
+
+        $mail->send();
 
     }
+
 
 }

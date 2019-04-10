@@ -22,9 +22,9 @@ $hook_array['after_save'][] = Array(77, 'updateRelatedMeetingsGeocodeInfo', 'mod
 
 $hook_array['after_relationship_add'] = Array();
 $hook_array['after_relationship_add'][] = Array(1, 'CreatePassword', 'custom/modules/wifi_wifi_accounts/hooks/WiFiAccountsLH.php','WiFiAccountsLH', 'CreatePassword');
-$hook_array['after_relationship_add'][] = Array(2, 'CreateUpdateWiFiAccount', 'custom/modules/wifi_wifi_accounts/hooks/WiFiAccountsLH.php','WiFiAccountsLH', 'CreateUpdateWiFiAccount');
-$hook_array['after_relationship_add'][] = Array(3, 'aggiunge azienda', 'custom/modules/wifi_wifi_accounts/hooks/WiFiAccountsLH.php','WiFiAccountsLH', 'addAccount');
-$hook_array['after_relationship_add'][] = Array(4, 'MailUserWiFiAccount', 'custom/modules/wifi_wifi_accounts/hooks/WiFiAccountsLH.php','WiFiAccountsLH', 'MailUserWiFiAccount');
+$hook_array['after_relationship_add'][] = Array(3, 'CreateUpdateWiFiAccount', 'custom/modules/wifi_wifi_accounts/hooks/WiFiAccountsLH.php','WiFiAccountsLH', 'CreateUpdateWiFiAccount');
+$hook_array['after_relationship_add'][] = Array(2, 'aggiunge azienda', 'custom/modules/wifi_wifi_accounts/hooks/WiFiAccountsLH.php','WiFiAccountsLH', 'addAccount');
+//$hook_array['after_relationship_add'][] = Array(4, 'MailUserWiFiAccount', 'custom/modules/wifi_wifi_accounts/hooks/WiFiAccountsLH.php','WiFiAccountsLH', 'MailUserWiFiAccount');
 
 $hook_array['after_relationship_delete'] = Array();
 $hook_array['after_relationship_delete'][] = Array(1, 'DeleteWiFiAccount', 'custom/modules/wifi_wifi_accounts/hooks/WiFiAccountsLH.php','WiFiAccountsLH', 'DeleteWiFiAccount');
