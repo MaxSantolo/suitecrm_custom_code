@@ -12,7 +12,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
 class LeadsLH {
 
     function inStates($value) {
-        $statia = array('Converted','autorizzato','ammin','MNTN','FRTN','DRZN','SWH','DPND');
+        $statia = array('Converted','autorizzato','ammin','MNTN','FRNT','DRZN','SWH','DPND');
         if (in_array($value,$statia)) return true; else return false;
     }
 
@@ -74,7 +74,7 @@ class LeadsLH {
         //pick log
         global $current_user;
         $user = $current_user->first_name . " " . $current_user->last_name;
-        $content = "Effettuato check-in ACS per cliente con id:" . $bean->id . PHP_EOL .
+        $content = "Effettuato check-in ACS per cliente: " . $bean->first_name . " " . $bean->last_name . PHP_EOL .
                    "SQL=--" . $update_sql . "--" .PHP_EOL .
                    "ACS=--" . $bean->acs_url_c . "--" .
                    "RIGHE=--" . $conn2->affected_rows . "--";
@@ -140,7 +140,7 @@ class LeadsLH {
             global $current_user;
             $user = $current_user->first_name . " " . $current_user->last_name;
             $righe = $conn->affected_rows + $conn2->affected_rows;
-            $content = "Effettuato check-out ACS per cliente con id:" . $bean->id . PHP_EOL .
+            $content = "Effettuato check-out ACS per cliente: " . $bean->first_name . " " . $bean->last_name . PHP_EOL .
                 "SQL1=--" . $sqldelvb . "--" . PHP_EOL .
                 "SQL2=--" . $sqldelacs . "--" . PHP_EOL .
                 "Eliminate #". $numwifi . " WiFi associate" . PHP_EOL .
