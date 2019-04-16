@@ -64,44 +64,45 @@ class LeadsLH {
             } else { $update_sql = "UPDATE visual_phonebook SET firstname = '".$firstname."', lastname = '".$lastname."', company = '".$company."', phone1 = '".$tel1."', phone2 = '".$tel2."', phone3 = '".$tel3."',
                                     email = '".$email."', note = '".$note."', note2 = '".$note2."', note3 = '".$note3."', tcm = '".$tcm."', tipo = '".$status."' WHERE crm_id = '".$bean->id."' ";
         }
+
         $conn2->query($update_sql);
+
+            //preparo link ACS
+            $id_acs_array = $conn2->query("SELECT id,pin FROM visual_phonebook WHERE crm_id = '".$bean->id."'")->fetch_assoc();
+            $id_acs = $id_acs_array['id'];
+            $id_pin = $id_acs_array['pin'];
+            $bean->acs_url_c = "http://acs.pickcenter.com/pinutils/vbdetail.php?vbid=".$id_acs."&vbpin=".$id_pin;
+
+            //pick log
+            global $current_user;
+            $user = $current_user->first_name . " " . $current_user->last_name;
+            $content = "Effettuato check-in ACS per cliente: " . $bean->first_name . " " . $bean->last_name . PHP_EOL .
+                "SQL=--" . $update_sql . "--" .PHP_EOL .
+                "ACS=--" . $bean->acs_url_c . "--" .
+                "RIGHE=--" . $conn2->affected_rows . "--";
+
+            //per il .log del CRM
+            $params = array(
+                'app' => 'CRM',
+                'action' => 'CHECKIN_ACS',
+                'content' => $content,
+                'user' => $user,
+                'description' => 'Aggiunto/aggiornato un utente ACS',
+                'origin' => 'crm.leads',
+                'destination' => 'PBX Visual Phonebook => ACS',);
+            sendLog($params);
+
+            //per il .log del ACS
+            $params = array(
+                'app' => 'ACS',
+                'action' => 'CHECKIN_ACS',
+                'content' => $content,
+                'user' => $user,
+                'description' => 'Aggiunto/aggiornato un utente ACS',
+                'origin' => 'crm.leads',
+                'destination' => 'PBX Visual Phonebook => ACS',);
+            sendLog($params);
         }
-        $id_acs_array = $conn2->query("SELECT id,pin FROM visual_phonebook WHERE crm_id = '".$bean->id."'")->fetch_assoc();
-        $id_acs = $id_acs_array['id'];
-        $id_pin = $id_acs_array['pin'];
-        $bean->acs_url_c = "http://acs.pickcenter.com/pinutils/vbdetail.php?vbid=".$id_acs."&vbpin=".$id_pin;
-
-        //pick log
-        global $current_user;
-        $user = $current_user->first_name . " " . $current_user->last_name;
-        $content = "Effettuato check-in ACS per cliente: " . $bean->first_name . " " . $bean->last_name . PHP_EOL .
-                   "SQL=--" . $update_sql . "--" .PHP_EOL .
-                   "ACS=--" . $bean->acs_url_c . "--" .
-                   "RIGHE=--" . $conn2->affected_rows . "--";
-
-        //per il .log del CRM
-        $params = array(
-            'app' => 'CRM',
-            'action' => 'CHECKIN_ACS',
-            'content' => $content,
-            'user' => $user,
-            'description' => 'Aggiunto/aggiornato un utente ACS',
-            'origin' => 'crm.leads',
-            'destination' => 'PBX Visual Phonebook => ACS',);
-        sendLog($params);
-
-        //per il .log del ACS
-        $params = array(
-            'app' => 'ACS',
-            'action' => 'CHECKIN_ACS',
-            'content' => $content,
-            'user' => $user,
-            'description' => 'Aggiunto/aggiornato un utente ACS',
-            'origin' => 'crm.leads',
-            'destination' => 'PBX Visual Phonebook => ACS',);
-        sendLog($params);
-
-
 
     }
 
@@ -115,7 +116,8 @@ class LeadsLH {
     function LeadCheckOut($bean) {
 
         include 'custom/Extension/application/amanda_connect.php';
-        if (!$this->inStates($bean->status)) {
+        if (!$this->inStates($bean->status) && $this->inStates($bean->fetched_row['status']) ) {
+
             $vbid = $this->getPhoneBookId($bean->id);
 
             $sqldelvb = "DELETE FROM visual_phonebook WHERE crm_id = '".$bean->id."'";
@@ -186,7 +188,10 @@ class LeadsLH {
         require_once 'custom/Extension/application/PickLog.php';
 
         $mailbody = "";
-        if (!empty($bean->fetched_row) && ($bean->fetched_row['pec_c'] != $bean->pec_c || $bean->fetched_row['cdu_c'] != $bean->cdu_c) && $bean->status == 'Converted') {
+        if (!empty($bean->fetched_row) && ($bean->fetched_row['pec_c'] != $bean->pec_c || $bean->fetched_row['cdu_c'] != $bean->cdu_c) && $bean->status == 'Converted'
+            &&
+            in_array($bean->azienda_tipo_c, array("libero","persona"))
+        ) {
             $mailbody .= "
                 <strong>Cliente: </strong>{$bean->first_name} {$bean->last_name}<br>
                 <strong>Codice Fiscale: </strong>{$bean->lead_cf_c}<br>

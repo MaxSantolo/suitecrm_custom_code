@@ -11,12 +11,13 @@ $hook_array['before_save'][] = Array(3, 'maiuscole', 'custom/modules/Leads/hooks
 $hook_array['before_save'][] = Array(4, 'checkin', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'LeadCheckIn');
 $hook_array['before_save'][] = Array(5, 'checkout', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'LeadCheckOut');
 $hook_array['before_save'][] = Array(6, 'assegna CDU', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'CDU');
-$hook_array['before_save'][] = Array(7, 'mail fatturazione elettronica', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'MailFE');
+
 $hook_array['before_save'][] = Array(8, 'descrizione', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'removeAccountRel');
 $hook_array['before_save'][] = Array(77, 'updateGeocodeInfo', 'modules/Leads/LeadsJjwg_MapsLogicHook.php','LeadsJjwg_MapsLogicHook', 'updateGeocodeInfo');
 
 $hook_array['after_save'] = Array();
 $hook_array['after_save'][] = Array(77, 'updateRelatedMeetingsGeocodeInfo', 'modules/Leads/LeadsJjwg_MapsLogicHook.php','LeadsJjwg_MapsLogicHook', 'updateRelatedMeetingsGeocodeInfo');
+$hook_array['after_save'][] = Array(7, 'mail fatturazione elettronica', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'MailFE');
 
 $hook_array['before_delete'] = Array();
 $hook_array['before_delete'][] = Array(1, 'delete', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'LeadDelete');

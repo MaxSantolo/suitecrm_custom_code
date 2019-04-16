@@ -16,7 +16,11 @@ class AccountsLH {
         require_once 'include/SugarPHPMailer.php';
         require_once 'custom/Extension/application/PickLog.php';
         $mailbody = "";
-        if (!empty($bean->fetched_row) && ($bean->fetched_row['pec_c'] != $bean->pec_c || $bean->fetched_row['cdu_c'] != $bean->cdu_c) && $bean->account_type == 'Customer') {
+        if (!empty($bean->fetched_row) &&
+            ($bean->fetched_row['pec_c'] != $bean->pec_c || $bean->fetched_row['cdu_c'] != $bean->cdu_c) &&
+            $bean->account_type == 'Customer' )
+        {
+
             $mailbody .= "
                 <strong>Azienda: </strong>{$bean->name}<br>
                 <strong>Codice Fiscale: </strong>{$bean->lead_cf_c}<br>

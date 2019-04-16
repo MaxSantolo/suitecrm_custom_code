@@ -256,7 +256,7 @@ $dictionary['Lead']['fields']['cellulare_notifiche_c']['labelValue']='Cellulare 
 
  
 
- // created: 2019-03-25 10:00:54
+ // created: 2019-04-16 11:13:40
 $dictionary['Lead']['fields']['azienda_tipo_c']['inline_edit']='1';
 $dictionary['Lead']['fields']['azienda_tipo_c']['labelValue']='Tipo di azienda';
 

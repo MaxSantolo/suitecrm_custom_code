@@ -177,7 +177,8 @@ class SRServiziRichiestiLH {
 
             global $current_user;
             $user = $current_user->first_name . " " . $current_user->last_name;
-            $content = $name . " | " . $bean->data_ora_appuntamento_c;
+            $contact = BeanFactory::getBean($parent_type,$parent_id);
+            $content = $name . " | " . $bean->data_ora_appuntamento_c . PHP_EOL . "per " . $contact->name;
             $params = array(
                 'app' => 'CRM',
                 'action' => 'INSERIMENTO_CALL',
