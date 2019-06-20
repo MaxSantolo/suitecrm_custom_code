@@ -46,4 +46,50 @@ $dictionary['Case']['fields']['fatturare_c']['inline_edit']='1';
 $dictionary['Case']['fields']['fatturare_c']['labelValue']='Da fatturare:';
 
  
+
+// created: 2019-06-17 14:52:03
+$dictionary["Case"]["fields"]["leads_cases_1"] = array (
+  'name' => 'leads_cases_1',
+  'type' => 'link',
+  'relationship' => 'leads_cases_1',
+  'source' => 'non-db',
+  'module' => 'Leads',
+  'bean_name' => 'Lead',
+  'vname' => 'LBL_LEADS_CASES_1_FROM_LEADS_TITLE',
+  'id_name' => 'leads_cases_1leads_ida',
+);
+$dictionary["Case"]["fields"]["leads_cases_1_name"] = array (
+  'name' => 'leads_cases_1_name',
+  'type' => 'relate',
+  'source' => 'non-db',
+  'vname' => 'LBL_LEADS_CASES_1_FROM_LEADS_TITLE',
+  'save' => true,
+  'id_name' => 'leads_cases_1leads_ida',
+  'link' => 'leads_cases_1',
+  'table' => 'leads',
+  'module' => 'Leads',
+  'rname' => 'name',
+  'db_concat_fields' => 
+  array (
+    0 => 'first_name',
+    1 => 'last_name',
+  ),
+);
+$dictionary["Case"]["fields"]["leads_cases_1leads_ida"] = array (
+  'name' => 'leads_cases_1leads_ida',
+  'type' => 'link',
+  'relationship' => 'leads_cases_1',
+  'source' => 'non-db',
+  'reportable' => false,
+  'side' => 'right',
+  'vname' => 'LBL_LEADS_CASES_1_FROM_CASES_TITLE',
+);
+
+
+ // created: 2019-06-17 15:27:39
+$dictionary['Case']['fields']['case_update_form']['inline_edit']=true;
+$dictionary['Case']['fields']['case_update_form']['merge_filter']='disabled';
+$dictionary['Case']['fields']['case_update_form']['reportable']=true;
+
+ 
 ?>

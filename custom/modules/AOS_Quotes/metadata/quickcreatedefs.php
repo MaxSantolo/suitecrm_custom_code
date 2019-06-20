@@ -69,13 +69,36 @@ array (
             'label' => 'LBL_QUOTE_NUMBER',
             'customCode' => '{$fields.number.value}',
           ),
-          1 => 
+        ),
+        2 => 
+        array (
+          0 => 
           array (
             'name' => 'leads_aos_quotes_1_name',
             'label' => 'LBL_LEADS_AOS_QUOTES_1_FROM_LEADS_TITLE',
           ),
+          1 => 
+          array (
+            'name' => 'billing_account',
+            'label' => 'LBL_BILLING_ACCOUNT',
+            'displayParams' => 
+            array (
+              'key' => 
+              array (
+                0 => 'billing',
+                1 => 'shipping',
+              ),
+              'copy' => 
+              array (
+                0 => 'billing',
+                1 => 'shipping',
+              ),
+              'billingKey' => 'billing',
+              'shippingKey' => 'shipping',
+            ),
+          ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -90,7 +113,12 @@ array (
             'label' => 'LBL_QUOTES_PROMODESC',
           ),
         ),
-        3 => 
+        4 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        5 => 
         array (
           0 => 
           array (
@@ -104,7 +132,7 @@ array (
             'label' => 'LBL_PROMO_SCONTO',
           ),
         ),
-        4 => 
+        6 => 
         array (
           0 => 
           array (

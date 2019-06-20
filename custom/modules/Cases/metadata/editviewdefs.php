@@ -67,20 +67,14 @@ array (
           0 => 'account_name',
           1 => 
           array (
-            'name' => 'fornitore_c',
-            'studio' => 'visible',
-            'label' => 'LBL_FORNITORE',
+            'name' => 'leads_cases_1_name',
+            'label' => 'LBL_LEADS_CASES_1_FROM_LEADS_TITLE',
           ),
         ),
         2 => 
         array (
           0 => 'type',
-          1 => 
-          array (
-            'name' => 'state',
-            'comment' => 'The state of the case (i.e. open/closed)',
-            'label' => 'LBL_STATE',
-          ),
+          1 => 'status',
         ),
         3 => 
         array (
@@ -90,11 +84,6 @@ array (
             'displayParams' => 
             array (
             ),
-          ),
-          1 => 
-          array (
-            'name' => 'suggestion_box',
-            'label' => 'LBL_SUGGESTION_BOX',
           ),
         ),
         4 => 

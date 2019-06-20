@@ -177,7 +177,8 @@ class SRServiziRichiestiLH {
 
             global $current_user;
             $user = $current_user->first_name . " " . $current_user->last_name;
-            $content = $name . " | " . $bean->data_ora_appuntamento_c;
+            $contact = BeanFactory::getBean($parent_type,$parent_id);
+            $content = $name . " | " . $bean->data_ora_appuntamento_c . PHP_EOL . "per " . $contact->name;
             $params = array(
                 'app' => 'CRM',
                 'action' => 'INSERIMENTO_CALL',
@@ -220,7 +221,8 @@ class SRServiziRichiestiLH {
         if (self::$alreadyran == true) return;
         self::$alreadyran = true;
 
-        if ($bean->stato_c == 'Not Started') {
+            //todo: migliorare le condizioni di invio email con il controllo dello stato precedente
+        if ($bean->stato_c == 'Not Started' || $bean->stato_c == 'visited') {
 
             $this->alreadyran = true;
 
@@ -264,9 +266,15 @@ class SRServiziRichiestiLH {
             <b>Email: </b>{$email}</p>
             <hr>
             <p><b>Inserito da: </b>{$username}<br>
-            <a href='http://crm.pickcenter.com/index.php?action=ajaxui#ajaxUILoc=index.php%3Fmodule%3Dsr_servizi_richiesti%26action%3DDetailView%26record%3D{$bean->id}'
-            target='_blank'>Vedilo sul CRM (dalla rete Pick o su VPN)</a></p>
+            <a href='http://crm.pickcenter.com/index.php?action=ajaxui#ajaxUILoc=index.php%3Fmodule%3Dsr_servizi_richiesti%26action%3DDetailView%26record%3D{$bean->id}' target='_blank'>Vedilo sul CRM (dalla rete Pick o su VPN)</a></p>
             ";
+
+            $logbody = "Data di inserimento: ". $date_f . PHP_EOL .
+                       "Centro: " . $bean->centro_scelto . PHP_EOL .
+                       "Servizio: " .  $servizio . PHP_EOL .
+                       "Contatto: " . $leadname . PHP_EOL .
+                       "Azienda: " . $accname . PHP_EOL .
+                       "Recapiti: " . $phones . " - " . $email ;
 
             $mail = new SugarPHPMailer();
             $mail->CharSet="UTF-8";
@@ -274,25 +282,33 @@ class SRServiziRichiestiLH {
             $mail->From = 'info@pickcenter.com';
             $mail->FromName = 'Pick Center Sistema Informativo';
             $mail->Subject = 'CRM - Nuovo servizio richiesto';
-
             $mail->Body_html = from_html($emailbody);
             $mail->Body = wordwrap($emailbody,1000);
             $mail->isHTML(true);
             $mail->addAddress('cea@pickcenter.com','LC');
             $mail->addAddress('bucci@pickcenter.com','MB');
             $mail->addAddress('roberta@pickcenter.com','RG');
-//            $mail->addAddress('max@swhub.io','MS'); //for testing
+            //$mail->addAddress('max@swhub.io','MS'); //for testing
 
             $mail->prepForOutbound();
             $mail->setMailerForSystem();
 
-            $mail->send();
+            if(!$mail->send()) {
 
+                //se l'invio non va a buon fine mando mail per avvertire
+                $content =  "Email non inviata" . PHP_EOL . $logbody . PHP_EOL .  "Errore riscontrato: " . $mail->ErrorInfo;
+                $this->sendErrorMail($content);
+
+            } else {
+                $content = $logbody;
+            }
+
+            //$mail->send();
             //.logs -> mail nuovo servizio
 
             global $current_user;
             $user = $current_user->first_name . " " . $current_user->last_name;
-            $content = $emailbody;
+
             $params = array(
                 'app' => 'CRM',
                 'action' => 'NUOVA_RICHIESTA_SERVIZIO',
@@ -304,6 +320,35 @@ class SRServiziRichiestiLH {
             sendLog($params);
 
         }
+
+    }
+
+    function sendErrorMail($content) {
+
+        require_once 'include/SugarPHPMailer.php';
+
+        if (self::$alreadyran == true) return;
+        self::$alreadyran = true;
+
+        $mail = new SugarPHPMailer();
+        $mail->CharSet="UTF-8";
+        $mail->isSMTP();
+        $mail->From = 'info@pickcenter.com';
+        $mail->FromName = 'Pick Center CRM';
+        $mail->Subject = 'Errore nella mail di creazione WiFi';
+
+        $mail->Body_html = from_html($content);
+        $mail->Body = wordwrap($content,1000);
+        $mail->isHTML(true);
+        $mail->addAddress('cea@pickcenter.com','LC');
+        $mail->addAddress('bucci@pickcenter.com','MB');
+        $mail->addAddress('roberta@pickcenter.com','RG');
+        $mail->addAddress('max@swhub.io','MS'); //for testing
+
+        $mail->prepForOutbound();
+        $mail->setMailerForSystem();
+
+        $mail->send();
 
     }
 

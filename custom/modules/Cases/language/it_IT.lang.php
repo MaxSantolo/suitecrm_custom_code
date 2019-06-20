@@ -1,11 +1,11 @@
 <?php
-// created: 2018-05-08 08:36:44
+// created: 2019-06-17 15:27:39
 $mod_strings = array (
   'LBL_CONTACT_CREATED_BY_NAME' => 'Creato dal contatto',
   'LBL_CONTACT_CREATED_BY' => 'Creato da:',
   'LBL_CONTACTS' => 'Contatti',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Clienti - &gt; Persone',
-  'LBL_ACCOUNT_NAME' => 'Nome azienda:',
+  'LBL_ACCOUNT_NAME' => 'Azienda',
   'LBL_ACCOUNT_ID' => 'ID Azienda',
   'LBL_ACCOUNT' => 'Azienda',
   'LNK_NEW_CASE' => 'Nuovo Reclamo',
@@ -19,4 +19,7 @@ $mod_strings = array (
   'LBL_FORNITORE' => 'Fornitore',
   'LBL_DURATA' => 'Durata',
   'LBL_FATTURARE' => 'Da fatturare:',
+  'LBL_LEADS_CASES_1_FROM_LEADS_TITLE' => 'Contatto',
+  'LBL_LIST_ACCOUNT_NAME' => 'Azienda',
+  'LBL_CASE_UPDATE_FORM' => 'Allegato',
 );

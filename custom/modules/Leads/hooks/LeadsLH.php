@@ -12,7 +12,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
 class LeadsLH {
 
     function inStates($value) {
-        $statia = array('Converted','autorizzato','ammin','MNTN','FRTN','DRZN','SWH','DPND');
+        $statia = array('Converted','autorizzato','ammin','MNTN','FRNT','DRZN','SWH','DPND');
         if (in_array($value,$statia)) return true; else return false;
     }
 
@@ -64,31 +64,45 @@ class LeadsLH {
             } else { $update_sql = "UPDATE visual_phonebook SET firstname = '".$firstname."', lastname = '".$lastname."', company = '".$company."', phone1 = '".$tel1."', phone2 = '".$tel2."', phone3 = '".$tel3."',
                                     email = '".$email."', note = '".$note."', note2 = '".$note2."', note3 = '".$note3."', tcm = '".$tcm."', tipo = '".$status."' WHERE crm_id = '".$bean->id."' ";
         }
+
         $conn2->query($update_sql);
+
+            //preparo link ACS
+            $id_acs_array = $conn2->query("SELECT id,pin FROM visual_phonebook WHERE crm_id = '".$bean->id."'")->fetch_assoc();
+            $id_acs = $id_acs_array['id'];
+            $id_pin = $id_acs_array['pin'];
+            $bean->acs_url_c = "http://acs.pickcenter.com/pinutils/vbdetail.php?vbid=".$id_acs."&vbpin=".$id_pin;
+
+            //pick log
+            global $current_user;
+            $user = $current_user->first_name . " " . $current_user->last_name;
+            $content = "Effettuato check-in ACS per cliente: " . $bean->first_name . " " . $bean->last_name . PHP_EOL .
+                "SQL=--" . $update_sql . "--" .PHP_EOL .
+                "ACS=--" . $bean->acs_url_c . "--" .
+                "RIGHE=--" . $conn2->affected_rows . "--";
+
+            //per il .log del CRM
+            $params = array(
+                'app' => 'CRM',
+                'action' => 'CHECKIN_ACS',
+                'content' => $content,
+                'user' => $user,
+                'description' => 'Aggiunto/aggiornato un utente ACS',
+                'origin' => 'crm.leads',
+                'destination' => 'PBX Visual Phonebook => ACS',);
+            sendLog($params);
+
+            //per il .log del ACS
+            $params = array(
+                'app' => 'ACS',
+                'action' => 'CHECKIN_ACS',
+                'content' => $content,
+                'user' => $user,
+                'description' => 'Aggiunto/aggiornato un utente ACS',
+                'origin' => 'crm.leads',
+                'destination' => 'PBX Visual Phonebook => ACS',);
+            sendLog($params);
         }
-        $id_acs_array = $conn2->query("SELECT id,pin FROM visual_phonebook WHERE crm_id = '".$bean->id."'")->fetch_assoc();
-        $id_acs = $id_acs_array['id'];
-        $id_pin = $id_acs_array['pin'];
-        $bean->acs_url_c = "http://acs.pickcenter.com/pinutils/vbdetail.php?vbid=".$id_acs."&vbpin=".$id_pin;
-
-        //pick log
-        global $current_user;
-        $user = $current_user->first_name . " " . $current_user->last_name;
-        $content = "Effettuato check-in ACS per cliente con id:" . $bean->id . PHP_EOL .
-                   "SQL=--" . $update_sql . "--" .PHP_EOL .
-                   "ACS=--" . $bean->acs_url_c . "--" .
-                   "RIGHE=--" . $conn2->affected_rows . "--";
-        $params = array(
-            'app' => 'CRM',
-            'action' => 'CHECKIN_ACS',
-            'content' => $content,
-            'user' => $user,
-            'description' => 'Aggiunto/aggiornato un utente ACS',
-            'origin' => 'crm.leads',
-            'destination' => 'PBX Visual Phonebook => ACS',);
-        sendLog($params);
-
-
 
     }
 
@@ -102,7 +116,8 @@ class LeadsLH {
     function LeadCheckOut($bean) {
 
         include 'custom/Extension/application/amanda_connect.php';
-        if (!$this->inStates($bean->status)) {
+        if (!$this->inStates($bean->status) && $this->inStates($bean->fetched_row['status']) ) {
+
             $vbid = $this->getPhoneBookId($bean->id);
 
             $sqldelvb = "DELETE FROM visual_phonebook WHERE crm_id = '".$bean->id."'";
@@ -127,13 +142,26 @@ class LeadsLH {
             global $current_user;
             $user = $current_user->first_name . " " . $current_user->last_name;
             $righe = $conn->affected_rows + $conn2->affected_rows;
-            $content = "Effettuato check-out ACS per cliente con id:" . $bean->id . PHP_EOL .
+            $content = "Effettuato check-out ACS per cliente: " . $bean->first_name . " " . $bean->last_name . PHP_EOL .
                 "SQL1=--" . $sqldelvb . "--" . PHP_EOL .
                 "SQL2=--" . $sqldelacs . "--" . PHP_EOL .
                 "Eliminate #". $numwifi . " WiFi associate" . PHP_EOL .
                 "RIGHE=--" . $righe . "--";
+
+            //per il .log del CRM
             $params = array(
                 'app' => 'CRM',
+                'action' => 'CHECKOUT_ACS',
+                'content' => $content,
+                'user' => $user,
+                'description' => 'Eliminato utente ACS e relative WiFi',
+                'origin' => 'crm.leads',
+                'destination' => 'PBX Visual Phonebook => ACS',);
+            sendLog($params);
+
+            //per il .log dell'ACS
+            $params = array(
+                'app' => 'ACS',
                 'action' => 'CHECKOUT_ACS',
                 'content' => $content,
                 'user' => $user,
@@ -160,7 +188,10 @@ class LeadsLH {
         require_once 'custom/Extension/application/PickLog.php';
 
         $mailbody = "";
-        if (!empty($bean->fetched_row) && ($bean->fetched_row['pec_c'] != $bean->pec_c || $bean->fetched_row['cdu_c'] != $bean->cdu_c) && $bean->status == 'Converted') {
+        if (!empty($bean->fetched_row) && ($bean->fetched_row['pec_c'] != $bean->pec_c || $bean->fetched_row['cdu_c'] != $bean->cdu_c) && $bean->status == 'Converted'
+            &&
+            in_array($bean->azienda_tipo_c, array("libero","persona"))
+        ) {
             $mailbody .= "
                 <strong>Cliente: </strong>{$bean->first_name} {$bean->last_name}<br>
                 <strong>Codice Fiscale: </strong>{$bean->lead_cf_c}<br>
@@ -182,23 +213,34 @@ class LeadsLH {
             $mail->isHTML(true);
             $mail->addAddress('raffaella@pickcenter.com','RN');
             $mail->addAddress('ilaria@pickcenter.com','IQ');
-            $mail->addAddress('max@swhub.io','MS');
+            // $mail->addAddress('max@swhub.io','MS');
             $mail->prepForOutbound();
             $mail->setMailerForSystem();
-            $mail->send();
+
+            if (!$mail->send()) {
+                $content = "Errore invio mail PEC/CDU: " . $mail->ErrorInfo;
+                $subject = $content;
+                $this->sendErrorMail($content);
+            } else {
+                $content = $mailbody;
+                $subject = "Inviate PEC e CDU amministrazione dal CRM";
+            }
+
         }
 
         global $current_user;
         $user = $current_user->first_name . " " . $current_user->last_name;
-        $content = $mailbody;
+
         $params = array(
             'app' => 'CRM',
             'action' => 'COMUNICAZIONE_PEC_CDU_C',
             'content' => $content,
             'user' => $user,
-            'description' => 'Invia PEC e CDU amministrazione dal CRM',
+            'description' => $subject,
             'origin' => 'crm.leads.pec_c, crm.leads.cdu_c',
-            'destination' => 'email a Ilaria e Raffaella',);
+            'destination' => 'email a Ilaria e Raffaella',
+            );
+
         sendLog($params);
 
     }
@@ -219,9 +261,35 @@ class LeadsLH {
 
             $bean->account_name = '';
             $bean->account_id = '';
-            $bean->azienda_tipo_c = 'persona';
+            if ($bean->lead_piva_c == '' ) $bean->azienda_tipo_c = 'persona';
 
         }
+    }
+
+    function sendErrorMail($content,$subject="Errore nell'invio di PEC e CDU") {
+
+        require_once 'include/SugarPHPMailer.php';
+
+        $mail = new SugarPHPMailer();
+        $mail->CharSet="UTF-8";
+        $mail->isSMTP();
+        $mail->From = 'info@pickcenter.com';
+        $mail->FromName = 'Pick Center CRM';
+        $mail->Subject = $subject;
+
+        $mail->Body_html = from_html($content);
+        $mail->Body = wordwrap($content,1000);
+        $mail->isHTML(true);
+        $mail->addAddress('cea@pickcenter.com','LC');
+        $mail->addAddress('bucci@pickcenter.com','MB');
+        $mail->addAddress('roberta@pickcenter.com','RG');
+        $mail->addAddress('max@swhub.io','MS'); //for testing
+
+        $mail->prepForOutbound();
+        $mail->setMailerForSystem();
+
+        $mail->send();
+
     }
 
 

@@ -93,7 +93,7 @@
 
                         <td width="20%" scope="row">
                             <span class="suitepicon suitepicon-admin-themes"></span>
-                            <a id='dashboard_copy' href='http:\\192.168.1.40:85\dashboard_management.php' class="tabDetailViewDL2Link">Gestione Dashboard</a>
+                            <a id='dashboard_copy' href='http:\\192.168.1.51:85\dashboard_management.php' class="tabDetailViewDL2Link">Gestione Dashboard</a>
                         </td>
                         <td width="30%">Strumento per la copia delle dashboard</td>
 

@@ -256,7 +256,7 @@ $dictionary['Lead']['fields']['cellulare_notifiche_c']['labelValue']='Cellulare 
 
  
 
- // created: 2019-03-25 10:00:54
+ // created: 2019-04-16 11:13:40
 $dictionary['Lead']['fields']['azienda_tipo_c']['inline_edit']='1';
 $dictionary['Lead']['fields']['azienda_tipo_c']['labelValue']='Tipo di azienda';
 
@@ -463,4 +463,17 @@ $dictionary['Lead']['fields']['book_email_c']['inline_edit']='1';
 $dictionary['Lead']['fields']['book_email_c']['labelValue']='Email Booking / Area Clienti';
 
  
+
+// created: 2019-06-17 14:52:03
+$dictionary["Lead"]["fields"]["leads_cases_1"] = array (
+  'name' => 'leads_cases_1',
+  'type' => 'link',
+  'relationship' => 'leads_cases_1',
+  'source' => 'non-db',
+  'module' => 'Cases',
+  'bean_name' => 'Case',
+  'side' => 'right',
+  'vname' => 'LBL_LEADS_CASES_1_FROM_CASES_TITLE',
+);
+
 ?>
