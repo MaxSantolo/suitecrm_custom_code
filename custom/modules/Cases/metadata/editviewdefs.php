@@ -42,6 +42,11 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
+        'LBL_EDITVIEW_PANEL1' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
       ),
       'form' => 
       array (
@@ -57,26 +62,58 @@ array (
         array (
           0 => 
           array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
             'name' => 'case_number',
             'type' => 'readonly',
           ),
           1 => 'priority',
         ),
-        1 => 
-        array (
-          0 => 'account_name',
-          1 => 
-          array (
-            'name' => 'leads_cases_1_name',
-            'label' => 'LBL_LEADS_CASES_1_FROM_LEADS_TITLE',
-          ),
-        ),
         2 => 
         array (
           0 => 'type',
-          1 => 'status',
+          1 => 
+          array (
+            'name' => 'cliente_c',
+            'label' => 'LBL_CLIENTE',
+          ),
         ),
         3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'parent_name',
+            'studio' => 'visible',
+            'label' => 'LBL_FLEX_RELATE',
+          ),
+          1 => 
+          array (
+            'name' => 'importo_c',
+            'label' => 'LBL_IMPORTO',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'sede_ticket_c',
+            'studio' => 'visible',
+            'label' => 'LBL_SEDE_TICKET',
+          ),
+          1 => 
+          array (
+            'name' => 'intervento_c',
+            'label' => 'LBL_INTERVENTO',
+          ),
+        ),
+        5 => 
         array (
           0 => 
           array (
@@ -85,23 +122,17 @@ array (
             array (
             ),
           ),
+          1 => 'assigned_user_name',
         ),
-        4 => 
+        6 => 
         array (
           0 => 
           array (
             'name' => 'description',
           ),
+          1 => 'status',
         ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'resolution',
-            'nl2br' => true,
-          ),
-        ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -110,24 +141,27 @@ array (
             'label' => 'LBL_UPDATE_TEXT',
           ),
         ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'internal',
-            'studio' => 'visible',
-            'label' => 'LBL_INTERNAL',
-          ),
-        ),
         8 => 
         array (
           0 => 
           array (
-            'name' => 'case_update_form',
-            'studio' => 'visible',
+            'name' => 'resolution',
+            'nl2br' => true,
           ),
         ),
-        9 => 
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 'account_name',
+          1 => 
+          array (
+            'name' => 'leads_cases_1_name',
+            'label' => 'LBL_LEADS_CASES_1_FROM_LEADS_TITLE',
+          ),
+        ),
+        1 => 
         array (
           0 => 
           array (
@@ -136,13 +170,17 @@ array (
           ),
           1 => 
           array (
+            'name' => 'debt_value_c',
+            'label' => 'LBL_DEBT_VALUE',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
             'name' => 'fatturare_c',
             'label' => 'LBL_FATTURARE',
           ),
-        ),
-        10 => 
-        array (
-          0 => 'assigned_user_name',
         ),
       ),
     ),

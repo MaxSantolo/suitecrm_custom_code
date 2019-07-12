@@ -274,6 +274,11 @@ array (
             'name' => 'lead_azn_startup_c',
             'label' => 'LBL_LEAD_AZN_STARTUP',
           ),
+          1 => 
+          array (
+            'name' => 'nomina_resp_c',
+            'label' => 'LBL_NOMINA_RESP',
+          ),
         ),
       ),
       'lbl_editview_panel2' => 
@@ -358,7 +363,6 @@ array (
             'name' => 'selpass_c',
             'label' => 'LBL_SELPASS',
           ),
-          1 => '',
         ),
         2 => 
         array (
@@ -404,7 +408,6 @@ array (
           array (
             'name' => 'account_name',
           ),
-          1 => '',
         ),
       ),
       'LBL_PANEL_ADVANCED' => 
@@ -414,9 +417,9 @@ array (
           0 => 'status',
           1 => 
           array (
-            'name' => 'centro_scelto_c',
+            'name' => 'tipo_fornitore_c',
             'studio' => 'visible',
-            'label' => 'LBL_CENTRO_SCELTO',
+            'label' => 'LBL_TIPO_FORNITORE',
           ),
         ),
         1 => 

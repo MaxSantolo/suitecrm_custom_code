@@ -1,9 +1,9 @@
 <?php
-// created: 2019-06-17 15:27:39
+// created: 2019-07-10 12:57:39
 $mod_strings = array (
   'LBL_CONTACT_CREATED_BY_NAME' => 'Creato dal contatto',
   'LBL_CONTACT_CREATED_BY' => 'Creato da:',
-  'LBL_CONTACTS' => 'Contatti',
+  'LBL_CONTACTS' => 'Fornitore - Contatti',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Clienti - &gt; Persone',
   'LBL_ACCOUNT_NAME' => 'Azienda',
   'LBL_ACCOUNT_ID' => 'ID Azienda',
@@ -15,11 +15,22 @@ $mod_strings = array (
   'LBL_SEARCH_FORM_TITLE' => 'Cerca Reclamo',
   'LBL_LIST_MY_CASES' => 'I miei Ticket Aperti',
   'LBL_MODULE_NAME' => 'Ticket',
-  'LBL_FORNITORE_FRNT_FORNITORI_AZIENDA_ID' => 'Fornitore (relativo  ID)',
-  'LBL_FORNITORE' => 'Fornitore',
   'LBL_DURATA' => 'Durata',
   'LBL_FATTURARE' => 'Da fatturare:',
-  'LBL_LEADS_CASES_1_FROM_LEADS_TITLE' => 'Contatto',
+  'LBL_LEADS_CASES_1_FROM_LEADS_TITLE' => 'Fornitore - Persona',
   'LBL_LIST_ACCOUNT_NAME' => 'Azienda',
   'LBL_CASE_UPDATE_FORM' => 'Allegato',
+  'LBL_SEDE_TICKET' => 'Sede',
+  'LBL_EDITVIEW_PANEL1' => 'Cliente',
+  'LBL_EDITVIEW_PANEL2' => 'Nuovo Pannello 2',
+  'LBL_CASES_ACCOUNTS_1_FROM_ACCOUNTS_TITLE' => 'Azienda Cliente',
+  'LBL_CASES_LEADS_1_FROM_LEADS_TITLE' => 'Cliente',
+  'LBL_IMPORTO' => 'Importo',
+  'LBL_QUICKCREATE_PANEL1' => 'Cliente',
+  'LBL_CLIENTE' => 'Per conto cliente',
+  'LBL_STATUS' => 'Stato:',
+  'LBL_FLEX_RELATE' => 'Fornitore',
+  'LBL_DEBT_VALUE' => 'Importo addebito',
+  'LBL_STATE' => 'Stato_NU',
+  'LBL_INTERVENTO' => 'Data di intervento:',
 );

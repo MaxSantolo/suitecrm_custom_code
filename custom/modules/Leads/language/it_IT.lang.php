@@ -1,5 +1,5 @@
 <?php
-// created: 2019-02-05 11:43:29
+// created: 2019-07-09 14:43:18
 $mod_strings = array (
   'LBL_LEAD_PIVA' => 'Partita IVA',
   'LBL_LEAD_CF' => 'Codice Fiscale',
@@ -88,4 +88,6 @@ $mod_strings = array (
   'LBL_PEC' => 'Posta Elettronica Certificata',
   'LBL_SELPASS' => 'Selezione passante',
   'LBL_BOOK_EMAIL' => 'Email Booking / Area Clienti',
+  'LBL_TIPO_FORNITORE' => 'Tipo fornitore',
+  'LBL_NOMINA_RESP' => 'Nominato Pick Responsabile il:',
 );

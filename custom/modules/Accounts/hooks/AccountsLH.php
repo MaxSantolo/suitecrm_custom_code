@@ -18,7 +18,8 @@ class AccountsLH {
         $mailbody = "";
         if (!empty($bean->fetched_row) &&
             ($bean->fetched_row['pec_c'] != $bean->pec_c || $bean->fetched_row['cdu_c'] != $bean->cdu_c) &&
-            $bean->account_type == 'Customer' )
+            $bean->account_type == 'Customer'
+        && ($bean->pec_c != "" || $bean->cdu_c != ''))
         {
 
             $mailbody .= "

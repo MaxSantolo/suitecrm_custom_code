@@ -337,6 +337,12 @@ $dictionary['Lead']['fields']['instructions_c']['labelValue']='Istruzioni';
 
  
 
+ // created: 2019-07-09 14:43:18
+$dictionary['Lead']['fields']['nomina_resp_c']['inline_edit']='1';
+$dictionary['Lead']['fields']['nomina_resp_c']['labelValue']='Nominato Pick Responsabile il:';
+
+ 
+
  // created: 2018-10-19 15:04:55
 $dictionary['Lead']['fields']['tccode_c']['inline_edit']='1';
 $dictionary['Lead']['fields']['tccode_c']['labelValue']='Codice Telecommuting';
@@ -476,4 +482,10 @@ $dictionary["Lead"]["fields"]["leads_cases_1"] = array (
   'vname' => 'LBL_LEADS_CASES_1_FROM_CASES_TITLE',
 );
 
+
+ // created: 2019-07-03 13:14:57
+$dictionary['Lead']['fields']['tipo_fornitore_c']['inline_edit']='1';
+$dictionary['Lead']['fields']['tipo_fornitore_c']['labelValue']='Tipo fornitore';
+
+ 
 ?>

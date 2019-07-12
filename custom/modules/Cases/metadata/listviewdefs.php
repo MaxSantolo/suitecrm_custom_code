@@ -49,6 +49,14 @@ array (
     'label' => 'LBL_LIST_STATUS',
     'default' => true,
   ),
+  'SEDE_TICKET_C' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'studio' => 'visible',
+    'label' => 'LBL_SEDE_TICKET',
+    'width' => '10%',
+  ),
   'ASSIGNED_USER_NAME' => 
   array (
     'width' => '10%',

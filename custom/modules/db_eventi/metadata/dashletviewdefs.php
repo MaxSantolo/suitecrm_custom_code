@@ -18,23 +18,25 @@ $dashletData['db_eventiDashlet']['searchFields'] = array (
   ),
 );
 $dashletData['db_eventiDashlet']['columns'] = array (
-    'set_complete' => array(
-        'width' => '1',
-        'label' => 'LBL_LIST_CLOSE',
-        'default' => true,
-        'sortable' => false,
-        'name' => 'set_complete',
-        ),
+  'set_complete' => 
+  array (
+    'width' => '1%',
+    'label' => 'LBL_LIST_CLOSE',
+    'default' => true,
+    'sortable' => false,
+    'name' => 'set_complete',
+  ),
   'event_date' => 
   array (
     'type' => 'datetimecombo',
     'label' => 'LBL_EVENT_DATE',
     'width' => '10%',
     'default' => true,
+    'name' => 'event_date',
   ),
   'name' => 
   array (
-    'width' => '40%',
+    'width' => '10%',
     'label' => 'LBL_LIST_NAME',
     'link' => true,
     'default' => true,
@@ -48,6 +50,7 @@ $dashletData['db_eventiDashlet']['columns'] = array (
     'id' => 'DB_EVENTI_LEADSLEADS_IDA',
     'width' => '10%',
     'default' => true,
+    'name' => 'db_eventi_leads_name',
   ),
   'db_eventi_accounts_name' => 
   array (
@@ -57,6 +60,7 @@ $dashletData['db_eventiDashlet']['columns'] = array (
     'id' => 'DB_EVENTI_ACCOUNTSACCOUNTS_IDA',
     'width' => '10%',
     'default' => true,
+    'name' => 'db_eventi_accounts_name',
   ),
   'sede' => 
   array (
@@ -65,14 +69,16 @@ $dashletData['db_eventiDashlet']['columns'] = array (
     'label' => 'LBL_SEDE',
     'width' => '10%',
     'default' => true,
+    'name' => 'sede',
   ),
   'description' => 
   array (
     'type' => 'text',
     'label' => 'LBL_DESCRIPTION',
     'sortable' => false,
-    'width' => '10%',
+    'width' => '40%',
     'default' => true,
+    'name' => 'description',
   ),
   'status' => 
   array (
@@ -81,6 +87,7 @@ $dashletData['db_eventiDashlet']['columns'] = array (
     'label' => 'LBL_STATUS',
     'width' => '10%',
     'default' => false,
+    'name' => 'status',
   ),
   'tipo' => 
   array (
@@ -89,5 +96,6 @@ $dashletData['db_eventiDashlet']['columns'] = array (
     'label' => 'LBL_TIPO',
     'width' => '10%',
     'default' => false,
+    'name' => 'tipo',
   ),
 );

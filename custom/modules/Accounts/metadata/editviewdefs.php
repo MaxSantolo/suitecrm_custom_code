@@ -166,6 +166,14 @@ array (
         array (
           0 => 
           array (
+            'name' => 'nomina_responsabile_c',
+            'label' => 'LBL_NOMINA_RESPONSABILE',
+          ),
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO',
           ),

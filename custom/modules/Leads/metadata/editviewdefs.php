@@ -234,6 +234,11 @@ array (
             'name' => 'lead_azn_startup_c',
             'label' => 'LBL_LEAD_AZN_STARTUP',
           ),
+          1 => 
+          array (
+            'name' => 'nomina_resp_c',
+            'label' => 'LBL_NOMINA_RESP',
+          ),
         ),
       ),
       'lbl_editview_panel2' => 
@@ -318,7 +323,6 @@ array (
             'name' => 'selpass_c',
             'label' => 'LBL_SELPASS',
           ),
-          1 => '',
         ),
         2 => 
         array (
@@ -367,7 +371,6 @@ array (
             'validateDependency' => false,
             'customCode' => '<input name="account_name" id="EditView_account_name" {if ($fields.converted.value == 1)}disabled="true"{/if} size="30" maxlength="255" type="text" value="{$fields.account_name.value}">',
           ),
-          1 => '',
         ),
       ),
       'LBL_PANEL_ADVANCED' => 
@@ -377,9 +380,9 @@ array (
           0 => 'status',
           1 => 
           array (
-            'name' => 'centro_scelto_c',
+            'name' => 'tipo_fornitore_c',
             'studio' => 'visible',
-            'label' => 'LBL_CENTRO_SCELTO',
+            'label' => 'LBL_TIPO_FORNITORE',
           ),
         ),
         1 => 
