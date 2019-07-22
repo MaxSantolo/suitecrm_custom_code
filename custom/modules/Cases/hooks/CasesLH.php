@@ -14,6 +14,7 @@ class CasesLH
 {
 
     static $alreadyran = false;
+    static $alreadyranUpdate = false;
 
     //invia l'appuntamento d'intervento alla dashboard reception, se la data d'intervento non cambia non viene mandato niente
     function Push2Reception($bean)
@@ -21,26 +22,25 @@ class CasesLH
 
         require_once 'custom/Extension/application/PickLog.php';
 
-        if ($bean->intervento_c != '' && $bean->fetched_row['intervento_c'] != $bean->intervento_c) {
+        $dbID2Modify = (BeanFactory::getBean("db_eventi"))->retrieve_by_string_fields(array('parent_id_custom_c' => $bean->id,))->id;
+
+        if ($bean->intervento_c != '' && $bean->fetched_row['intervento_c'] != $bean->intervento_c && is_null($dbID2Modify)) {
 
             $reception = BeanFactory::newBean('db_eventi');
-
             $parent = BeanFactory::getBean($bean->parent_type, $bean->parent_id);
 
             $reception->name = "Intervento tecnico di " . $parent->name;
-            $reception->description = strip_tags(html_entity_decode($bean->description)); //. $bean->leads_cases_1leads_ida . $bean->account_id;
+            $reception->description = strip_tags(html_entity_decode($bean->descrizione_c)); //. $bean->leads_cases_1leads_ida . $bean->account_id;
             $reception->event_date = $bean->intervento_c;
             $reception->date_entered = $bean->intervento_c;
             $reception->date_modified = (new DateTime(now))->format('Y-m-d');
             $reception->sede = $bean->sede_ticket_c;
             $reception->status = 'new';
             $reception->tipo = 'tech';
-
+            $reception->parent_id_custom_c = $bean->id;
             $reception->db_eventi_leadsleads_ida = $bean->leads_cases_1leads_ida;
             $reception->db_eventi_accountsaccounts_ida = $bean->account_id;
-
             $reception->assigned_user_id = $bean->assigned_user_id;
-
             $reception->save();
 
             //pickLog
@@ -62,13 +62,17 @@ class CasesLH
     }
 
     //notifica il ticket a seconda dei casi indicati
-    function Notify($bean)
-    {
+    function NotifyUpdate($bean) {
 
         require_once 'include/SugarPHPMailer.php';
         require_once 'custom/Extension/application/PickLog.php';
+
+        if (self::$alreadyranUpdate == true) return;
+        self::$alreadyranUpdate = true;
+
         $mailBody = "";
         $mailSubj = "";
+        $action = "NUOVO_TICKET";
 
         global $current_user;
         (empty($bean->fetched_row)) ? $mailSubj = "Inserito un nuovo ticket da " . $current_user->name : $mailSubj = "Ticket {$bean->case_number} aggiornato da " . $current_user->name;
@@ -83,10 +87,30 @@ class CasesLH
 
         ) {
 
+
+            //se trovo un db_eventi collegato al ticket (attraverso il campo parent_id_custom_c) allora aggiorno anche il record della dashboard_eventi
+            $dbID2Modify = (BeanFactory::getBean("db_eventi"))->retrieve_by_string_fields(
+                array(
+                    'parent_id_custom_c' => $bean->id,
+                    'deleted' => 0,
+                )
+            )->id;
+
+            if ($dbID2Modify != "") {
+
+                $action = "AGGIORNAMENTO_APPUNTAMENTO_TICKET";
+                $dbevent = BeanFactory::getBean("db_eventi",$dbID2Modify);
+                $dbevent->assigned_user_id = $bean->assigned_user_id;
+                $dbevent->sede = $bean->sede_ticket_c;
+                $dbevent->event_date = $bean->intervento_c;
+                $dbevent->status = 'new';
+                $dbevent->save();
+
+            }
+
             global $app_list_strings;
             $ticketType = $app_list_strings['case_type_dom'][$bean->type];
             $center = $app_list_strings['sede_list'][$bean->sede_ticket_c];
-
             $mailBody .= "
                 
                 <strong>Number: </strong>{$bean->case_number}<br>
@@ -98,7 +122,6 @@ class CasesLH
                 <strong><a href='{$ticketURL}' target='_blank'>Vedi i dettagli </a></strong>
                 
             ";
-
 
         } else return;
 
@@ -119,7 +142,7 @@ class CasesLH
             $mail->addAddress('direzione@pickcenter.com','RN');
             $mail->addAddress($current_user->email1);
             $mail->addAddress($primary_email);
-
+            //$mail->addAddress("max@swhub.io"); //for testing
 
             $mail->prepForOutbound();
             $mail->setMailerForSystem();
@@ -133,11 +156,9 @@ class CasesLH
                 $subject = "Inviata mail aggiornamento ticket";
             }
 
-
-
             $params = array(
                 'app' => 'CRM',
-                'action' => 'NUOVO_TICKET',
+                'action' => $action,
                 'content' => $content,
                 'user' => $current_user->name,
                 'description' => $subject,
@@ -145,12 +166,11 @@ class CasesLH
                 'destination' => "Email notifica a {$current_user->email1} e {$primary_email}",);
             sendLog($params);
 
-
         }
     }
 
     //wysiwyg
-    function sendErrorMail($content,$subject="Errore nell'invio di PEC e CDU") {
+    function sendErrorMail($content,$subject="Errore nell'invio di notifica ticket") {
 
         require_once 'include/SugarPHPMailer.php';
 
@@ -167,7 +187,7 @@ class CasesLH
         $mail->addAddress('cea@pickcenter.com','LC');
         $mail->addAddress('bucci@pickcenter.com','MB');
         $mail->addAddress('roberta@pickcenter.com','RG');
-        $mail->addAddress('max@swhub.io','MS'); //for testing
+        //$mail->addAddress('max@swhub.io','MS'); //for testing
 
         $mail->prepForOutbound();
         $mail->setMailerForSystem();
@@ -185,9 +205,10 @@ class CasesLH
         //stabilisco se il fornitore a cui è legato è un'azienda o un contatto
         $parentType = $bean->parent_type;
         $parentID = $bean->parent_id;
+        $originalID = $bean->id;
 
         //se il fornitore non è segnato non creo la copia
-        if ($bean->status == "Closed_Closed" && !empty($bean->fetched_row) && $bean->fetched_row != "Closed_Closed" && $parentID != '' ) {
+        if ($bean->status == "Closed_Closed" && !empty($bean->fetched_row) && $bean->fetched_row['status'] != "Closed_Closed" && $parentID != '' ) {
 
         $objBean = BeanFactory::getBean('Cases', $bean->id);
         $objBean->id = create_guid();
@@ -211,7 +232,7 @@ class CasesLH
             $objBean->account_cases->add($accBean);
 
         }
-
+        $objBean->ticket_linked_id_c = $originalID;
         $objBean->save();
 
         }
@@ -240,6 +261,160 @@ class CasesLH
     function createReceipt($bean) {
 
         //todo: dipende dal programma di gestione contrattuale e fatturazione
+
+    }
+
+    //notifica di chiusura a inseritore, assegnatario e direzione
+    function NotifyClosure($bean) {
+
+        require_once 'include/SugarPHPMailer.php';
+        require_once 'custom/Extension/application/PickLog.php';
+
+        //se il ticket è chiuso, ha dei precedenti (quindi non è la copia fornitore) e il campo soluzione non è vuoto...
+        if ($bean->status == "Closed_Closed" &&
+            !empty($bean->fetched_row) &&
+            $bean->fetched_row['status'] != "Closed_Closed" &&
+            $bean->resolution != "" &&
+            $bean->ticket_linked_id_c == "") {
+
+            $creator = (BeanFactory::getBean("Users",$bean->created_by))->email1; //recupero la mail e il nome del creatore del ticket
+            $crMail = $creator->email1;
+            $crName = $creator->name;
+
+            $lastEditor = (BeanFactory::getBean("Users",$bean->modified_user_id))->email1; //recupero la mail e il nome di chi ha modificato ultima volta
+            $leMail = $lastEditor->email1;
+            $leName = $lastEditor->name;
+
+            $assignedTo = (BeanFactory::getBean("Users",$bean->assigned_user_id))->email1; //recupero la mail e il nome dell'ultimo assegnatario
+            $atMail = $assignedTo->email1;
+            $atName = $assignedTo->name;
+
+            $subject = "Ticket n. {$bean->case_number} - chiuso";
+            $ticketURL = "http://crm.pickcenter.com/index.php?action=ajaxui#ajaxUILoc=index.php%3Fmodule%3DCases%26action%3DDetailView%26record%3D" . $bean->id;
+
+            global $app_list_strings;
+            $ticketType = $app_list_strings['case_type_dom'][$bean->type];
+            $center = $app_list_strings['sede_list'][$bean->sede_ticket_c];
+
+            $mailBody = "
+                
+                <strong>Number: </strong>{$bean->case_number}<br>
+                <strong>Centro: </strong>{$center}<br>
+                <strong>Tipo: </strong>{$ticketType}<br>
+                <strong>Richiedente: </strong>{$crName}<br>
+                <strong>Ultima modifica di: </strong>{$leName}<br>
+                <strong>Oggetto: </strong>{$bean->name}<br>
+                <strong>Descrizione: </strong>{$bean->description}<br>
+                <strong>Soluzione: </strong>{$bean->resolution}<br>
+                <strong><a href='{$ticketURL}' target='_blank'>Vedi i dettagli </a></strong>
+                
+            ";
+
+            $mail = new SugarPHPMailer();
+            $mail->CharSet="UTF-8";
+            $mail->isSMTP();
+            $mail->From = 'info@pickcenter.com';
+            $mail->FromName = 'Pick Center CRM';
+            $mail->Subject = $subject;
+
+            $mail->Body_html = from_html($mailBody);
+            $mail->Body = wordwrap($mailBody,1000);
+            $mail->isHTML(true);
+            //$mail->addAddress('max@swhub.io'); //for testing
+            $mail->addAddress('direzione@pickcenter.com','LC');
+            $mail->addAddress($crMail,$crName);
+            $mail->addAddress($leMail,$leName);
+            $mail->addAddress($atMail,$atName);
+            $mail->prepForOutbound();
+            $mail->setMailerForSystem();
+
+            $mail->send();
+
+            global $current_user;
+            $params = array(
+                'app' => 'CRM',
+                'action' => 'TICKET_COMPLETO',
+                'content' => $mailBody,
+                'user' => $current_user->name,
+                'description' => $subject,
+                'origin' => 'crm.cases',
+                'destination' => "crm.cases",);
+            sendLog($params);
+
+
+
+        }
+
+
+    }
+
+    //se un ticket viene riaperto allora viene cancellato dall'associazione con il fornitore (verrà riassociato alla nuova chiusura)
+    function ReopenDelete($bean){
+
+        require_once 'custom/Extension/application/PickLog.php';
+
+        if (!empty($bean->fetched_row) && $bean->fetched_row['status'] == "Closed_Closed") {
+
+            //prendo il ticket collegato
+            $ticketID2Del = (BeanFactory::getBean("Cases"))->retrieve_by_string_fields(
+                array(
+                    'ticket_linked_id_c' => $bean->id,
+                    'deleted' => 0,
+                )
+            )->id;
+
+            $ticket2Del = BeanFactory::getBean("Cases",$ticketID2Del);
+            $ticket2Del->deleted = 1;
+            $ticket2Del->save();
+
+            global $current_user;
+            $content = $subject = "Ticket fornitore rimosso perchè ticket originario riaperto";
+            $params = array(
+                'app' => 'CRM',
+                'action' => 'CANCELLO_TICKET_FORNITORE',
+                'content' => $content,
+                'user' => $current_user->name,
+                'description' => $subject,
+                'origin' => 'crm.cases',
+                'destination' => "crm.cases",);
+            sendLog($params);
+
+        }
+
+    }
+
+    function CloseDb_eventi($bean) {
+
+        require_once 'custom/Extension/application/PickLog.php';
+
+        //vado a cercare l'evento dashboard collegato
+        $dbID2Modify = (BeanFactory::getBean("db_eventi"))->retrieve_by_string_fields(
+            array(
+                'parent_id_custom_c' => $bean->id,
+                'deleted' => 0,
+            )
+        )->id;
+
+        if ($dbID2Modify != "" && !empty($bean->fetched_row) && $bean->fetched_row['status'] != "Closed_Closed" && $bean->status == "Closed_Closed") {
+
+            $db2modify = BeanFactory::getBean("db_eventi",$dbID2Modify);
+            $db2modify->status = "closed";
+            $db2modify->save();
+
+            //logs
+            global $current_user;
+            $content = $subject = "Appuntamenti Reception eliminati per chiusura ticket";
+            $params = array(
+                'app' => 'CRM',
+                'action' => 'CHIUSO_APPUNTAMENTO_FORNITORE',
+                'content' => $content,
+                'user' => $current_user->name,
+                'description' => $subject,
+                'origin' => 'crm.db_eventi',
+                'destination' => "crm.db_eventi",);
+            sendLog($params);
+
+        }
 
     }
 

@@ -30,26 +30,6 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => true,
-      'tabDefs' => 
-      array (
-        'DEFAULT' => 
-        array (
-          'newTab' => true,
-          'panelDefault' => 'expanded',
-        ),
-        'LBL_EDITVIEW_PANEL1' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
-        'LBL_EDITVIEW_PANEL2' => 
-        array (
-          'newTab' => true,
-          'panelDefault' => 'expanded',
-        ),
-      ),
-      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -57,148 +37,21 @@ array (
       array (
         0 => 
         array (
-          0 => 'date_entered',
+          0 => 'name',
+          1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => 
+          0 => 'date_entered',
+          1 => 'date_modified',
+        ),
+        2 => 
+        array (
+          0 => 'description',
+          1 => 
           array (
             'name' => 'sr_servizi_richiesti_leads_name',
           ),
-          1 => 
-          array (
-            'name' => 'accounts_sr_servizi_richiesti_1_name',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'centro_scelto',
-            'studio' => 'visible',
-            'label' => 'LBL_CENTRO_SCELTO',
-          ),
-          1 => 
-          array (
-            'name' => 'servizio_scelto',
-            'studio' => 'visible',
-            'label' => 'LBL_SERVIZIO_SCELTO',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'num_uffici',
-            'label' => 'LBL_NUM_UFFICI',
-          ),
-          1 => 
-          array (
-            'name' => 'num_postazioni',
-            'label' => 'LBL_NUM_POSTAZIONI',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'centro_quotato_c',
-            'studio' => 'visible',
-            'label' => 'LBL_CENTRO_QUOTATO',
-          ),
-          1 => 
-          array (
-            'name' => 'inviata_offerta_c',
-            'label' => 'LBL_INVIATA_OFFERTA',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'num_quot_uff_c',
-            'label' => 'LBL_NUM_QUOT_UFF',
-          ),
-          1 => 
-          array (
-            'name' => 'num_quot_postazioni_c',
-            'label' => 'LBL_NUM_QUOT_POSTAZIONI',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 'description',
-        ),
-      ),
-      'lbl_editview_panel1' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'stato_c',
-            'studio' => 'visible',
-            'label' => 'LBL_STATO',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'data_ora_appuntamento_c',
-            'label' => 'LBL_DATA_ORA_APPUNTAMENTO',
-          ),
-          1 => 
-          array (
-            'name' => 'sede_c',
-            'studio' => 'visible',
-            'label' => 'LBL_SEDE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'sendmail_c',
-            'label' => 'LBL_SENDMAIL',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'telefono_contatto_c',
-            'label' => 'LBL_TELEFONO_CONTATTO',
-          ),
-          1 => 
-          array (
-            'name' => 'cellulare_contatto_c',
-            'label' => 'LBL_CELLULARE_CONTATTO',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 'assigned_user_name',
-        ),
-      ),
-      'lbl_editview_panel2' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'created_by_name',
-            'label' => 'LBL_CREATED',
-          ),
-          1 => 
-          array (
-            'name' => 'modified_by_name',
-            'label' => 'LBL_MODIFIED_NAME',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 'date_modified',
         ),
       ),
     ),

@@ -39,15 +39,6 @@ array (
         'width' => '10%',
         'name' => 'center',
       ),
-      'status' => 
-      array (
-        'type' => 'enum',
-        'default' => true,
-        'studio' => 'visible',
-        'label' => 'LBL_STATUS',
-        'width' => '10%',
-        'name' => 'status',
-      ),
       'current_user_only' => 
       array (
         'name' => 'current_user_only',
@@ -93,15 +84,6 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'down_speed',
-      ),
-      'status' => 
-      array (
-        'type' => 'enum',
-        'default' => true,
-        'studio' => 'visible',
-        'label' => 'LBL_STATUS',
-        'width' => '10%',
-        'name' => 'status',
       ),
       'assigned_user_id' => 
       array (

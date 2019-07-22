@@ -47,6 +47,11 @@ array (
           'newTab' => true,
           'panelDefault' => 'expanded',
         ),
+        'LBL_EDITVIEW_PANEL2' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
         'LBL_PANEL_ADVANCED' => 
         array (
           'newTab' => false,
@@ -166,14 +171,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'nomina_responsabile_c',
-            'label' => 'LBL_NOMINA_RESPONSABILE',
-          ),
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO',
           ),
@@ -214,6 +211,31 @@ array (
           array (
             'name' => 'instagram_az_c',
             'label' => 'LBL_INSTAGRAM_AZ',
+          ),
+        ),
+      ),
+      'lbl_editview_panel2' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'gdrp_nomina_responsabile_c',
+            'label' => 'LBL_GDRP_NOMINA_RESPONSABILE',
+          ),
+          1 => '',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'adesione_a_c',
+            'label' => 'LBL_ADESIONE_A',
+          ),
+          1 => 
+          array (
+            'name' => 'adesione_a_data_c',
+            'label' => 'LBL_ADESIONE_A_DATA',
           ),
         ),
       ),

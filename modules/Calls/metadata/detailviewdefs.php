@@ -1,5 +1,44 @@
 <?php
-$viewdefs ['Calls'] = 
+/*********************************************************************************
+ * SugarCRM Community Edition is a customer relationship management program developed by
+ * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
+
+ * SuiteCRM is an extension to SugarCRM Community Edition developed by Salesagility Ltd.
+ * Copyright (C) 2011 - 2014 Salesagility Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by the
+ * Free Software Foundation with the addition of the following permission added
+ * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
+ * IN WHICH THE COPYRIGHT IS OWNED BY SUGARCRM, SUGARCRM DISCLAIMS THE WARRANTY
+ * OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with
+ * this program; if not, see http://www.gnu.org/licenses or write to the Free
+ * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+ * 02110-1301 USA.
+ *
+ * You can contact SugarCRM, Inc. headquarters at 10050 North Wolfe Road,
+ * SW2-130, Cupertino, CA 95014, USA. or at email address contact@sugarcrm.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License version 3,
+ * these Appropriate Legal Notices must retain the display of the "Powered by
+ * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
+ * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
+ * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
+ ********************************************************************************/
+
+
+$viewdefs ['Calls'] =
 array (
   'DetailView' => 
   array (
@@ -77,27 +116,33 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => false,
+      'useTabs' => true,
       'includes' => 
       array (
         'SA_RESCHEDULE' => 
         array (
           'file' => 'modules/Calls_Reschedule/reschedule_form.js',
         ),
-        0 => 
-        array (
-          'file' => 'modules/Reminders/Reminders.js',
-        ),
+          array('file' => 'modules/Reminders/Reminders.js'),
       ),
       'tabDefs' => 
       array (
         'LBL_CALL_INFORMATION' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_RESCHEDULE_PANEL' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_PANEL_ASSIGNMENT' =>
+        array (
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
       ),
-      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -112,12 +157,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'status',
-            'comment' => 'The status of the call (Held, Not Held, etc.)',
-            'studio' => 
-            array (
-              'detailview' => false,
-            ),
+            'name' => 'direction',
+            'customCode' => '{$fields.direction.options[$fields.direction.value]} {$fields.status.options[$fields.status.value]}',
             'label' => 'LBL_STATUS',
           ),
         ),
@@ -129,34 +170,13 @@ array (
             'customCode' => '{$fields.date_start.value} {$fields.time_start.value}&nbsp;',
             'label' => 'LBL_DATE_TIME',
           ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'relating_c',
-            'label' => 'LBL_RELATING',
-          ),
           1 => 
           array (
             'name' => 'parent_name',
             'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
           ),
         ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'telcont_c',
-            'label' => 'LBL_TELCONT',
-          ),
-          1 => 
-          array (
-            'name' => 'celcont_c',
-            'label' => 'LBL_CELCONT',
-          ),
-        ),
-        4 => 
+        2 => 
         array (
           0 => 
           array (
@@ -164,16 +184,27 @@ array (
             'customCode' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV}&nbsp;',
             'label' => 'LBL_DURATION',
           ),
+//          1 =>
+//          array (
+//            'name' => 'reminder_time',
+//            'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
+//            'label' => 'LBL_REMINDER',
+//          ),
+                1 => array(
+                    'name' => 'reminders',
+                    'label' => 'LBL_REMINDERS',
+                ),
         ),
-        5 => 
+        3 => 
         array (
           0 => 
           array (
-            'name' => 'reminders',
-            'label' => 'LBL_REMINDERS',
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
           ),
         ),
-        6 => 
+        4 => 
         array (
           0 => 
           array (
@@ -183,8 +214,37 @@ array (
           ),
         ),
       ),
+      'lbl_reschedule_panel' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'reschedule_history',
+            'comment' => 'Call duration, minutes portion',
+            'label' => 'LBL_RESCHEDULE_HISTORY',
+          ),
+          1 => '',
+        ),
+      ),
+      'LBL_PANEL_ASSIGNMENT' =>
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}&nbsp;',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}&nbsp;',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
+        ),
+      ),
     ),
   ),
 );
-;
-?>

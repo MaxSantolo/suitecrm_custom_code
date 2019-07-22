@@ -42,7 +42,7 @@
 $relationships = array (
   'leads_modified_user' => 
   array (
-    'id' => '49ddc012-a1a6-125f-2bdf-5b20db3e51dd',
+    'id' => '52c0bcf7-d3db-1f5e-f56f-5d03b0b7a295',
     'relationship_name' => 'leads_modified_user',
     'lhs_module' => 'Users',
     'lhs_table' => 'users',
@@ -68,7 +68,7 @@ $relationships = array (
   ),
   'leads_created_by' => 
   array (
-    'id' => '49fc166c-23d0-7dd5-dfd5-5b20dbdfa82c',
+    'id' => '52ed69bb-f8e5-b1b8-a864-5d03b09f1cf8',
     'relationship_name' => 'leads_created_by',
     'lhs_module' => 'Users',
     'lhs_table' => 'users',
@@ -94,7 +94,7 @@ $relationships = array (
   ),
   'leads_assigned_user' => 
   array (
-    'id' => '4a17ce87-0bbd-2810-a319-5b20db2965a4',
+    'id' => '530cf3cc-090d-db79-dc3d-5d03b0f843b8',
     'relationship_name' => 'leads_assigned_user',
     'lhs_module' => 'Users',
     'lhs_table' => 'users',
@@ -120,7 +120,7 @@ $relationships = array (
   ),
   'securitygroups_leads' => 
   array (
-    'id' => '4a37c6de-fe02-580d-4c92-5b20db76bbb8',
+    'id' => '532bfa83-d792-5334-eba5-5d03b04d5068',
     'relationship_name' => 'securitygroups_leads',
     'lhs_module' => 'SecurityGroups',
     'lhs_table' => 'securitygroups',
@@ -146,7 +146,7 @@ $relationships = array (
   ),
   'lead_direct_reports' => 
   array (
-    'id' => '4a8a04bb-5e10-7740-07bc-5b20db815446',
+    'id' => '53885e32-5676-6b5a-9e85-5d03b05717d6',
     'relationship_name' => 'lead_direct_reports',
     'lhs_module' => 'Leads',
     'lhs_table' => 'leads',
@@ -172,7 +172,7 @@ $relationships = array (
   ),
   'lead_tasks' => 
   array (
-    'id' => '4aa4eca6-45f5-c419-3fe8-5b20dbf48b13',
+    'id' => '53a54abc-a257-a868-45f5-5d03b08ed15d',
     'relationship_name' => 'lead_tasks',
     'lhs_module' => 'Leads',
     'lhs_table' => 'leads',
@@ -198,7 +198,7 @@ $relationships = array (
   ),
   'lead_notes' => 
   array (
-    'id' => '4ac05e29-ddfa-9bd4-5c13-5b20db97e26e',
+    'id' => '53bdb0f2-6071-41c0-366e-5d03b034e6e9',
     'relationship_name' => 'lead_notes',
     'lhs_module' => 'Leads',
     'lhs_table' => 'leads',
@@ -224,7 +224,7 @@ $relationships = array (
   ),
   'lead_meetings' => 
   array (
-    'id' => '4adb8bf8-48c7-81eb-4973-5b20dbd412f3',
+    'id' => '53da1fe7-dc0c-22bc-8e45-5d03b0faff3a',
     'relationship_name' => 'lead_meetings',
     'lhs_module' => 'Leads',
     'lhs_table' => 'leads',
@@ -250,7 +250,7 @@ $relationships = array (
   ),
   'lead_calls' => 
   array (
-    'id' => '4af7fe30-296c-4584-35a3-5b20dba3b224',
+    'id' => '53f375cf-2cf1-9a23-b5d6-5d03b056447c',
     'relationship_name' => 'lead_calls',
     'lhs_module' => 'Leads',
     'lhs_table' => 'leads',
@@ -276,7 +276,7 @@ $relationships = array (
   ),
   'lead_emails' => 
   array (
-    'id' => '4b12c87c-5a4f-6469-e507-5b20dbf9328b',
+    'id' => '540bedd9-75b3-0f4d-d771-5d03b09c8d66',
     'relationship_name' => 'lead_emails',
     'lhs_module' => 'Leads',
     'lhs_table' => 'leads',
@@ -302,7 +302,7 @@ $relationships = array (
   ),
   'campaign_leads' => 
   array (
-    'id' => '54ee2e8c-aeb6-7241-6801-5b20db044ab4',
+    'id' => '63808c74-ee8a-6da8-59f4-5d03b026d9a6',
     'relationship_name' => 'campaign_leads',
     'lhs_module' => 'Campaigns',
     'lhs_table' => 'campaigns',
@@ -328,7 +328,7 @@ $relationships = array (
   ),
   'contact_leads' => 
   array (
-    'id' => '5b9d73ad-2983-daa1-a33d-5b20db497fe2',
+    'id' => '73003ef1-92e7-4cf6-477e-5d03b0e542b3',
     'relationship_name' => 'contact_leads',
     'lhs_module' => 'Contacts',
     'lhs_table' => 'contacts',
@@ -354,7 +354,7 @@ $relationships = array (
   ),
   'account_leads' => 
   array (
-    'id' => '5f91b78d-9bea-e778-3d4d-5b20db52a1f4',
+    'id' => '76dacd8b-0841-b87d-e113-5d03b074867c',
     'relationship_name' => 'account_leads',
     'lhs_module' => 'Accounts',
     'lhs_table' => 'accounts',
@@ -380,7 +380,7 @@ $relationships = array (
   ),
   'opportunity_leads' => 
   array (
-    'id' => '68e875d2-9e1f-b8af-7dcd-5b20dbc500e8',
+    'id' => '7b2b73a1-8140-6387-da35-5d03b0650ccd',
     'relationship_name' => 'opportunity_leads',
     'lhs_module' => 'Opportunities',
     'lhs_table' => 'opportunities',
@@ -406,7 +406,7 @@ $relationships = array (
   ),
   'emails_leads_rel' => 
   array (
-    'id' => '6e40fa2e-32e6-7f0a-b834-5b20dbc02ad4',
+    'id' => '842a6c6a-122a-4b23-adc5-5d03b0a15854',
     'relationship_name' => 'emails_leads_rel',
     'lhs_module' => 'Emails',
     'lhs_table' => 'emails',
@@ -432,7 +432,7 @@ $relationships = array (
   ),
   'jjwg_Maps_leads' => 
   array (
-    'id' => '9790959a-77c1-e2f4-7e12-5b20db5981b3',
+    'id' => 'dc015f50-625c-a22e-e67b-5d03b0a9c983',
     'relationship_name' => 'jjwg_Maps_leads',
     'lhs_module' => 'jjwg_Maps',
     'lhs_table' => 'jjwg_Maps',
@@ -458,7 +458,7 @@ $relationships = array (
   ),
   'calls_leads' => 
   array (
-    'id' => 'ac756b41-ac7d-8dfe-37cb-5b20dbf665cc',
+    'id' => 'c65604ff-283f-9108-0f24-5d03b0738358',
     'relationship_name' => 'calls_leads',
     'lhs_module' => 'Calls',
     'lhs_table' => 'calls',
@@ -484,7 +484,7 @@ $relationships = array (
   ),
   'meetings_leads' => 
   array (
-    'id' => 'ae751eca-4a09-4d43-6b92-5b20db2dfdc3',
+    'id' => 'df7b0797-d340-84ae-7ba5-5d03b08acf65',
     'relationship_name' => 'meetings_leads',
     'lhs_module' => 'Meetings',
     'lhs_table' => 'meetings',
@@ -510,7 +510,7 @@ $relationships = array (
   ),
   'leads_documents' => 
   array (
-    'id' => 'b0c559a4-6e87-7d93-91b3-5b20dbd676f1',
+    'id' => 'fb390334-6711-1f7b-bfdc-5d03b0624707',
     'relationship_name' => 'leads_documents',
     'lhs_module' => 'Leads',
     'lhs_table' => 'leads',
@@ -536,7 +536,7 @@ $relationships = array (
   ),
   'fp_events_leads_1' => 
   array (
-    'id' => 'b327b6fd-1c73-e6d5-2538-5b20db28a367',
+    'id' => '12037f54-aa7f-560d-1dfc-5d03b0841154',
     'relationship_name' => 'fp_events_leads_1',
     'lhs_module' => 'FP_events',
     'lhs_table' => 'fp_events',
@@ -562,7 +562,7 @@ $relationships = array (
   ),
   'leads_aos_quotes_1' => 
   array (
-    'id' => 'b55a6176-a0b9-92f1-d624-5b20db6e2846',
+    'id' => '13d0b42f-1d4e-288e-b045-5d03b03ff3df',
     'relationship_name' => 'leads_aos_quotes_1',
     'lhs_module' => 'Leads',
     'lhs_table' => 'leads',
@@ -588,7 +588,7 @@ $relationships = array (
   ),
   'sr_servizi_richiesti_leads' => 
   array (
-    'id' => 'b57ae902-a6b3-e2ed-4dc0-5b20db66ed9d',
+    'id' => '13e91a34-7d2a-e859-fc62-5d03b084a771',
     'relationship_name' => 'sr_servizi_richiesti_leads',
     'lhs_module' => 'Leads',
     'lhs_table' => 'leads',
@@ -614,11 +614,115 @@ $relationships = array (
   ),
   'leads_aos_invoices_1' => 
   array (
-    'rhs_label' => 'Cedolini',
+    'id' => '1434b628-702b-07e1-b72a-5d03b0934ec3',
+    'relationship_name' => 'leads_aos_invoices_1',
+    'lhs_module' => 'Leads',
+    'lhs_table' => 'leads',
+    'lhs_key' => 'id',
+    'rhs_module' => 'AOS_Invoices',
+    'rhs_table' => 'aos_invoices',
+    'rhs_key' => 'id',
+    'join_table' => 'leads_aos_invoices_1_c',
+    'join_key_lhs' => 'leads_aos_invoices_1leads_ida',
+    'join_key_rhs' => 'leads_aos_invoices_1aos_invoices_idb',
+    'relationship_type' => 'one-to-many',
+    'relationship_role_column' => NULL,
+    'relationship_role_column_value' => NULL,
+    'reverse' => '0',
+    'deleted' => '0',
+    'readonly' => true,
+    'rhs_subpanel' => 'default',
+    'lhs_subpanel' => NULL,
+    'from_studio' => true,
+    'is_custom' => true,
+    'relationship_only' => false,
+    'for_activities' => false,
+  ),
+  'csb_reazioni_leads' => 
+  array (
+    'id' => '144e3152-3811-c140-36ac-5d03b0f8cb30',
+    'relationship_name' => 'csb_reazioni_leads',
+    'lhs_module' => 'Leads',
+    'lhs_table' => 'leads',
+    'lhs_key' => 'id',
+    'rhs_module' => 'CSB_reazioni',
+    'rhs_table' => 'csb_reazioni',
+    'rhs_key' => 'id',
+    'join_table' => 'csb_reazioni_leads_c',
+    'join_key_lhs' => 'csb_reazioni_leadsleads_ida',
+    'join_key_rhs' => 'csb_reazioni_leadscsb_reazioni_idb',
+    'relationship_type' => 'one-to-many',
+    'relationship_role_column' => NULL,
+    'relationship_role_column_value' => NULL,
+    'reverse' => '0',
+    'deleted' => '0',
+    'readonly' => true,
+    'rhs_subpanel' => 'default',
+    'lhs_subpanel' => NULL,
+    'is_custom' => true,
+    'relationship_only' => false,
+    'for_activities' => false,
+    'from_studio' => true,
+  ),
+  'wifi_wifi_accounts_leads' => 
+  array (
+    'id' => '14672a79-4552-be78-7800-5d03b076bae3',
+    'relationship_name' => 'wifi_wifi_accounts_leads',
+    'lhs_module' => 'Leads',
+    'lhs_table' => 'leads',
+    'lhs_key' => 'id',
+    'rhs_module' => 'wifi_wifi_accounts',
+    'rhs_table' => 'wifi_wifi_accounts',
+    'rhs_key' => 'id',
+    'join_table' => 'wifi_wifi_accounts_leads_c',
+    'join_key_lhs' => 'wifi_wifi_accounts_leadsleads_ida',
+    'join_key_rhs' => 'wifi_wifi_accounts_leadswifi_wifi_accounts_idb',
+    'relationship_type' => 'one-to-many',
+    'relationship_role_column' => NULL,
+    'relationship_role_column_value' => NULL,
+    'reverse' => '0',
+    'deleted' => '0',
+    'readonly' => true,
+    'rhs_subpanel' => 'default',
+    'lhs_subpanel' => NULL,
+    'is_custom' => true,
+    'relationship_only' => false,
+    'for_activities' => false,
+    'from_studio' => true,
+  ),
+  'db_eventi_leads' => 
+  array (
+    'id' => '14988526-14fc-6b25-ce66-5d03b06269c2',
+    'relationship_name' => 'db_eventi_leads',
+    'lhs_module' => 'Leads',
+    'lhs_table' => 'leads',
+    'lhs_key' => 'id',
+    'rhs_module' => 'db_eventi',
+    'rhs_table' => 'db_eventi',
+    'rhs_key' => 'id',
+    'join_table' => 'db_eventi_leads_c',
+    'join_key_lhs' => 'db_eventi_leadsleads_ida',
+    'join_key_rhs' => 'db_eventi_leadsdb_eventi_idb',
+    'relationship_type' => 'one-to-many',
+    'relationship_role_column' => NULL,
+    'relationship_role_column_value' => NULL,
+    'reverse' => '0',
+    'deleted' => '0',
+    'readonly' => true,
+    'rhs_subpanel' => 'default',
+    'lhs_subpanel' => NULL,
+    'is_custom' => true,
+    'relationship_only' => false,
+    'for_activities' => false,
+    'from_studio' => true,
+  ),
+  'leads_cases_1' => 
+  array (
+    'rhs_label' => 'Ticket',
     'lhs_label' => 'Contatti',
     'rhs_subpanel' => 'default',
     'lhs_module' => 'Leads',
-    'rhs_module' => 'AOS_Invoices',
+    'rhs_module' => 'Cases',
     'relationship_type' => 'one-to-many',
     'readonly' => true,
     'deleted' => false,
@@ -626,6 +730,6 @@ $relationships = array (
     'for_activities' => false,
     'is_custom' => false,
     'from_studio' => true,
-    'relationship_name' => 'leads_aos_invoices_1',
+    'relationship_name' => 'leads_cases_1',
   ),
 );

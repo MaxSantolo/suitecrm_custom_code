@@ -43,7 +43,7 @@ $layout_defs['Accounts'] = array(
     // list of what Subpanels to show in the DetailView
     'subpanel_setup' => array(
 
-        'activities' => array(
+       'activities' => array(
             'order' => 10,
             'sort_order' => 'desc',
             'sort_by' => 'date_start',
@@ -116,13 +116,80 @@ $layout_defs['Accounts'] = array(
                     'subpanel_name' => 'ForHistory',
                     'get_subpanel_data' => 'notes',
                 ),
+
+                //allegati quotazioni
                 'quotesnotes' => array(
                     'module' => 'Notes',
                     'subpanel_name' => 'ForHistory',
                     'get_subpanel_data' => 'function:get_quotes_notes_accounts',
-                    'set_subpanel_data' => 'quotesnotes',
                     'generate_select' => true,
+                    'set_subpanel_data' => 'quotesnotes',
                 ),
+
+                //note allegate alle quotazioni
+                'quotesnotesleads' => array(
+                    'module' => 'Notes',
+                    'subpanel_name' => 'ForHistory',
+                    'get_subpanel_data' => 'function:get_notes_quotes_leads',
+                    'generate_select' => true,
+                    'set_subpanel_data' => 'quotesnotesleads',
+                ),
+
+                //note legate ai lead
+                'notesleads' => array(
+                    'module' => 'Notes',
+                    'subpanel_name' => 'ForHistory',
+                    'get_subpanel_data' => 'function:get_notes_leads',
+                    'generate_select' => true,
+                    'set_subpanel_data' => 'notesleads',
+                ),
+
+                //email dei lead
+                'emailsleads' => array(
+                    'module' => 'Emails',
+                    'subpanel_name' => 'ForHistory',
+                    'get_subpanel_data' => 'function:get_emails_leads',
+                    'generate_select' => true,
+                    'set_subpanel_data' => 'emailsleads',
+                ),
+
+                //meetings dei lead (dirette con parent_id)
+                'meetingsleadsd' => array(
+                    'module' => 'Meetings',
+                    'subpanel_name' => 'ForHistory',
+                    'get_subpanel_data' => 'function:get_meetings_leads_d',
+                    'generate_select' => true,
+                    'set_subpanel_data' => 'meetingsleadsd',
+                ),
+
+                //meetings indiretti con i contatti invitati (tabella: crm.meetings_leads)
+                'meetingsleadsi' => array(
+                    'module' => 'Meetings',
+                    'subpanel_name' => 'ForHistory',
+                    'get_subpanel_data' => 'function:get_meetings_leads_i',
+                    'generate_select' => true,
+                    'set_subpanel_data' => 'meetingsleadsi',
+                ),
+
+                //calls dei lead (dirette con parent_id)
+                'callsleadsd' => array(
+                    'module' => 'Calls',
+                    'subpanel_name' => 'ForHistory',
+                    'get_subpanel_data' => 'function:get_calls_leads_d',
+                    'generate_select' => true,
+                    'set_subpanel_data' => 'callsleadsd',
+                ),
+
+                //calls dei lead indirette (tabella: crm.calls_leads)
+                'callsleadsi' => array(
+                    'module' => 'Calls',
+                    'subpanel_name' => 'ForHistory',
+                    'get_subpanel_data' => 'function:get_calls_leads_i',
+                    'generate_select' => true,
+                    'set_subpanel_data' => 'callsleadsi',
+                ),
+
+
                 'emails' => array(
                     'module' => 'Emails',
                     'subpanel_name' => 'ForUnlinkedEmailHistory',
@@ -229,10 +296,9 @@ $layout_defs['Accounts'] = array(
                     'mode' => 'MultiSelect',
                 ),
             ),
-
         ),
         'cases' => array(
-            'order' => 100,
+            'order' => 20,
             'sort_order' => 'desc',
             'sort_by' => 'case_number',
             'module' => 'Cases',
@@ -296,14 +362,71 @@ $layout_defs['Accounts'] = array(
             'subpanel_name' => 'ForTargets',
             'title_key' => 'LBL_CAMPAIGNS',
         ),
-        'account_aos_quotes' => array(
-            'order' => 101,
-            'module' => 'AOS_Quotes',
-            'subpanel_name' => 'default',
-            'sort_order' => 'asc',
+
+        'aos_quotes_collection' => array(
+            'order' => 100,
+            'sort_order' => 'desc',
             'sort_by' => 'id',
             'title_key' => 'AOS_Quotes',
-            'get_subpanel_data' => 'aos_quotes',
+            'type' => 'collection',
+            'subpanel_name' => 'AOS_Quotes',   //this values is not associated with a physical file.
+            'header_definition_from_subpanel' => 'AOS_Quotes',
+            'module' => 'AOS_Quotes',
+            'top_buttons' => array(
+                array('widget_class' => 'SubPanelTopButtonQuickCreate'),
+                array('widget_class' => 'SubPanelTopSelectButton', 'mode' => 'MultiSelect')
+            ),
+
+            'collection_list' => array(
+
+                'account_aos_quotes' => array(
+                'module' => 'AOS_Quotes',
+                'subpanel_name' => 'default',
+                'get_subpanel_data' => 'AOS_Quotes',
+                ),
+
+                //quotazioni dei lead
+                'quotesleads' => array(
+                    'module' => 'AOS_Quotes',
+                    'subpanel_name' => 'default',
+                    'get_subpanel_data' => 'function:get_quotes_leads',
+                    'generate_select' => true,
+                    'set_subpanel_data' => 'AOS_Quotes',
+                ),
+            ),
+
+
+            'searchdefs' => array(
+                'collection' =>
+                    array(
+                        'name' => 'collection',
+                        'label' => 'LBL_COLLECTION_TYPE',
+                        'type' => 'enum',
+                        'options' => $GLOBALS['app_list_strings']['collection_temp_list'],
+                        'default' => true,
+                        'width' => '10%',
+                    ),
+                'name' =>
+                    array(
+                        'name' => 'name',
+                        'default' => true,
+                        'width' => '10%',
+                    ),
+                'current_user_only' =>
+                    array(
+                        'name' => 'current_user_only',
+                        'label' => 'LBL_CURRENT_USER_FILTER',
+                        'type' => 'bool',
+                        'default' => true,
+                        'width' => '10%',
+                    ),
+                'date_modified' =>
+                    array(
+                        'name' => 'date_modified',
+                        'default' => true,
+                        'width' => '10%',
+                    ),
+            ),
         ),
         'account_aos_invoices' => array(
             'order' => 102,

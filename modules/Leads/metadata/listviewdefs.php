@@ -1,4 +1,46 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+/*********************************************************************************
+ * SugarCRM Community Edition is a customer relationship management program developed by
+ * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
+
+ * SuiteCRM is an extension to SugarCRM Community Edition developed by Salesagility Ltd.
+ * Copyright (C) 2011 - 2014 Salesagility Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by the
+ * Free Software Foundation with the addition of the following permission added
+ * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
+ * IN WHICH THE COPYRIGHT IS OWNED BY SUGARCRM, SUGARCRM DISCLAIMS THE WARRANTY
+ * OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with
+ * this program; if not, see http://www.gnu.org/licenses or write to the Free
+ * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+ * 02110-1301 USA.
+ *
+ * You can contact SugarCRM, Inc. headquarters at 10050 North Wolfe Road,
+ * SW2-130, Cupertino, CA 95014, USA. or at email address contact@sugarcrm.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License version 3,
+ * these Appropriate Legal Notices must retain the display of the "Powered by
+ * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
+ * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
+ * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
+ ********************************************************************************/
+
+
+
+
 $listViewDefs ['Leads'] = 
 array (
   'NAME' => 
@@ -15,23 +57,21 @@ array (
       2 => 'salutation',
     ),
   ),
-  'LEAD_AZIENDA_C' => 
+  'STATUS' => 
   array (
-    'type' => 'relate',
+    'width' => '7%',
+    'label' => 'LBL_LIST_STATUS',
     'default' => true,
-    'studio' => 'visible',
-    'label' => 'LBL_LEAD_AZIENDA',
-    'id' => 'ACCOUNT_ID_C',
-    'link' => true,
-    'width' => '10%',
   ),
-  'AZIENDA_TIPO_C' => 
+  'ACCOUNT_NAME' => 
   array (
-    'type' => 'enum',
+    'width' => '15%',
+    'label' => 'LBL_LIST_ACCOUNT_NAME',
     'default' => true,
-    'studio' => 'visible',
-    'label' => 'LBL_AZIENDA_TIPO',
-    'width' => '10%',
+    'related_fields' => 
+    array (
+      0 => 'account_id',
+    ),
   ),
   'PHONE_WORK' => 
   array (
@@ -39,24 +79,20 @@ array (
     'label' => 'LBL_LIST_PHONE',
     'default' => true,
   ),
-  'PHONE_MOBILE' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_MOBILE_PHONE',
-    'default' => true,
-  ),
   'EMAIL1' => 
   array (
     'width' => '16%',
     'label' => 'LBL_LIST_EMAIL_ADDRESS',
     'sortable' => false,
-    'customCode' => '{$EMAIL1_LINK}{$EMAIL1}</a>',
+    'customCode' => '{$EMAIL1_LINK}',
     'default' => true,
   ),
-  'DATE_ENTERED' => 
+  'ASSIGNED_USER_NAME' => 
   array (
-    'width' => '10%',
-    'label' => 'LBL_DATE_ENTERED',
+    'width' => '5%',
+    'label' => 'LBL_LIST_ASSIGNED_USER',
+    'module' => 'Employees',
+    'id' => 'ASSIGNED_USER_ID',
     'default' => true,
   ),
   'TITLE' => 
@@ -83,20 +119,6 @@ array (
     'label' => 'LBL_DEPARTMENT',
     'default' => false,
   ),
-  'LEAD_CF_C' => 
-  array (
-    'type' => 'varchar',
-    'default' => false,
-    'label' => 'LBL_LEAD_CF',
-    'width' => '10%',
-  ),
-  'LEAD_PIVA_C' => 
-  array (
-    'type' => 'varchar',
-    'default' => false,
-    'label' => 'LBL_LEAD_PIVA',
-    'width' => '10%',
-  ),
   'DO_NOT_CALL' => 
   array (
     'width' => '10%',
@@ -109,10 +131,10 @@ array (
     'label' => 'LBL_HOME_PHONE',
     'default' => false,
   ),
-  'STATUS' => 
+  'PHONE_MOBILE' => 
   array (
-    'width' => '7%',
-    'label' => 'LBL_LIST_STATUS',
+    'width' => '10%',
+    'label' => 'LBL_MOBILE_PHONE',
     'default' => false,
   ),
   'PHONE_OTHER' => 
@@ -169,14 +191,6 @@ array (
     'label' => 'LBL_ALT_ADDRESS_STREET',
     'default' => false,
   ),
-  'ASSIGNED_USER_NAME' => 
-  array (
-    'width' => '5%',
-    'label' => 'LBL_LIST_ASSIGNED_USER',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
-    'default' => false,
-  ),
   'ALT_ADDRESS_CITY' => 
   array (
     'width' => '10%',
@@ -207,6 +221,10 @@ array (
     'label' => 'LBL_MODIFIED',
     'default' => false,
   ),
+  'DATE_ENTERED' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_DATE_ENTERED',
+    'default' => true,
+  ),  
 );
-;
-?>

@@ -48,11 +48,7 @@ class AOS_QuotesViewEdit extends ViewEdit {
 
 	function display(){
 		$this->populateQuoteTemplates();
-
 		parent::display();
-
-
-
 	}
 
 	function populateQuoteTemplates(){
@@ -66,13 +62,4 @@ class AOS_QuotesViewEdit extends ViewEdit {
 			$app_list_strings['template_ddown_c_list'][$row['id']] = $row['name'];
 		}
 	}
-
-
-
-
 }
-
-
-
-
-?>

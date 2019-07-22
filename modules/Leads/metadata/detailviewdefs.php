@@ -1,4 +1,43 @@
 <?php
+/**
+ *
+ * SugarCRM Community Edition is a customer relationship management program developed by
+ * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
+ *
+ * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
+ * Copyright (C) 2011 - 2018 SalesAgility Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by the
+ * Free Software Foundation with the addition of the following permission added
+ * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
+ * IN WHICH THE COPYRIGHT IS OWNED BY SUGARCRM, SUGARCRM DISCLAIMS THE WARRANTY
+ * OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with
+ * this program; if not, see http://www.gnu.org/licenses or write to the Free
+ * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+ * 02110-1301 USA.
+ *
+ * You can contact SugarCRM, Inc. headquarters at 10050 North Wolfe Road,
+ * SW2-130, Cupertino, CA 95014, USA. or at email address contact@sugarcrm.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License version 3,
+ * these Appropriate Legal Notices must retain the display of the "Powered by
+ * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
+ * reasonably feasible for technical reasons, the Appropriate Legal Notices must
+ * display the words "Powered by SugarCRM" and "Supercharged by SuiteCRM".
+ */
+
 $viewdefs ['Leads'] = 
 array (
   'DetailView' => 
@@ -9,27 +48,11 @@ array (
       array (
         'buttons' => 
         array (
+            'SEND_CONFIRM_OPT_IN_EMAIL' => EmailAddress::getSendConfirmOptInEmailActionLinkDefs('Leads'),
           0 => 'EDIT',
           1 => 'DUPLICATE',
           2 => 'DELETE',
-          3 => 
-          array (
-            'customCode' => '<input type="submit" class="button" title="Power Delete" onclick="alert(\'Bean ID: \' + \'{$bean->id}\');" name="genFile" value="genFile" />',
-            'sugar_html' => 
-            array (
-              'type' => 'submit',
-              'value' => 'Elimina completamente',
-              'htmlOptions' => 
-              array (
-                'class' => 'button',
-                'id' => 'genFile_button',
-                'title' => 'Elimina contatto e servizi richiesti',
-                'onclick' => 'if(confirm(\'Il contatto, i servizi richiesti e le quotazioni saranno eliminati. Procedo?\')) document.location = \'index.php?entryPoint=leadsPowerDelete&lead_id={$bean->id}\';',
-                'name' => 'powerDelete',
-              ),
-            ),
-          ),
-          4 => 
+          3 =>
           array (
             'customCode' => '{if $bean->aclAccess("edit") && !$DISABLE_CONVERT_ACTION}<input title="{$MOD.LBL_CONVERTLEAD_TITLE}" accessKey="{$MOD.LBL_CONVERTLEAD_BUTTON_KEY}" type="button" class="button" onClick="document.location=\'index.php?module=Leads&action=ConvertLead&record={$fields.id.value}\'" name="convert" value="{$MOD.LBL_CONVERTLEAD}">{/if}',
             'sugar_html' => 
@@ -48,7 +71,24 @@ array (
               'template' => '{if $bean->aclAccess("edit") && !$DISABLE_CONVERT_ACTION}[CONTENT]{/if}',
             ),
           ),
-          5 => 'FIND_DUPLICATES',
+          4 => 'FIND_DUPLICATES',
+          5 =>
+          array (
+            'customCode' => '<input title="{$APP.LBL_MANAGE_SUBSCRIPTIONS}" class="button" onclick="this.form.return_module.value=\'Leads\'; this.form.return_action.value=\'DetailView\';this.form.return_id.value=\'{$fields.id.value}\'; this.form.action.value=\'Subscriptions\'; this.form.module.value=\'Campaigns\'; this.form.module_tab.value=\'Leads\';" type="submit" name="Manage Subscriptions" value="{$APP.LBL_MANAGE_SUBSCRIPTIONS}">',
+            'sugar_html' => 
+            array (
+              'type' => 'submit',
+              'value' => '{$APP.LBL_MANAGE_SUBSCRIPTIONS}',
+              'htmlOptions' => 
+              array (
+                'title' => '{$APP.LBL_MANAGE_SUBSCRIPTIONS}',
+                'class' => 'button',
+                'id' => 'manage_subscriptions_button',
+                'onclick' => 'this.form.return_module.value=\'Leads\'; this.form.return_action.value=\'DetailView\';this.form.return_id.value=\'{$fields.id.value}\'; this.form.action.value=\'Subscriptions\'; this.form.module.value=\'Campaigns\'; this.form.module_tab.value=\'Leads\';',
+                'name' => '{$APP.LBL_MANAGE_SUBSCRIPTIONS}',
+              ),
+            ),
+          ),
           'AOS_GENLET' => 
           array (
             'customCode' => '<input type="button" class="button" onClick="showPopup();" value="{$APP.LBL_PRINT_AS_PDF}">',
@@ -85,33 +125,17 @@ array (
           'newTab' => true,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL1' => 
-        array (
-          'newTab' => true,
-          'panelDefault' => 'expanded',
-        ),
-        'LBL_EDITVIEW_PANEL2' => 
-        array (
-          'newTab' => true,
-          'panelDefault' => 'expanded',
-        ),
-        'LBL_EDITVIEW_PANEL3' => 
-        array (
-          'newTab' => true,
-          'panelDefault' => 'expanded',
-        ),
-        'LBL_EDITVIEW_PANEL4' => 
-        array (
-          'newTab' => true,
-          'panelDefault' => 'expanded',
-        ),
         'LBL_PANEL_ADVANCED' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_PANEL_ASSIGNMENT' => 
+        array (
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
       ),
-      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -121,130 +145,30 @@ array (
         array (
           0 => 
           array (
-            'name' => 'date_entered',
-            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+            'name' => 'full_name',
+            'label' => 'LBL_NAME',
           ),
+          1 => 'phone_work',
         ),
         1 => 
         array (
-          0 => 
-          array (
-            'name' => 'first_name',
-            'comment' => 'First name of the contact',
-            'label' => 'LBL_FIRST_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'last_name',
-            'comment' => 'Last name of the contact',
-            'label' => 'LBL_LAST_NAME',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 'phone_work',
+          0 => 'title',
           1 => 'phone_mobile',
         ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'phone_other',
-            'comment' => 'Other phone number for the contact',
-            'label' => 'LBL_OTHER_PHONE',
-          ),
-          1 => 'phone_fax',
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'cellulare_notifiche_c',
-            'label' => 'LBL_CELLULARE_NOTIFICHE',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 'email1',
-          1 => 
-          array (
-            'name' => 'book_email_c',
-            'label' => 'LBL_BOOK_EMAIL',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 'description',
-        ),
-      ),
-      'lbl_editview_panel1' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'lead_azienda_c',
-            'studio' => 'visible',
-            'label' => 'LBL_LEAD_AZIENDA',
-          ),
-          1 => 
-          array (
-            'name' => 'azienda_tipo_c',
-            'studio' => 'visible',
-            'label' => 'LBL_AZIENDA_TIPO',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'lead_funzione_c',
-            'studio' => 'visible',
-            'label' => 'LBL_LEAD_FUNZIONE',
-          ),
-        ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'lead_azn_ateco_c',
-            'studio' => 'visible',
-            'label' => 'LBL_LEAD_AZN_ATECO',
-          ),
-          1 => 
-          array (
-            'name' => 'categoria_text_c',
-            'label' => 'LBL_CATEGORIA_TEXT',
-          ),
+          0 => 'department',
+          1 => 'phone_fax',
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'lead_cf_c',
-            'label' => 'LBL_LEAD_CF',
-            'tabindex' => '1',
+            'name' => 'account_name',
           ),
-          1 => 
-          array (
-            'name' => 'lead_piva_c',
-            'label' => 'LBL_LEAD_PIVA',
-          ),
+          1 => 'website',
         ),
         4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'pec_c',
-            'label' => 'LBL_PEC',
-          ),
-          1 => 
-          array (
-            'name' => 'cdu_c',
-            'label' => 'LBL_CDU',
-          ),
-        ),
-        5 => 
         array (
           0 => 
           array (
@@ -267,179 +191,15 @@ array (
             ),
           ),
         ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'lead_azn_startup_c',
-            'label' => 'LBL_LEAD_AZN_STARTUP',
-          ),
-        ),
-      ),
-      'lbl_editview_panel2' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'mailing_status_c',
-            'studio' => 'visible',
-            'label' => 'LBL_MAILING_STATUS',
-          ),
-          1 => 
-          array (
-            'name' => 'mailing_date_c',
-            'label' => 'LBL_MAILING_DATE',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 'website',
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'lead_linkedin_c',
-            'label' => 'LBL_LEAD_LINKEDIN',
-          ),
-          1 => 
-          array (
-            'name' => 'email_linkedin_c',
-            'label' => 'LBL_EMAIL_LINKEDIN',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'lead_facebook_c',
-            'label' => 'LBL_LEAD_FACEBOOK',
-          ),
-          1 => 
-          array (
-            'name' => 'profilo_instagram_c',
-            'label' => 'LBL_PROFILO_INSTAGRAM',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'pagina_googlep_c',
-            'label' => 'LBL_PAGINA_GOOGLEP',
-          ),
-          1 => 
-          array (
-            'name' => 'twitter_name_c',
-            'label' => 'LBL_TWITTER_NAME',
-          ),
-        ),
-      ),
-      'lbl_editview_panel3' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'tcmcodes_c',
-            'label' => 'LBL_TCMCODES',
-          ),
-          1 => 
-          array (
-            'name' => 'tccode_c',
-            'label' => 'LBL_TCCODE',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'selpass_c',
-            'label' => 'LBL_SELPASS',
-          ),
-          1 => '',
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'foptext_c',
-            'studio' => 'visible',
-            'label' => 'LBL_FOPTEXT',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'fopanswer_c',
-            'studio' => 'visible',
-            'label' => 'LBL_FOPANSWER',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'instructions_c',
-            'studio' => 'visible',
-            'label' => 'LBL_INSTRUCTIONS',
-          ),
-        ),
         5 => 
         array (
-          0 => 
-          array (
-            'name' => 'acs_url_c',
-            'label' => 'LBL_ACS_URL',
-          ),
+          0 => 'email1',
         ),
-      ),
-      'lbl_editview_panel4' => 
-      array (
-        0 => 
+        6 => 
         array (
-          0 => 
-          array (
-            'name' => 'account_name',
-          ),
-          1 => '',
+          0 => 'description',
         ),
-      ),
-      'LBL_PANEL_ADVANCED' => 
-      array (
-        0 => 
-        array (
-          0 => 'status',
-          1 => 
-          array (
-            'name' => 'centro_scelto_c',
-            'studio' => 'visible',
-            'label' => 'LBL_CENTRO_SCELTO',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 'lead_source',
-          1 => 'lead_source_description',
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'referral_c',
-            'studio' => 'visible',
-            'label' => 'LBL_REFERRAL',
-          ),
-          1 => 
-          array (
-            'name' => 'lead_fonte_broker_c',
-            'studio' => 'visible',
-            'label' => 'LBL_LEAD_FONTE_BROKER',
-          ),
-        ),
-        3 => 
+        7 => 
         array (
           0 => 
           array (
@@ -448,8 +208,49 @@ array (
           ),
         ),
       ),
+      'LBL_PANEL_ADVANCED' => 
+      array (
+        0 => 
+        array (
+          0 => 'status',
+          1 => 'lead_source',
+        ),
+        1 => 
+        array (
+          0 => 'status_description',
+          1 => 'lead_source_description',
+        ),
+        2 => 
+        array (
+          0 => 'opportunity_amount',
+          1 => 'refered_by',
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'campaign_name',
+            'label' => 'LBL_CAMPAIGN',
+          ),
+        ),
+      ),
+      'LBL_PANEL_ASSIGNMENT' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_modified',
+            'label' => 'LBL_DATE_MODIFIED',
+            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+          ),
+          1 =>
+          array (
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+          ),
+        ),
+      ),
     ),
   ),
 );
-;
-?>

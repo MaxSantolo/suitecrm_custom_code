@@ -1,5 +1,5 @@
 <?php
-// created: 2019-07-09 14:40:33
+// created: 2019-07-17 15:43:50
 $mod_strings = array (
   'LBL_CONTACTS' => 'Contatti',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Clienti - &gt; Persone',
@@ -47,5 +47,8 @@ $mod_strings = array (
   'LBL_PEC' => 'Posta elettronica certificata',
   'LBL_CDU' => 'Codice Destinatario Univoco',
   'LBL_BOOK_EMAIL' => 'Email per booking / Area Clienti',
-  'LBL_NOMINA_RESPONSABILE' => 'Nominato Pick a responsabile il:',
+  'LBL_GDRP_NOMINA_RESPONSABILE' => 'Nominato Pick Responsabile il:',
+  'LBL_ADESIONE_A' => 'Adesione Marketing',
+  'LBL_ADESIONE_A_DATA' => 'in data:',
+  'LBL_EDITVIEW_PANEL2' => 'Privacy',
 );

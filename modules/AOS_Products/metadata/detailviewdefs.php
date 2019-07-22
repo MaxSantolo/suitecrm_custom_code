@@ -77,23 +77,18 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_CURRENCY',
           ),
-          1 => 
-          array (
-            'name' => 'price',
-            'label' => 'LBL_PRICE',
-          ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'prod_unita_c',
-            'label' => 'LBL_PROD_UNITA',
+            'name' => 'cost',
+            'label' => 'LBL_COST',
           ),
           1 => 
           array (
-            'name' => 'txt_prodotti_esolver_c',
-            'label' => 'LBL_TXT_PRODOTTI_ESOLVER',
+            'name' => 'price',
+            'label' => 'LBL_PRICE',
           ),
         ),
         4 => 
@@ -103,21 +98,13 @@ array (
             'name' => 'contact',
             'label' => 'LBL_CONTACT',
           ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'prod_rinnovabile_c',
-            'label' => 'LBL_PROD_RINNOVABILE',
-          ),
           1 => 
           array (
-            'name' => 'prod_giorni_disdetta_c',
-            'label' => 'LBL_PROD_GIORNI_DISDETTA',
+            'name' => 'url',
+            'label' => 'LBL_URL',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -125,9 +112,16 @@ array (
             'label' => 'LBL_DESCRIPTION',
           ),
         ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'product_image',
+            'label' => 'LBL_PRODUCT_IMAGE',
+            'customCode' => '<img src="{$fields.product_image.value}"/>',
+          ),
+        ),
       ),
     ),
   ),
 );
-;
-?>

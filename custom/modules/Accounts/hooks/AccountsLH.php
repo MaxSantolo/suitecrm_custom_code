@@ -101,5 +101,29 @@ class AccountsLH {
 
     }
 
+    function DisableAccountLeads($bean) {
+
+       $bean->load_relationship("account_leads");
+       $leadsIDs = $bean->account_leads->get();
+
+/*
+
+        if (
+            $bean->account_type != "Customer" &&
+            !empty($bean->fetched_row) &&
+            $bean->fetched_row['account_type'] == "Customer"
+        ) {
+
+            $bean->description = "Yessa!";
+/*          foreach ($leadsIDs as $lID) {
+            $bean2modify = BeanFactory::getBean("Leads",$lID);
+            $bean2modify->status = "excliente";
+
+          }*/
+
+//        }
+
+
+    }
 
 }

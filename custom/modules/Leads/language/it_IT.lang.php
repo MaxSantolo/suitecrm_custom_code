@@ -1,5 +1,5 @@
 <?php
-// created: 2019-07-09 14:43:18
+// created: 2019-07-17 15:38:32
 $mod_strings = array (
   'LBL_LEAD_PIVA' => 'Partita IVA',
   'LBL_LEAD_CF' => 'Codice Fiscale',
@@ -71,8 +71,8 @@ $mod_strings = array (
   'LBL_TCCODE' => 'Codice Telecommuting',
   'LBL_EDITVIEW_PANEL3' => 'Check-In/Out',
   'LBL_ACS_URL' => 'ACS',
-  'LBL_PRIVACY_A' => 'Adesione A',
-  'LBL_PRIVACY_A_DATE' => 'Data Adesione A',
+  'LBL_PRIVACY_A' => 'Adesione Marketing',
+  'LBL_PRIVACY_A_DATE' => 'in data',
   'LBL_PRIVACY_B' => 'Adesione B',
   'LBL_PRIVACY_C' => 'Adesione C',
   'LBL_PRIVACY_D' => 'Adesione D',
@@ -90,4 +90,5 @@ $mod_strings = array (
   'LBL_BOOK_EMAIL' => 'Email Booking / Area Clienti',
   'LBL_TIPO_FORNITORE' => 'Tipo fornitore',
   'LBL_NOMINA_RESP' => 'Nominato Pick Responsabile il:',
+  'LBL_EDITVIEW_PANEL5' => 'Privacy',
 );

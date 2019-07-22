@@ -87,4 +87,10 @@ $dictionary["db_eventi"]["fields"]["db_eventi_documents"] = array (
   'vname' => 'LBL_DB_EVENTI_DOCUMENTS_FROM_DOCUMENTS_TITLE',
 );
 
+
+ // created: 2019-07-15 16:57:05
+$dictionary['db_eventi']['fields']['parent_id_custom_c']['inline_edit']='1';
+$dictionary['db_eventi']['fields']['parent_id_custom_c']['labelValue']='parent id custom';
+
+ 
 ?>

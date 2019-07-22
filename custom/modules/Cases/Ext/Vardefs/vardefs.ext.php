@@ -143,4 +143,16 @@ $dictionary['Case']['fields']['intervento_c']['inline_edit']='1';
 $dictionary['Case']['fields']['intervento_c']['labelValue']='Data di intervento:';
 
  
+
+ // created: 2019-07-15 17:00:54
+$dictionary['Case']['fields']['ticket_linked_id_c']['inline_edit']='1';
+$dictionary['Case']['fields']['ticket_linked_id_c']['labelValue']='ticket linked id';
+
+ 
+
+ // created: 2019-07-17 12:38:38
+$dictionary['Case']['fields']['descrizione_c']['inline_edit']='1';
+$dictionary['Case']['fields']['descrizione_c']['labelValue']='Descrizione';
+
+ 
 ?>

@@ -1,5 +1,5 @@
 <?php
-// created: 2019-07-09 14:43:17
+// created: 2019-07-17 15:38:32
 $searchFields['Leads'] = array (
   'tipo_fornitore_c' => 
   array (

@@ -87,7 +87,7 @@ class AOS_QuotesViewDetail extends ViewDetail
     {
         global $app_list_strings;
 
-        $sql = "SELECT id, name FROM aos_pdf_templates WHERE deleted=0 AND type='AOS_Quotes' AND active = 1 ORDER BY name";
+        $sql = "SELECT id, name FROM aos_pdf_templates WHERE deleted=0 AND type='AOS_Quotes' AND active = 1";
 
         $res = $this->bean->db->query($sql);
 
@@ -115,9 +115,9 @@ class AOS_QuotesViewDetail extends ViewDetail
             foreach ($templatesList as $t => $templatesListItem) {
                 $templatesList[$t] = str_replace('^', '', $templatesListItem);
             }
-            echo $template->fetch('custom/modules/AOS_Quotes/templates/showPopupWithTemplates.tpl');
+            echo $template->fetch('modules/AOS_Quotes/templates/showPopupWithTemplates.tpl');
         } else {
-            echo $template->fetch('custom/modules/AOS_Quotes/templates/showPopupWithOutTemplates.tpl');
+            echo $template->fetch('modules/AOS_Quotes/templates/showPopupWithOutTemplates.tpl');
         }
     }
 }

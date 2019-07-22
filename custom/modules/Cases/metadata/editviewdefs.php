@@ -128,20 +128,13 @@ array (
         array (
           0 => 
           array (
-            'name' => 'description',
+            'name' => 'descrizione_c',
+            'studio' => 'visible',
+            'label' => 'LBL_DESCRIZIONE',
           ),
           1 => 'status',
         ),
         7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'update_text',
-            'studio' => 'visible',
-            'label' => 'LBL_UPDATE_TEXT',
-          ),
-        ),
-        8 => 
         array (
           0 => 
           array (

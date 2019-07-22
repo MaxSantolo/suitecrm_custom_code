@@ -56,4 +56,9 @@ include('custom/metadata/db_eventi_accountsMetaData.php');
 include('custom/metadata/db_eventi_documentsMetaData.php');
 
 
+ 
+ //WARNING: The contents of this file are auto-generated
+include('custom/metadata/leads_cases_1MetaData.php');
+
+
 ?>

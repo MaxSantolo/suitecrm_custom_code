@@ -1,4 +1,42 @@
 <?php
+/*********************************************************************************
+ * SugarCRM Community Edition is a customer relationship management program developed by
+ * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
+
+ * SuiteCRM is an extension to SugarCRM Community Edition developed by Salesagility Ltd.
+ * Copyright (C) 2011 - 2014 Salesagility Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by the
+ * Free Software Foundation with the addition of the following permission added
+ * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
+ * IN WHICH THE COPYRIGHT IS OWNED BY SUGARCRM, SUGARCRM DISCLAIMS THE WARRANTY
+ * OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with
+ * this program; if not, see http://www.gnu.org/licenses or write to the Free
+ * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+ * 02110-1301 USA.
+ *
+ * You can contact SugarCRM, Inc. headquarters at 10050 North Wolfe Road,
+ * SW2-130, Cupertino, CA 95014, USA. or at email address contact@sugarcrm.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License version 3,
+ * these Appropriate Legal Notices must retain the display of the "Powered by
+ * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
+ * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
+ * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
+ ********************************************************************************/
+
 $viewdefs ['Accounts'] = 
 array (
   'EditView' => 
@@ -34,17 +72,12 @@ array (
           'file' => 'modules/Accounts/Account.js',
         ),
       ),
-      'useTabs' => true,
+      'useTabs' => false,
       'tabDefs' => 
       array (
         'LBL_ACCOUNT_INFORMATION' => 
         array (
-          'newTab' => true,
-          'panelDefault' => 'expanded',
-        ),
-        'LBL_EDITVIEW_PANEL1' => 
-        array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_PANEL_ADVANCED' => 
@@ -53,7 +86,6 @@ array (
           'panelDefault' => 'expanded',
         ),
       ),
-      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -72,59 +104,25 @@ array (
           ),
           1 => 
           array (
-            'name' => 'phone_fax',
-            'label' => 'LBL_FAX',
+            'name' => 'phone_office',
+            'label' => 'LBL_PHONE_OFFICE',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'phone_alternate',
-            'comment' => 'An alternate phone number',
-            'label' => 'LBL_PHONE_ALT',
+            'name' => 'website',
+            'type' => 'link',
+            'label' => 'LBL_WEBSITE',
           ),
           1 => 
           array (
-            'name' => 'phone_office',
-            'label' => 'LBL_PHONE_OFFICE',
+            'name' => 'phone_fax',
+            'label' => 'LBL_FAX',
           ),
         ),
         2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'cellulare_notifiche_c',
-            'label' => 'LBL_CELLULARE_NOTIFICHE',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'lead_piva_c',
-            'label' => 'LBL_LEAD_PIVA_C',
-          ),
-          1 => 
-          array (
-            'name' => 'lead_cf_c',
-            'label' => 'LBL_LEAD_CF_C',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'pec_c',
-            'label' => 'LBL_PEC',
-          ),
-          1 => 
-          array (
-            'name' => 'cdu_c',
-            'label' => 'LBL_CDU',
-          ),
-        ),
-        5 => 
         array (
           0 => 
           array (
@@ -132,13 +130,8 @@ array (
             'studio' => 'false',
             'label' => 'LBL_EMAIL',
           ),
-          1 => 
-          array (
-            'name' => 'book_email_c',
-            'label' => 'LBL_BOOK_EMAIL',
-          ),
         ),
-        6 => 
+        3 => 
         array (
           0 => 
           array (
@@ -153,8 +146,22 @@ array (
               'maxlength' => 150,
             ),
           ),
+          1 => 
+          array (
+            'name' => 'shipping_address_street',
+            'hideLabel' => true,
+            'type' => 'address',
+            'displayParams' => 
+            array (
+              'key' => 'shipping',
+              'copy' => 'billing',
+              'rows' => 2,
+              'cols' => 30,
+              'maxlength' => 150,
+            ),
+          ),
         ),
-        7 => 
+        4 => 
         array (
           0 => 
           array (
@@ -162,7 +169,7 @@ array (
             'label' => 'LBL_DESCRIPTION',
           ),
         ),
-        8 => 
+        5 => 
         array (
           0 => 
           array (
@@ -171,79 +178,23 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel1' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'website',
-            'type' => 'link',
-            'label' => 'LBL_WEBSITE',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'pagina_fb_az_c',
-            'label' => 'LBL_PAGINA_FB_AZ',
-          ),
-          1 => 
-          array (
-            'name' => 'profilo_twitter_c',
-            'label' => 'LBL_PROFILO_TWITTER',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'pagina_googlep_c',
-            'label' => 'LBL_PAGINA_GOOGLEP',
-          ),
-          1 => 
-          array (
-            'name' => 'instagram_az_c',
-            'label' => 'LBL_INSTAGRAM_AZ',
-          ),
-        ),
-      ),
       'LBL_PANEL_ADVANCED' => 
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'centro_scelto_c',
-            'studio' => 'visible',
-            'label' => 'LBL_CENTRO_SCELTO',
-          ),
+          0 => 'account_type',
+          1 => 'industry',
         ),
         1 => 
-        array (
-          0 => 'account_type',
-          1 => 
-          array (
-            'name' => 'lead_azn_ateco_c',
-            'studio' => 'visible',
-            'label' => 'LBL_LEAD_AZN_ATECO_C',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'categoria_note_c',
-            'label' => 'LBL_CATEGORIA_NOTE',
-          ),
-        ),
-        3 => 
         array (
           0 => 'annual_revenue',
           1 => 'employees',
         ),
-        4 => 
+        2 => 
+        array (
+          0 => 'parent_name',
+        ),
+        3 => 
         array (
           0 => 'campaign_name',
         ),
@@ -251,5 +202,3 @@ array (
     ),
   ),
 );
-;
-?>

@@ -1,5 +1,4 @@
 <?php
-// created: 2018-09-27 12:31:03
 $searchFields['AOS_Products'] = array (
   'name' => 
   array (
@@ -82,18 +81,13 @@ $searchFields['AOS_Products'] = array (
     'enable_range_search' => true,
     'is_date_field' => true,
   ),
-  'favorites_only' => 
-  array (
-    'query_type' => 'format',
-    'operator' => 'subquery',
-    'checked_only' => true,
-    'subquery' => 'SELECT favorites.parent_id FROM favorites
+    'favorites_only' => array(
+        'query_type'=>'format',
+        'operator' => 'subquery',
+        'checked_only' => true,
+        'subquery' => "SELECT favorites.parent_id FROM favorites
 			                    WHERE favorites.deleted = 0
-			                        and favorites.parent_type = \'AOS_Products\'
-			                        and favorites.assigned_user_id = \'{1}\'',
-    'db_field' => 
-    array (
-      0 => 'id',
-    ),
-  ),
+			                        and favorites.parent_type = 'AOS_Products'
+			                        and favorites.assigned_user_id = '{1}'",
+        'db_field'=>array('id')),
 );

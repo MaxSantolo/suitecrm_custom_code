@@ -68,6 +68,7 @@ $subpanel_layout = array(
 			'width' => '31%',
 			'target_record_key' => 'account_id',
 			'target_module' => 'Accounts',
+            'required' => false,
 		),
 		'status'=>array(
 	 		'vname' => 'LBL_LIST_STATUS',

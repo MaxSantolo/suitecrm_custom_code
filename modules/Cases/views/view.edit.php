@@ -39,16 +39,16 @@
 require_once('include/MVC/View/views/view.edit.php');
 require_once('include/SugarTinyMCE.php');
 
-class CasesViewEdit extends ViewEdit {
+//class CasesViewEdit extends ViewEdit {
 
-    function __construct(){
+/*    function __construct(){
         parent::__construct();
     }
 
     /**
      * @deprecated deprecated since version 7.6, PHP4 Style Constructors are deprecated and will be remove in 7.8, please update your code, use __construct instead
      */
-    function CasesViewEdit(){
+ /*   function CasesViewEdit(){
         $deprecatedMessage = 'PHP4 Style Constructors are deprecated and will be remove in 7.8, please update your code';
         if(isset($GLOBALS['log'])) {
             $GLOBALS['log']->deprecated($deprecatedMessage);
@@ -81,4 +81,44 @@ class CasesViewEdit extends ViewEdit {
                 });
             </script>";
     }
+}*/
+
+class CasesViewEdit extends ViewEdit
+{
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    /**
+     * @deprecated deprecated since version 7.6, PHP4 Style Constructors are deprecated and will be remove in 7.8, please update your code, use __construct instead
+     */
+    public function CasesViewEdit()
+    {
+/*        $deprecatedMessage = 'PHP4 Style Constructors are deprecated and will be remove in 7.8, please update your code';
+        if (isset($GLOBALS['log'])) {
+            $GLOBALS['log']->deprecated($deprecatedMessage);
+        } else {
+            trigger_error($deprecatedMessage, E_USER_DEPRECATED);
+        }
+        self::__construct();*/
+    }
+    public function display()
+    {
+        parent::display();
+        $newScript = '';
+        if (empty($this->bean->id)) {
+            $newScript = "
+                    $('#update_text').closest('.edit-view-row-item').hide();
+                    $('#update_text_label').closest('.edit-view-row-item').hide();
+                    $('#internal').closest('.edit-view-row-item').hide();
+                    $('#internal_label').closest('.edit-view-row-item').hide();
+                    $('#addFileButton').closest('.edit-view-row-item').hide();
+                    $('#case_update_form_label').closest('.edit-view-row-item').hide();";
+            $newScript .= "tinyMCE.execCommand('mceAddControl', false, document.getElementById('description'));";
+            echo '<script>$(document).ready(function(){' . $newScript . '})</script>';
+        }
+    }
 }
+
+
+

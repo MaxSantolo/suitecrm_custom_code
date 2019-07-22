@@ -1,5 +1,5 @@
 <?php
-// created: 2019-07-10 12:57:39
+// created: 2019-07-17 12:38:38
 $mod_strings = array (
   'LBL_CONTACT_CREATED_BY_NAME' => 'Creato dal contatto',
   'LBL_CONTACT_CREATED_BY' => 'Creato da:',
@@ -33,4 +33,6 @@ $mod_strings = array (
   'LBL_DEBT_VALUE' => 'Importo addebito',
   'LBL_STATE' => 'Stato_NU',
   'LBL_INTERVENTO' => 'Data di intervento:',
+  'LBL_TICKET_LINKED_ID' => 'ticket linked id',
+  'LBL_DESCRIZIONE' => 'Descrizione',
 );

@@ -100,7 +100,7 @@ array (
           'newTab' => true,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL4' => 
+        'LBL_EDITVIEW_PANEL5' => 
         array (
           'newTab' => true,
           'panelDefault' => 'expanded',
@@ -274,34 +274,16 @@ array (
             'name' => 'lead_azn_startup_c',
             'label' => 'LBL_LEAD_AZN_STARTUP',
           ),
-          1 => 
-          array (
-            'name' => 'nomina_resp_c',
-            'label' => 'LBL_NOMINA_RESP',
-          ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel2' => 
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'mailing_status_c',
-            'studio' => 'visible',
-            'label' => 'LBL_MAILING_STATUS',
-          ),
-          1 => 
-          array (
-            'name' => 'mailing_date_c',
-            'label' => 'LBL_MAILING_DATE',
-          ),
-        ),
-        1 => 
-        array (
           0 => 'website',
         ),
-        2 => 
+        1 => 
         array (
           0 => 
           array (
@@ -314,7 +296,7 @@ array (
             'label' => 'LBL_EMAIL_LINKEDIN',
           ),
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (
@@ -327,18 +309,14 @@ array (
             'label' => 'LBL_PROFILO_INSTAGRAM',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
-          array (
-            'name' => 'pagina_googlep_c',
-            'label' => 'LBL_PAGINA_GOOGLEP',
-          ),
-          1 => 
           array (
             'name' => 'twitter_name_c',
             'label' => 'LBL_TWITTER_NAME',
           ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel3' => 
@@ -400,13 +378,42 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel4' => 
+      'lbl_editview_panel5' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            'name' => 'account_name',
+            'name' => 'mailing_status_c',
+            'studio' => 'visible',
+            'label' => 'LBL_MAILING_STATUS',
+          ),
+          1 => 
+          array (
+            'name' => 'mailing_date_c',
+            'label' => 'LBL_MAILING_DATE',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'nomina_resp_c',
+            'label' => 'LBL_NOMINA_RESP',
+          ),
+          1 => '',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'privacy_a_c',
+            'label' => 'LBL_PRIVACY_A',
+          ),
+          1 => 
+          array (
+            'name' => 'privacy_a_date_c',
+            'label' => 'LBL_PRIVACY_A_DATE',
           ),
         ),
       ),
