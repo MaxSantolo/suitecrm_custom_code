@@ -16,6 +16,7 @@ class AccountsLH {
         require_once 'include/SugarPHPMailer.php';
         require_once 'custom/Extension/application/PickLog.php';
         $mailbody = "";
+
         if (!empty($bean->fetched_row) &&
             ($bean->fetched_row['pec_c'] != $bean->pec_c || $bean->fetched_row['cdu_c'] != $bean->cdu_c) &&
             $bean->account_type == 'Customer'
@@ -101,29 +102,5 @@ class AccountsLH {
 
     }
 
-    function DisableAccountLeads($bean) {
-
-       $bean->load_relationship("account_leads");
-       $leadsIDs = $bean->account_leads->get();
-
-/*
-
-        if (
-            $bean->account_type != "Customer" &&
-            !empty($bean->fetched_row) &&
-            $bean->fetched_row['account_type'] == "Customer"
-        ) {
-
-            $bean->description = "Yessa!";
-/*          foreach ($leadsIDs as $lID) {
-            $bean2modify = BeanFactory::getBean("Leads",$lID);
-            $bean2modify->status = "excliente";
-
-          }*/
-
-//        }
-
-
-    }
 
 }

@@ -1,5 +1,5 @@
 <?php
-// created: 2018-09-27 14:56:42
+// created: 2019-07-29 10:33:15
 $mod_strings = array (
   'LBL_NUM_UFFICI' => 'Numero Uffici/Sale',
   'LBL_NAME' => 'Nome',
@@ -31,4 +31,5 @@ $mod_strings = array (
   'LBL_DR_EVENTI_SR_SERVIZI_RICHIESTI_FROM_DR_EVENTI_TITLE' => 'Evento Reception',
   'LBL_CONTATTO' => 'Contatto',
   'LBL_SR_SERVIZI_RICHIESTI_LEADS_FROM_LEADS_TITLE' => 'Contatti',
+  'LBL_NON_EROGABILE' => 'Servizio non erogabile',
 );

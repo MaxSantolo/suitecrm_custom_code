@@ -149,9 +149,9 @@
     
     <div class="p_login_bottom">
 
-            <a id="powered_by">&copy; Powercharged by SmartWorkingHub</a>
-{*            <a id="admin_options">&copy; Supercharged by SuiteCRM</a>
-            <a id="powered_by">&copy; Powered By SugarCRM</a>*}
+            <a id="powered_by_swh">&copy; Powercharged by SmartWorkingHub</a>
+            <a id="admin_options">&copy; Supercharged by SuiteCRM</a>
+            <a id="powered_by">&copy; Powered By SugarCRM</a>
 
 	</div>
     

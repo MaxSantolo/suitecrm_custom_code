@@ -1,5 +1,5 @@
 <?php
-// created: 2019-07-17 15:38:32
+// created: 2019-07-29 10:17:54
 $mod_strings = array (
   'LBL_LEAD_PIVA' => 'Partita IVA',
   'LBL_LEAD_CF' => 'Codice Fiscale',
@@ -91,4 +91,5 @@ $mod_strings = array (
   'LBL_TIPO_FORNITORE' => 'Tipo fornitore',
   'LBL_NOMINA_RESP' => 'Nominato Pick Responsabile il:',
   'LBL_EDITVIEW_PANEL5' => 'Privacy',
+  'LBL_CAUSA_DISDETTA' => 'Motivazione della disdetta',
 );

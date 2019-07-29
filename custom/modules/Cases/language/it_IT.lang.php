@@ -1,5 +1,5 @@
 <?php
-// created: 2019-07-17 12:38:38
+// created: 2019-07-22 12:19:33
 $mod_strings = array (
   'LBL_CONTACT_CREATED_BY_NAME' => 'Creato dal contatto',
   'LBL_CONTACT_CREATED_BY' => 'Creato da:',

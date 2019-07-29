@@ -1,7 +1,7 @@
 /*********************************************************************************
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
- 
+
  * SuiteCRM is an extension to SugarCRM Community Edition developed by Salesagility Ltd.
  * Copyright (C) 2011 - 2014 Salesagility Ltd.
  *
@@ -35,4 +35,34 @@
  * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  ********************************************************************************/
-var abouter=function(){return{display:function(){abouter.div=document.getElementById('abouterdiv');abouter.div.style.display='';abouter.div.src="index.php?module=Home&action=PopupSugar&to_pdf=true&style="+abouter.style;},ab:function(index,style){if(abouter.starter==3){abouter.style=style;abouter.display();}else{if(index==abouter.starter+1){abouter.starter++;}else{abouter.starter=0;}}}}}();abouter.starter=0;abouter.style='inc';
+
+var abouter = function(){
+	return {
+		display:function(){
+			abouter.div = document.getElementById('abouterdiv');
+			abouter.div.style.display ='';
+			abouter.div.src = "index.php?module=Home&action=PopupSugar&to_pdf=true&style=" + abouter.style;
+		},
+		ab:function(index, style){
+			if(abouter.starter == 3){
+				abouter.style = style;
+				abouter.display();
+			}else{
+				if(index == abouter.starter + 1){
+					abouter.starter++;
+				}else{
+					abouter.starter= 0;
+				}
+			}
+
+		}
+
+
+
+	}
+
+
+
+}();
+abouter.starter = 0;
+abouter.style = 'inc';

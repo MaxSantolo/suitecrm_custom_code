@@ -90,3 +90,10 @@ $GLOBALS['app_list_strings']['case_status_dom']=array (
   'Open_New' => 'Nuovo',
   'Open_NewDate' => 'Rimandato',
 );
+
+$GLOBALS['app_list_strings']['causa_disdetta_lead_list']=array (
+  'excliente_altro' => 'Altro',
+  'excliente_altrobc' => 'Altro Business Center',
+  'excliente_chiusura' => 'Chiusura Attività',
+  'excliente_ufftrad' => 'Ufficio Tradizionale',
+);

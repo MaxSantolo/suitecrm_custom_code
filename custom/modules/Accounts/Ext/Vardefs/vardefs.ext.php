@@ -173,21 +173,15 @@ $dictionary['Account']['fields']['book_email_c']['labelValue']='Email per bookin
 
  
 
- // created: 2019-07-17 15:40:59
-$dictionary['Account']['fields']['gdrp_nomina_responsabile_c']['inline_edit']='1';
-$dictionary['Account']['fields']['gdrp_nomina_responsabile_c']['labelValue']='Nominato Pick Responsabile il:';
+ // created: 2019-07-09 14:38:26
+$dictionary['Account']['fields']['nomina_responsabile_c']['inline_edit']='1';
+$dictionary['Account']['fields']['nomina_responsabile_c']['labelValue']='Nomina a responsabile il:';
 
  
 
- // created: 2019-07-17 15:41:22
-$dictionary['Account']['fields']['adesione_a_c']['inline_edit']='1';
-$dictionary['Account']['fields']['adesione_a_c']['labelValue']='Adesione Marketing';
-
- 
-
- // created: 2019-07-17 15:41:43
-$dictionary['Account']['fields']['adesione_a_data_c']['inline_edit']='1';
-$dictionary['Account']['fields']['adesione_a_data_c']['labelValue']='in data:';
+ // created: 2019-07-29 10:25:53
+$dictionary['Account']['fields']['causa_disdetta_c']['inline_edit']='1';
+$dictionary['Account']['fields']['causa_disdetta_c']['labelValue']='Motivazione della disdetta';
 
  
 ?>

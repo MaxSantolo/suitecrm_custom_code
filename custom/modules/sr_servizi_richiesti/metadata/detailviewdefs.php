@@ -140,6 +140,11 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_STATO',
           ),
+          1 => 
+          array (
+            'name' => 'non_erogabile_c',
+            'label' => 'LBL_NON_EROGABILE',
+          ),
         ),
         1 => 
         array (

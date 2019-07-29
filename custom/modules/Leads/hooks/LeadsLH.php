@@ -294,5 +294,29 @@ class LeadsLH {
 
     }
 
+    function copyAccountData2Lead($bean) {
+
+        if ($bean->account_id_c != '' && $bean->fetched_row['account_id_c'] != $bean->account_id_c) {
+
+            $accountBean = BeanFactory::getBean("Accounts",$bean->account_id_c);
+
+            //crea relazione fra lead e account sui campi primari account_id e account_name
+            $bean->account_id = $bean->account_id_c;
+            $bean->account_name = $accountBean->name;
+
+            //compila i dati caricando il bean da account_id_c
+            $bean->lead_piva_c = $accountBean->lead_piva_c;
+            $bean->lead_cf_c = $accountBean->lead_cf_c;
+            $bean->primary_address_street = $accountBean->billing_address_street;
+            $bean->primary_address_city = $accountBean->billing_address_city;
+            $bean->primary_address_state = $accountBean->billing_address_state;
+            $bean->primary_address_country = $accountBean->billing_address_country;
+            $bean->primary_address_postalcode = $accountBean->billing_address_postalcode;
+
+        }
+
+
+    }
+
 
 }

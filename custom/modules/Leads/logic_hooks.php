@@ -13,14 +13,22 @@ $hook_array['before_save'][] = Array(5, 'checkout', 'custom/modules/Leads/hooks/
 $hook_array['before_save'][] = Array(6, 'assegna CDU', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'CDU');
 
 $hook_array['before_save'][] = Array(8, 'descrizione', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'removeAccountRel');
+$hook_array['before_save'][] = Array(9, 'aggiorna dati azienda', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'copyAccountData2Lead');
+
+
 $hook_array['before_save'][] = Array(77, 'updateGeocodeInfo', 'modules/Leads/LeadsJjwg_MapsLogicHook.php','LeadsJjwg_MapsLogicHook', 'updateGeocodeInfo');
 
 $hook_array['after_save'] = Array();
 $hook_array['after_save'][] = Array(77, 'updateRelatedMeetingsGeocodeInfo', 'modules/Leads/LeadsJjwg_MapsLogicHook.php','LeadsJjwg_MapsLogicHook', 'updateRelatedMeetingsGeocodeInfo');
 $hook_array['after_save'][] = Array(7, 'mail fatturazione elettronica', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'MailFE');
 
+
 $hook_array['before_delete'] = Array();
 $hook_array['before_delete'][] = Array(1, 'delete', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'LeadDelete');
+
+/*$hook_array['after_relationship_add'] = Array();
+$hook_array['after_relationship_add'][] = Array(1, 'aggiorna dati azienda', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'copyAccountData2Lead');*/
+
 
 
 ?>

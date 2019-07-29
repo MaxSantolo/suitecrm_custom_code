@@ -6,14 +6,8 @@ $hook_array = Array();
 // position, file, function 
 $hook_array['before_save'] = Array();
 $hook_array['before_save'][] = Array(1, 'mail fatturazione elettronica', 'custom/modules/Accounts/hooks/AccountsLH.php','AccountsLH', 'MailFE');
-// $hook_array['before_save'][] = Array(1, 'Aggiorna ex clienti ai contatti', 'custom/modules/Accounts/hooks/AccountsLH.php','AccountsLH', 'DisableAccountLeads');
-
-
-
-$hook_array['before_save'][] = Array(77, 'updateGeocodeInfo', 'modules/Accounts/AccountsJjwg_MapsLogicHook.php','AccountsJjwg_MapsLogicHook', 'updateGeocodeInfo');
-$hook_array['after_save'] = Array();
-
-
+$hook_array['before_save'][] = Array(77, 'updateGeocodeInfo', 'modules/Accounts/AccountsJjwg_MapsLogicHook.php','AccountsJjwg_MapsLogicHook', 'updateGeocodeInfo'); 
+$hook_array['after_save'] = Array(); 
 $hook_array['after_save'][] = Array(77, 'updateRelatedMeetingsGeocodeInfo', 'modules/Accounts/AccountsJjwg_MapsLogicHook.php','AccountsJjwg_MapsLogicHook', 'updateRelatedMeetingsGeocodeInfo'); 
 $hook_array['after_save'][] = Array(78, 'updateRelatedProjectGeocodeInfo', 'modules/Accounts/AccountsJjwg_MapsLogicHook.php','AccountsJjwg_MapsLogicHook', 'updateRelatedProjectGeocodeInfo'); 
 $hook_array['after_save'][] = Array(79, 'updateRelatedOpportunitiesGeocodeInfo', 'modules/Accounts/AccountsJjwg_MapsLogicHook.php','AccountsJjwg_MapsLogicHook', 'updateRelatedOpportunitiesGeocodeInfo'); 
