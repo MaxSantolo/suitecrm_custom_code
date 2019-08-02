@@ -1,5 +1,5 @@
 <?php
-// created: 2019-07-29 10:17:54
+// created: 2019-08-01 16:26:53
 $mod_strings = array (
   'LBL_LEAD_PIVA' => 'Partita IVA',
   'LBL_LEAD_CF' => 'Codice Fiscale',
@@ -58,7 +58,7 @@ $mod_strings = array (
   'LBL_CELLULARE_NOTIFICHE' => 'Cellulare per notifiche',
   'LBL_AZIENDA_TIPO' => 'Tipo di azienda',
   'LBL_LEADS_AOS_INVOICES_1_FROM_AOS_INVOICES_TITLE' => 'Cedolini',
-  'LBL_MAILING_STATUS' => 'Mailing List',
+  'LBL_MAILING_STATUS' => 'Newsletter',
   'LBL_MAILING_DATE' => 'Data mailing',
   'LBL_CSB_REAZIONI_LEADS_FROM_CSB_REAZIONI_TITLE' => 'Reazioni Campagne',
   'LBL_FP_EVENTS_LEADS_1_FROM_FP_EVENTS_TITLE' => 'Evento',
@@ -69,7 +69,7 @@ $mod_strings = array (
   'LBL_FOPANSWER' => 'Risposta',
   'LBL_INSTRUCTIONS' => 'Istruzioni',
   'LBL_TCCODE' => 'Codice Telecommuting',
-  'LBL_EDITVIEW_PANEL3' => 'Check-In/Out',
+  'LBL_EDITVIEW_PANEL3' => 'Check In/Out',
   'LBL_ACS_URL' => 'ACS',
   'LBL_PRIVACY_A' => 'Adesione Marketing',
   'LBL_PRIVACY_A_DATE' => 'in data',
@@ -83,7 +83,7 @@ $mod_strings = array (
   'LBL_PRIVACY_D_DATE' => 'Data Adesione D',
   'LBL_PRIVACY_E_DATE' => 'Data Adesione E',
   'LBL_PRIVACY_F_DATE' => 'Data Adesione F',
-  'LBL_EDITVIEW_PANEL4' => 'Altro',
+  'LBL_EDITVIEW_PANEL4' => 'Privacy',
   'LBL_CDU' => 'Codice Destinatario Univoco',
   'LBL_PEC' => 'Posta Elettronica Certificata',
   'LBL_SELPASS' => 'Selezione passante',

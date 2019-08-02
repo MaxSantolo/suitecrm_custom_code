@@ -36,6 +36,15 @@ array (
           'file' => 'modules/Accounts/Account.js',
         ),
       ),
+      'useTabs' => false,
+      'tabDefs' => 
+      array (
+        'LBL_ACCOUNT_INFORMATION' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'collapsed',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -51,15 +60,25 @@ array (
               'required' => true,
             ),
           ),
-          1 => 'assigned_user_name',
+          1 => 
+          array (
+            'name' => 'tipo_fornitore_c',
+            'studio' => 'visible',
+            'label' => 'LBL_TIPO_FORNITORE',
+          ),
         ),
         1 => 
         array (
-          0 => 'website',
+          0 => 'email1',
         ),
         2 => 
         array (
-          0 => 'industry',
+          0 => 
+          array (
+            'name' => 'phone_alternate',
+            'comment' => 'An alternate phone number',
+            'label' => 'LBL_PHONE_ALT',
+          ),
           1 => 
           array (
             'name' => 'phone_office',
@@ -67,19 +86,12 @@ array (
         ),
         3 => 
         array (
-          0 => 'frnt_fornitori_azienda_type',
-          1 => 'phone_fax',
-        ),
-        4 => 
-        array (
-          0 => 'annual_revenue',
-        ),
-      ),
-      'lbl_email_addresses' => 
-      array (
-        0 => 
-        array (
-          0 => 'email1',
+          0 => 
+          array (
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
+          ),
         ),
       ),
     ),

@@ -50,4 +50,18 @@ $beanFiles['db_eventi'] = 'modules/db_eventi/db_eventi.php';
 $moduleList[] = 'db_eventi';
 
 
+ 
+ //WARNING: The contents of this file are auto-generated
+$beanList['FD_documenti'] = 'FD_documenti';
+$beanFiles['FD_documenti'] = 'modules/FD_documenti/FD_documenti.php';
+$moduleList[] = 'FD_documenti';
+
+
+ 
+ //WARNING: The contents of this file are auto-generated
+$beanList['FDi_dipendenti'] = 'FDi_dipendenti';
+$beanFiles['FDi_dipendenti'] = 'modules/FDi_dipendenti/FDi_dipendenti.php';
+$moduleList[] = 'FDi_dipendenti';
+
+
 ?>

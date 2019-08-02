@@ -90,21 +90,16 @@ array (
           array (
             'name' => 'active_date',
           ),
-          1 => 'exp_date',
+          1 => 'category_id',
         ),
         4 => 
-        array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
-        ),
-        5 => 
         array (
           0 => 
           array (
             'name' => 'description',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -117,7 +112,7 @@ array (
             'customCode' => '<select name="related_doc_rev_id" id="related_doc_rev_id" {$RELATED_DOCUMENT_REVISION_DISABLED}>{$RELATED_DOCUMENT_REVISION_OPTIONS}</select>',
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (

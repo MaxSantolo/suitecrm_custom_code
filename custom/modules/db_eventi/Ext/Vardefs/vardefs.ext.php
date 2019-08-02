@@ -93,4 +93,9 @@ $dictionary['db_eventi']['fields']['parent_id_custom_c']['inline_edit']='1';
 $dictionary['db_eventi']['fields']['parent_id_custom_c']['labelValue']='parent id custom';
 
  
+
+ // created: 2019-08-01 10:25:48
+$dictionary['db_eventi']['fields']['sede']['default']='all';
+
+ 
 ?>

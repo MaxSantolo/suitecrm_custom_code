@@ -87,14 +87,9 @@ array (
         3 => 
         array (
           0 => 'active_date',
-          1 => 'exp_date',
+          1 => 'category_id',
         ),
         4 => 
-        array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
-        ),
-        5 => 
         array (
           0 => 
           array (
@@ -103,12 +98,12 @@ array (
             'label' => 'LBL_DESCRIPTION',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 'related_doc_name',
           1 => 'related_doc_rev_number',
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (

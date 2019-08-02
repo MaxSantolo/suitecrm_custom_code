@@ -40,15 +40,31 @@
 
 
 
+$app_list_strings['moduleList']['frnt_fornitori_azienda'] = 'Fornitori';
+$app_list_strings['moduleList']['frnt_persona_fornitore'] = 'Persona di riferimento';
+$app_list_strings['moduleList']['frnt_fornitori_documenti'] = 'Documenti Fornitore';
+$app_list_strings['frnt_fornitori_documenti_category_dom'][''] = '';
+$app_list_strings['frnt_fornitori_documenti_category_dom']['Marketing'] = 'Marketing';
+$app_list_strings['frnt_fornitori_documenti_category_dom']['Knowledege Base'] = 'Documentazione di base';
+$app_list_strings['frnt_fornitori_documenti_category_dom']['Sales'] = 'Vendite';
+$app_list_strings['frnt_fornitori_documenti_subcategory_dom'][''] = '';
+$app_list_strings['frnt_fornitori_documenti_subcategory_dom']['Marketing Collateral'] = 'Materiale di Marketing';
+$app_list_strings['frnt_fornitori_documenti_subcategory_dom']['Product Brochures'] = 'Brochure Prodotto';
+$app_list_strings['frnt_fornitori_documenti_subcategory_dom']['FAQ'] = 'Domande frequenti';
+$app_list_strings['frnt_fornitori_documenti_status_dom']['Active'] = 'Attiva account di posta elettronica';
+$app_list_strings['frnt_fornitori_documenti_status_dom']['Draft'] = 'Bozza';
+$app_list_strings['frnt_fornitori_documenti_status_dom']['FAQ'] = 'Domande frequenti';
+$app_list_strings['frnt_fornitori_documenti_status_dom']['Expired'] = 'Scaduto';
+$app_list_strings['frnt_fornitori_documenti_status_dom']['Under Review'] = 'In Revisione';
+$app_list_strings['frnt_fornitori_documenti_status_dom']['Pending'] = 'In Attesa';
 $app_list_strings['frnt_fornitori_azienda_type_dom'][''] = '';
 $app_list_strings['frnt_fornitori_azienda_type_dom']['Analyst'] = 'Analista';
-$app_list_strings['frnt_fornitori_azienda_type_dom']['Competitor'] = 'Competitor';
+$app_list_strings['frnt_fornitori_azienda_type_dom']['Competitor'] = 'Concorrente';
 $app_list_strings['frnt_fornitori_azienda_type_dom']['Customer'] = 'Cliente';
 $app_list_strings['frnt_fornitori_azienda_type_dom']['Integrator'] = 'Integratore';
 $app_list_strings['frnt_fornitori_azienda_type_dom']['Investor'] = 'Investitore';
 $app_list_strings['frnt_fornitori_azienda_type_dom']['Partner'] = 'Partner';
 $app_list_strings['frnt_fornitori_azienda_type_dom']['Press'] = 'Stampa';
-$app_list_strings['frnt_fornitori_azienda_type_dom']['Prospect'] = 'Prospect';
-$app_list_strings['frnt_fornitori_azienda_type_dom']['Reseller'] = 'Rivenditore';
+$app_list_strings['frnt_fornitori_azienda_type_dom']['Prospect'] = 'Prospetto';
+$app_list_strings['frnt_fornitori_azienda_type_dom']['Reseller'] = 'Rivneditore';
 $app_list_strings['frnt_fornitori_azienda_type_dom']['Other'] = 'Altro';
-$app_list_strings['moduleList']['frnt_fornitori_azienda'] = 'Fornitori';

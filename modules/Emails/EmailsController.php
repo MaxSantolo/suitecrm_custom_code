@@ -353,10 +353,13 @@ class EmailsController extends SugarController
      */
     public function action_DeleteDraft()
     {
-        $this->bean->deleted = '1';
-        $this->bean->status = 'draft';
-        $this->bean->save();
-        $this->view = 'deletedraftemail';
+        if ($this->bean->status === 'draft') {
+
+            $this->bean->deleted = '1';
+            $this->bean->save();
+            $this->view = 'deletedraftemail';
+
+        }
     }
 
 
@@ -410,7 +413,7 @@ class EmailsController extends SugarController
 
                 $oe = new OutboundEmail();
                 $oe->retrieve($storedOptions['outbound_email']);
-                
+
                 $dataAddress = array(
                     'type' => $inboundEmail->module_name,
                     'id' => $inboundEmail->id,
@@ -564,10 +567,10 @@ class EmailsController extends SugarController
     {
         $db = DBManagerFactory::getInstance();
         $emails = BeanFactory::getBean("Emails");
-        
+
         $inboundEmailRecordIdQuoted = $db->quote($_REQUEST['inbound_email_record']);
         $uidQuoted = $db->quote($_REQUEST['uid']);
-        
+
         $result = $emails->get_full_list('', "mailbox_id = '" . $inboundEmailRecordIdQuoted . "' AND uid = '" . $uidQuoted . "'");
 
         if (empty($result)) {
@@ -746,7 +749,7 @@ class EmailsController extends SugarController
         $db = DBManagerFactory::getInstance();
         global $mod_strings;
 
-                
+
         global $current_user;
         $email = new Email();
         $email->email2init();
@@ -758,8 +761,8 @@ class EmailsController extends SugarController
             SugarApplication::appendErrorMessage(
                     "You don't have any valid email account settings yet. <a href=\"$url\">Click here to set your email accounts.</a>");
         }
-        
-        
+
+
         if (isset($request['record']) && !empty($request['record'])) {
             $this->bean->retrieve($request['record']);
         } else {

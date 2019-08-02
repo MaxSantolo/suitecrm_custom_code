@@ -36,6 +36,21 @@ array (
           'file' => 'modules/Accounts/Account.js',
         ),
       ),
+      'useTabs' => true,
+      'tabDefs' => 
+      array (
+        'LBL_ACCOUNT_INFORMATION' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL1' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+      ),
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -44,22 +59,19 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 'phone_office',
+          1 => 
+          array (
+            'name' => 'tipo_fornitore_c',
+            'studio' => 'visible',
+            'label' => 'LBL_TIPO_FORNITORE',
+          ),
         ),
         1 => 
         array (
-          0 => 'phone_fax',
+          0 => 'phone_office',
           1 => 'phone_alternate',
         ),
         2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'riferimento_c',
-            'label' => 'LBL_RIFERIMENTO',
-          ),
-        ),
-        3 => 
         array (
           0 => 
           array (
@@ -72,24 +84,7 @@ array (
             'label' => 'LBL_CFISC',
           ),
         ),
-        4 => 
-        array (
-          0 => 'industry',
-          1 => 'frnt_fornitori_azienda_type',
-        ),
-        5 => 
-        array (
-          0 => 'website',
-          1 => 'email1',
-        ),
-        6 => 
-        array (
-          0 => 'assigned_user_name',
-        ),
-      ),
-      'lbl_address_information' => 
-      array (
-        0 => 
+        3 => 
         array (
           0 => 
           array (
@@ -119,12 +114,75 @@ array (
             ),
           ),
         ),
+        4 => 
+        array (
+          0 => 'email1',
+          1 => 'website',
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'pec_c',
+            'label' => 'LBL_PEC',
+          ),
+          1 => 
+          array (
+            'name' => 'cdu_c',
+            'label' => 'LBL_CDU',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'ingresso_acs_c',
+            'label' => 'LBL_INGRESSO_ACS',
+          ),
+          1 => 
+          array (
+            'name' => 'acs_url_c',
+            'label' => 'LBL_ACS_URL',
+          ),
+        ),
+        7 => 
+        array (
+          0 => 'description',
+        ),
+        8 => 
+        array (
+          0 => 'assigned_user_name',
+        ),
       ),
-      'lbl_description_information' => 
+      'lbl_editview_panel1' => 
       array (
         0 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'created_by_name',
+            'label' => 'LBL_CREATED',
+          ),
+          1 => 
+          array (
+            'name' => 'modified_by_name',
+            'label' => 'LBL_MODIFIED_NAME',
+          ),
         ),
       ),
     ),

@@ -61,4 +61,19 @@ include('custom/metadata/db_eventi_documentsMetaData.php');
 include('custom/metadata/leads_cases_1MetaData.php');
 
 
+ 
+ //WARNING: The contents of this file are auto-generated
+include('custom/metadata/frnt_fornitori_azienda_cases_1MetaData.php');
+
+
+ 
+ //WARNING: The contents of this file are auto-generated
+include('custom/metadata/fd_documenti_frnt_fornitori_aziendaMetaData.php');
+
+
+ 
+ //WARNING: The contents of this file are auto-generated
+include('custom/metadata/fdi_dipendenti_frnt_fornitori_aziendaMetaData.php');
+
+
 ?>
