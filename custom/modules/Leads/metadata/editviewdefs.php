@@ -173,7 +173,17 @@ array (
         ),
         5 => 
         array (
-          0 => 'campaign_name',
+          0 => 
+          array (
+            'name' => 'mailing_status_c',
+            'studio' => 'visible',
+            'label' => 'LBL_MAILING_STATUS',
+          ),
+          1 => 
+          array (
+            'name' => 'mailing_date_c',
+            'label' => 'LBL_MAILING_DATE',
+          ),
         ),
       ),
       'lbl_editview_panel1' => 
@@ -337,14 +347,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'mailing_status_c',
+            'name' => 'sendinblue_state_c',
             'studio' => 'visible',
-            'label' => 'LBL_MAILING_STATUS',
-          ),
-          1 => 
-          array (
-            'name' => 'mailing_date_c',
-            'label' => 'LBL_MAILING_DATE',
+            'label' => 'LBL_SENDINBLUE_STATE',
           ),
         ),
         1 => 
@@ -358,6 +363,19 @@ array (
           array (
             'name' => 'privacy_a_date_c',
             'label' => 'LBL_PRIVACY_A_DATE',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'privacy_b_c',
+            'label' => 'LBL_PRIVACY_B',
+          ),
+          1 => 
+          array (
+            'name' => 'privacy_b_date_c',
+            'label' => 'LBL_PRIVACY_B_DATE',
           ),
         ),
       ),

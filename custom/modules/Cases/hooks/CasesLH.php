@@ -330,6 +330,8 @@ class CasesLH
 
             $mail->send();
 
+
+
             global $current_user;
             $params = array(
                 'app' => 'CRM',
@@ -383,6 +385,7 @@ class CasesLH
 
     }
 
+    //chiude l'evento DB Reception se chiudo il ticket
     function CloseDb_eventi($bean) {
 
         require_once 'custom/Extension/application/PickLog.php';

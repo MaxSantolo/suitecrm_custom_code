@@ -32,6 +32,13 @@ array (
     'width' => '10%',
     'default' => true,
   ),
+  'TEL_FISSO_C' => 
+  array (
+    'type' => 'varchar',
+    'default' => true,
+    'label' => 'LBL_TEL_FISSO',
+    'width' => '10%',
+  ),
   'TEL_CEL' => 
   array (
     'type' => 'varchar',

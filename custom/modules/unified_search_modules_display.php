@@ -1,5 +1,5 @@
 <?php
-// created: 2018-10-31 13:07:19
+// created: 2019-08-06 15:23:29
 $unified_search_modules_display = array (
   'Leads' => 
   array (
@@ -9,11 +9,11 @@ $unified_search_modules_display = array (
   array (
     'visible' => true,
   ),
-  'AOS_Quotes' => 
+  'frnt_fornitori_azienda' => 
   array (
     'visible' => true,
   ),
-  'frnt_fornitori_azienda' => 
+  'AOS_Quotes' => 
   array (
     'visible' => true,
   ),

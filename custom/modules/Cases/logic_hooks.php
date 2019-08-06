@@ -20,9 +20,9 @@ $hook_array['after_save'] = Array();
 //$hook_array['after_save'][] = Array(10, 'Send contact case closure email', 'modules/AOP_Case_Updates/CaseUpdatesHook.php','CaseUpdatesHook', 'closureNotify');
 $hook_array['after_save'][] = Array(11, 'Send ticket completion notify', 'custom/modules/Cases/hooks/CasesLH.php','CasesLH', 'NotifyClosure');
 $hook_array['after_save'][] = Array(13, 'NotifyUpdate', 'custom/modules/Cases/hooks/CasesLH.php','CasesLH', 'NotifyUpdate');
-$hook_array['after_save'][] = Array(12, 'Archive2Supplier', 'custom/modules/Cases/hooks/CasesLH.php','CasesLH', 'Archive2Supplier');
+//$hook_array['after_save'][] = Array(12, 'Archive2Supplier', 'custom/modules/Cases/hooks/CasesLH.php','CasesLH', 'Archive2Supplier');
 
-$hook_array['after_save'][] = Array(14, 'ReopenDelete', 'custom/modules/Cases/hooks/CasesLH.php','CasesLH', 'ReopenDelete');
+//$hook_array['after_save'][] = Array(14, 'ReopenDelete', 'custom/modules/Cases/hooks/CasesLH.php','CasesLH', 'ReopenDelete');
 
 
 

@@ -153,7 +153,7 @@ $dictionary['Lead']['fields']['salutation']['merge_filter']='disabled';
 
  
 
- // created: 2018-11-02 12:38:47
+ // created: 2019-08-06 14:32:46
 $dictionary['Lead']['fields']['status']['inline_edit']=true;
 $dictionary['Lead']['fields']['status']['comments']='Status of the lead';
 $dictionary['Lead']['fields']['status']['merge_filter']='disabled';
@@ -343,6 +343,12 @@ $dictionary['Lead']['fields']['nomina_resp_c']['labelValue']='Nominato Pick Resp
 
  
 
+ // created: 2019-08-05 16:09:20
+$dictionary['Lead']['fields']['sendinblue_state_c']['inline_edit']='1';
+$dictionary['Lead']['fields']['sendinblue_state_c']['labelValue']='Stato SendinBlue';
+
+ 
+
  // created: 2018-10-19 15:04:55
 $dictionary['Lead']['fields']['tccode_c']['inline_edit']='1';
 $dictionary['Lead']['fields']['tccode_c']['labelValue']='Codice Telecommuting';
@@ -367,9 +373,9 @@ $dictionary['Lead']['fields']['privacy_a_date_c']['labelValue']='Data Adesione A
 
  
 
- // created: 2018-10-24 14:47:08
+ // created: 2019-08-05 16:10:52
 $dictionary['Lead']['fields']['privacy_b_c']['inline_edit']='1';
-$dictionary['Lead']['fields']['privacy_b_c']['labelValue']='Adesione B';
+$dictionary['Lead']['fields']['privacy_b_c']['labelValue']='Adesione Pick Club';
 
  
 
@@ -397,9 +403,9 @@ $dictionary['Lead']['fields']['privacy_f_c']['labelValue']='Adesione F';
 
  
 
- // created: 2018-10-24 14:59:28
+ // created: 2019-08-05 16:11:15
 $dictionary['Lead']['fields']['privacy_b_date_c']['inline_edit']='1';
-$dictionary['Lead']['fields']['privacy_b_date_c']['labelValue']='Data Adesione B';
+$dictionary['Lead']['fields']['privacy_b_date_c']['labelValue']='in data (PC)';
 
  
 

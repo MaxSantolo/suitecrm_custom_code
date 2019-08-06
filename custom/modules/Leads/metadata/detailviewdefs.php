@@ -29,7 +29,24 @@ array (
               ),
             ),
           ),
-          4 => 
+            4 =>
+                array (
+                    'customCode' => '<input type="submit" class="button" title="Converti in fornitore" onclick="alert(\'Bean ID: \' + \'{$bean->id}\');" name="genFile" value="genFile" />',
+                    'sugar_html' =>
+                        array (
+                            'type' => 'submit',
+                            'value' => 'Converti in fornitore',
+                            'htmlOptions' =>
+                                array (
+                                    'class' => 'button',
+                                    'id' => 'genFile_button',
+                                    'title' => 'Copia il contatto nei fornitori',
+                                    'onclick' => 'if(confirm(\'Il contatto verr&agrave; copiato nei fornitori. Procedo?\')) document.location = \'index.php?entryPoint=leads2FDipendenti&lead_id={$bean->id}\';',
+                                    'name' => 'leads2FDipendenti',
+                                ),
+                        ),
+                ),
+          5 =>
           array (
             'customCode' => '{if $bean->aclAccess("edit") && !$DISABLE_CONVERT_ACTION}<input title="{$MOD.LBL_CONVERTLEAD_TITLE}" accessKey="{$MOD.LBL_CONVERTLEAD_BUTTON_KEY}" type="button" class="button" onClick="document.location=\'index.php?module=Leads&action=ConvertLead&record={$fields.id.value}\'" name="convert" value="{$MOD.LBL_CONVERTLEAD}">{/if}',
             'sugar_html' => 
@@ -393,6 +410,15 @@ array (
         array (
           0 => 
           array (
+            'name' => 'sendinblue_state_c',
+            'studio' => 'visible',
+            'label' => 'LBL_SENDINBLUE_STATE',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
             'name' => 'privacy_a_c',
             'label' => 'LBL_PRIVACY_A',
           ),
@@ -400,6 +426,19 @@ array (
           array (
             'name' => 'privacy_a_date_c',
             'label' => 'LBL_PRIVACY_A_DATE',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'privacy_b_c',
+            'label' => 'LBL_PRIVACY_B',
+          ),
+          1 => 
+          array (
+            'name' => 'privacy_b_date_c',
+            'label' => 'LBL_PRIVACY_B_DATE',
           ),
         ),
       ),

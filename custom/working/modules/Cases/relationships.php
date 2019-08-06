@@ -42,7 +42,7 @@
 $relationships = array (
   'cases_modified_user' => 
   array (
-    'id' => '4c144e3a-cece-fdb3-c7fc-5d259d020e80',
+    'id' => 'e7a3dec0-e589-c801-b547-5d43dbce8c36',
     'relationship_name' => 'cases_modified_user',
     'lhs_module' => 'Users',
     'lhs_table' => 'users',
@@ -64,11 +64,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => false,
+    'from_studio' => true,
   ),
   'cases_created_by' => 
   array (
-    'id' => '4c349d33-31a3-5087-df10-5d259df43ef0',
+    'id' => 'e7c3a1b3-3aa3-a807-ed8f-5d43db7aef95',
     'relationship_name' => 'cases_created_by',
     'lhs_module' => 'Users',
     'lhs_table' => 'users',
@@ -90,11 +90,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => false,
+    'from_studio' => true,
   ),
   'cases_assigned_user' => 
   array (
-    'id' => '4c514919-81bd-79d0-a153-5d259d4fd312',
+    'id' => 'e7dcbcd2-54f1-b6cf-9847-5d43db008581',
     'relationship_name' => 'cases_assigned_user',
     'lhs_module' => 'Users',
     'lhs_table' => 'users',
@@ -116,11 +116,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => false,
+    'from_studio' => true,
   ),
   'securitygroups_cases' => 
   array (
-    'id' => '4c729f48-2081-b769-7837-5d259d7d196e',
+    'id' => 'e7f5ba56-8b85-564f-eac5-5d43db8f5dc6',
     'relationship_name' => 'securitygroups_cases',
     'lhs_module' => 'SecurityGroups',
     'lhs_table' => 'securitygroups',
@@ -142,11 +142,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => false,
+    'from_studio' => true,
   ),
   'case_calls' => 
   array (
-    'id' => '4c8fb2cb-507c-3f64-145e-5d259d3fffbf',
+    'id' => 'e80edd76-c7c4-2fc0-e22f-5d43db941fbe',
     'relationship_name' => 'case_calls',
     'lhs_module' => 'Cases',
     'lhs_table' => 'cases',
@@ -168,11 +168,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => false,
+    'from_studio' => true,
   ),
   'case_tasks' => 
   array (
-    'id' => '4cb149ab-c2a1-b39e-dd7d-5d259d68de87',
+    'id' => 'e82991e4-7237-5035-9a92-5d43dbc71827',
     'relationship_name' => 'case_tasks',
     'lhs_module' => 'Cases',
     'lhs_table' => 'cases',
@@ -194,11 +194,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => false,
+    'from_studio' => true,
   ),
   'case_notes' => 
   array (
-    'id' => '4ccf8e6c-66ee-c756-37f6-5d259d662461',
+    'id' => 'e843b689-4a90-f173-fc15-5d43db853f2e',
     'relationship_name' => 'case_notes',
     'lhs_module' => 'Cases',
     'lhs_table' => 'cases',
@@ -220,11 +220,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => false,
+    'from_studio' => true,
   ),
   'case_meetings' => 
   array (
-    'id' => '4cec8005-ea66-f4a8-0733-5d259d5f9a0c',
+    'id' => 'e85cf7f3-4257-352c-5357-5d43db07e867',
     'relationship_name' => 'case_meetings',
     'lhs_module' => 'Cases',
     'lhs_table' => 'cases',
@@ -246,11 +246,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => false,
+    'from_studio' => true,
   ),
   'case_emails' => 
   array (
-    'id' => '4d091022-b39a-7db9-9d45-5d259d83b373',
+    'id' => 'e877eafd-bb8d-ea05-0401-5d43db79b718',
     'relationship_name' => 'case_emails',
     'lhs_module' => 'Cases',
     'lhs_table' => 'cases',
@@ -272,11 +272,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => false,
+    'from_studio' => true,
   ),
   'cases_created_contact' => 
   array (
-    'id' => '4d429229-3c57-d1f2-0154-5d259de2b386',
+    'id' => 'e894012c-c4c5-6302-c02c-5d43dbade8ff',
     'relationship_name' => 'cases_created_contact',
     'lhs_module' => 'Contacts',
     'lhs_table' => 'contacts',
@@ -298,11 +298,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => false,
+    'from_studio' => true,
   ),
   'account_cases' => 
   array (
-    'id' => '633a2b42-3a90-173c-f510-5d259d69b9bd',
+    'id' => '1414ea43-de36-6541-5ef6-5d43dbd91d5f',
     'relationship_name' => 'account_cases',
     'lhs_module' => 'Accounts',
     'lhs_table' => 'accounts',
@@ -324,11 +324,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => false,
+    'from_studio' => true,
   ),
   'jjwg_Maps_cases' => 
   array (
-    'id' => '95028fbb-acd2-c1d2-d288-5d259dd1684c',
+    'id' => '7a09e466-c0d6-ab84-3925-5d43db7fa5f8',
     'relationship_name' => 'jjwg_Maps_cases',
     'lhs_module' => 'jjwg_Maps',
     'lhs_table' => 'jjwg_Maps',
@@ -350,11 +350,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => false,
+    'from_studio' => true,
   ),
   'cases_bugs' => 
   array (
-    'id' => 'b454511b-6c19-7ef6-31f8-5d259d87ff20',
+    'id' => 'a2d34ca9-aa9b-9855-14a3-5d43db37603a',
     'relationship_name' => 'cases_bugs',
     'lhs_module' => 'Cases',
     'lhs_table' => 'cases',
@@ -376,11 +376,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => false,
+    'from_studio' => true,
   ),
   'contacts_cases' => 
   array (
-    'id' => 'b4952ebc-2542-349d-988a-5d259d9efda8',
+    'id' => 'a31299b0-c1c9-b5bb-113e-5d43dbc8d100',
     'relationship_name' => 'contacts_cases',
     'lhs_module' => 'Contacts',
     'lhs_table' => 'contacts',
@@ -402,11 +402,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => false,
+    'from_studio' => true,
   ),
   'emails_cases_rel' => 
   array (
-    'id' => 'b4fec134-a270-ebf9-ee75-5d259d3d5693',
+    'id' => 'a37ccd00-89e8-b7f0-155b-5d43db38b69f',
     'relationship_name' => 'emails_cases_rel',
     'lhs_module' => 'Emails',
     'lhs_table' => 'emails',
@@ -428,11 +428,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => false,
+    'from_studio' => true,
   ),
   'projects_cases' => 
   array (
-    'id' => 'b74e7621-384d-5c3b-0c59-5d259da2d148',
+    'id' => 'a5de6b47-46e0-3244-26bd-5d43db444bbf',
     'relationship_name' => 'projects_cases',
     'lhs_module' => 'Project',
     'lhs_table' => 'project',
@@ -454,11 +454,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => false,
+    'from_studio' => true,
   ),
   'documents_cases' => 
   array (
-    'id' => 'b89fb571-d12b-2dd7-a885-5d259dfc521e',
+    'id' => 'a7427236-3832-7f07-eb52-5d43db320592',
     'relationship_name' => 'documents_cases',
     'lhs_module' => 'Documents',
     'lhs_table' => 'documents',
@@ -480,11 +480,11 @@ $relationships = array (
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
-    'from_studio' => false,
+    'from_studio' => true,
   ),
   'leads_cases_1' => 
   array (
-    'id' => 'bde4f9a9-a4d8-fe8d-0487-5d259d9d8f3d',
+    'id' => 'ac9c2d58-d557-c967-70fd-5d43dbee5c20',
     'relationship_name' => 'leads_cases_1',
     'lhs_module' => 'Leads',
     'lhs_table' => 'leads',
@@ -507,5 +507,47 @@ $relationships = array (
     'is_custom' => true,
     'relationship_only' => false,
     'for_activities' => false,
+  ),
+  'frnt_fornitori_azienda_cases_1' => 
+  array (
+    'id' => 'acba34d6-f263-0fa2-2ba6-5d43db5f75b2',
+    'relationship_name' => 'frnt_fornitori_azienda_cases_1',
+    'lhs_module' => 'frnt_fornitori_azienda',
+    'lhs_table' => 'frnt_fornitori_azienda',
+    'lhs_key' => 'id',
+    'rhs_module' => 'Cases',
+    'rhs_table' => 'cases',
+    'rhs_key' => 'id',
+    'join_table' => 'frnt_fornitori_azienda_cases_1_c',
+    'join_key_lhs' => 'frnt_fornitori_azienda_cases_1frnt_fornitori_azienda_ida',
+    'join_key_rhs' => 'frnt_fornitori_azienda_cases_1cases_idb',
+    'relationship_type' => 'one-to-many',
+    'relationship_role_column' => NULL,
+    'relationship_role_column_value' => NULL,
+    'reverse' => '0',
+    'deleted' => '0',
+    'readonly' => true,
+    'rhs_subpanel' => 'default',
+    'lhs_subpanel' => NULL,
+    'from_studio' => true,
+    'is_custom' => true,
+    'relationship_only' => false,
+    'for_activities' => false,
+  ),
+  'cases_fd_documenti_1' => 
+  array (
+    'rhs_label' => 'Documenti intervento',
+    'lhs_label' => 'Ticket',
+    'rhs_subpanel' => 'default',
+    'lhs_module' => 'Cases',
+    'rhs_module' => 'FD_documenti',
+    'relationship_type' => 'one-to-many',
+    'readonly' => true,
+    'deleted' => false,
+    'relationship_only' => false,
+    'for_activities' => false,
+    'is_custom' => false,
+    'from_studio' => true,
+    'relationship_name' => 'cases_fd_documenti_1',
   ),
 );

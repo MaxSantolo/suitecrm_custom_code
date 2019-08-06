@@ -27,11 +27,6 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_QUICKCREATE_PANEL1' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
       ),
     ),
     'panels' => 
@@ -45,6 +40,15 @@ array (
         ),
         1 => 
         array (
+          0 => 
+          array (
+            'name' => 'frnt_fornitori_azienda_cases_1_name',
+            'label' => 'LBL_FRNT_FORNITORI_AZIENDA_CASES_1_FROM_FRNT_FORNITORI_AZIENDA_TITLE',
+          ),
+          1 => '',
+        ),
+        2 => 
+        array (
           0 => 'status',
           1 => 
           array (
@@ -53,7 +57,7 @@ array (
             'label' => 'LBL_SEDE_TICKET',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 'account_name',
           1 => 
@@ -62,29 +66,13 @@ array (
             'label' => 'LBL_LEADS_CASES_1_FROM_LEADS_TITLE',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 'assigned_user_name',
         ),
-        4 => 
+        5 => 
         array (
           0 => 'description',
-        ),
-      ),
-      'lbl_quickcreate_panel1' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'cases_accounts_1_name',
-            'label' => 'LBL_CASES_ACCOUNTS_1_FROM_ACCOUNTS_TITLE',
-          ),
-          1 => 
-          array (
-            'name' => 'cases_leads_1_name',
-            'label' => 'LBL_CASES_LEADS_1_FROM_LEADS_TITLE',
-          ),
         ),
       ),
     ),

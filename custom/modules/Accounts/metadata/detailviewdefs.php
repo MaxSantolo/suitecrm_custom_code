@@ -12,7 +12,24 @@ array (
           0 => 'EDIT',
           1 => 'DUPLICATE',
           2 => 'DELETE',
-          3 => 'FIND_DUPLICATES',
+            3 =>
+                array (
+                    'customCode' => '<input type="submit" class="button" title="Converti in fornitore" onclick="alert(\'Bean ID: \' + \'{$bean->id}\');" name="genFile" value="genFile" />',
+                    'sugar_html' =>
+                        array (
+                            'type' => 'submit',
+                            'value' => 'Converti in fornitore',
+                            'htmlOptions' =>
+                                array (
+                                    'class' => 'button',
+                                    'id' => 'genFile_button',
+                                    'title' => 'Converte l\'azienda in azienda fornitore',
+                                    'onclick' => 'if(confirm(\'Azienda sar&agrave; copiata nei fornitori. Procedo?\')) document.location = \'index.php?entryPoint=account2Frnt&account_id={$bean->id}\';',
+                                    'name' => 'account2Frnt',
+                                ),
+                        ),
+                ),
+          4 => 'FIND_DUPLICATES',
           'AOS_GENLET' => 
           array (
             'customCode' => '<input type="button" class="button" onClick="showPopup();" value="{$APP.LBL_PRINT_AS_PDF}">',
@@ -279,7 +296,7 @@ array (
             'label' => 'LBL_EMPLOYEES',
           ),
         ),
-        4 => 
+        5 =>
         array (
           0 => 'campaign_name',
         ),

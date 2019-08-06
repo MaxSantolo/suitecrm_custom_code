@@ -52,7 +52,6 @@ array (
             'name' => 'fd_documenti_frnt_fornitori_azienda_name',
             'label' => 'LBL_FD_DOCUMENTI_FRNT_FORNITORI_AZIENDA_FROM_FRNT_FORNITORI_AZIENDA_TITLE',
           ),
-          1 => '',
         ),
         1 => 
         array (

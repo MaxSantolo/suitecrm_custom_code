@@ -79,9 +79,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'parent_name',
-            'studio' => 'visible',
-            'label' => 'LBL_FLEX_RELATE',
+            'name' => 'frnt_fornitori_azienda_cases_1_name',
+            'label' => 'LBL_FRNT_FORNITORI_AZIENDA_CASES_1_FROM_FRNT_FORNITORI_AZIENDA_TITLE',
           ),
           1 => 
           array (

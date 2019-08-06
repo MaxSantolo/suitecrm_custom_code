@@ -30,17 +30,17 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => false,
+      'useTabs' => true,
       'tabDefs' => 
       array (
         'LBL_EDITVIEW_PANEL2' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL1' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
       ),
@@ -57,7 +57,6 @@ array (
             'name' => 'fdi_dipendenti_frnt_fornitori_azienda_name',
             'label' => 'LBL_FDI_DIPENDENTI_FRNT_FORNITORI_AZIENDA_FROM_FRNT_FORNITORI_AZIENDA_TITLE',
           ),
-          1 => '',
         ),
         1 => 
         array (
@@ -76,32 +75,26 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_RUOLO',
           ),
-          1 => '',
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'email',
-            'label' => 'LBL_EMAIL',
+            'name' => 'tel_cel',
+            'label' => 'LBL_TEL_CEL',
           ),
           1 => 
           array (
-            'name' => 'tel_cel',
-            'label' => 'LBL_TEL_CEL',
+            'name' => 'tel_fisso_c',
+            'label' => 'LBL_TEL_FISSO',
           ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'ingresso_acs_c',
-            'label' => 'LBL_INGRESSO_ACS',
-          ),
-          1 => 
-          array (
-            'name' => 'acs_url_c',
-            'label' => 'LBL_ACS_URL',
+            'name' => 'email',
+            'label' => 'LBL_EMAIL',
           ),
         ),
         5 => 

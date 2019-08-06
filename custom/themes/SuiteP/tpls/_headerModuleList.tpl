@@ -559,6 +559,7 @@
                         <li><a href="index.php?module=Documents&action=EditView&return_module=Documents&return_action=DetailView">Nuovo Documento</a></li>
                         <li><a href="index.php?module=Calls&action=EditView&return_module=Calls&return_action=DetailView">Nuova Call</a></li>
                         <li><a href="index.php?action=ajaxui#ajaxUILoc=index.php%3Fmodule%3DCases%26action%3DEditView%26return_module%3DCases%26return_action%3DDetailView">Nuovo Ticket</a></li>
+                        <li><a href="http://crm.pickcenter.com/index.php?action=ajaxui#ajaxUILoc=index.php%3Fmodule%3Dfrnt_fornitori_azienda%26action%3DEditView%26return_module%3Dfrnt_fornitori_azienda%26return_action%3DDetailView">Nuovo Fornitore</a></li>
                         <!-- <li><a href="index.php?module=Tasks&action=EditView&return_module=Tasks&return_action=DetailView">{$APP.LBL_QUICK_TASK}</a></li> -->
                     </ul>
                 </li>
@@ -643,6 +644,7 @@
                         <li><a href="index.php?module=Documents&action=EditView&return_module=Documents&return_action=DetailView">Nuovo Documento</a></li>
                         <li><a href="index.php?module=Calls&action=EditView&return_module=Calls&return_action=DetailView">Nuova Call</a></li>
                         <li><a href="index.php?action=ajaxui#ajaxUILoc=index.php%3Fmodule%3DCases%26action%3DEditView%26return_module%3DCases%26return_action%3DDetailView">Nuovo Ticket</a></li>
+                        <li><a href="http://crm.pickcenter.com/index.php?action=ajaxui#ajaxUILoc=index.php%3Fmodule%3Dfrnt_fornitori_azienda%26action%3DEditView%26return_module%3Dfrnt_fornitori_azienda%26return_action%3DDetailView">Nuovo Fornitore</a></li>
                         <!-- <li><a href="index.php?module=Tasks&action=EditView&return_module=Tasks&return_action=DetailView">{$APP.LBL_QUICK_TASK}</a></li> -->
                     </ul>
                 </li>

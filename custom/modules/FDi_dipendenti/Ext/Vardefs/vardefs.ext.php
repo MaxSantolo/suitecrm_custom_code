@@ -36,15 +36,9 @@ $dictionary["FDi_dipendenti"]["fields"]["fdi_dipendenti_frnt_fornitori_aziendafr
 );
 
 
- // created: 2019-08-02 08:43:49
-$dictionary['FDi_dipendenti']['fields']['ingresso_acs_c']['inline_edit']='1';
-$dictionary['FDi_dipendenti']['fields']['ingresso_acs_c']['labelValue']='Autorizzato all\'ingresso';
-
- 
-
- // created: 2019-08-02 08:44:55
-$dictionary['FDi_dipendenti']['fields']['acs_url_c']['inline_edit']='1';
-$dictionary['FDi_dipendenti']['fields']['acs_url_c']['labelValue']='ACS';
+ // created: 2019-08-06 13:43:57
+$dictionary['FDi_dipendenti']['fields']['tel_fisso_c']['inline_edit']='1';
+$dictionary['FDi_dipendenti']['fields']['tel_fisso_c']['labelValue']='Telefono fisso';
 
  
 ?>

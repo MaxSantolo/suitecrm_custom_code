@@ -1,5 +1,5 @@
 <?php
-// created: 2019-07-29 10:25:53
+// created: 2019-08-06 10:05:40
 $mod_strings = array (
   'LBL_CONTACTS' => 'Contatti',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Clienti - &gt; Persone',
@@ -49,4 +49,5 @@ $mod_strings = array (
   'LBL_BOOK_EMAIL' => 'Email per booking / Area Clienti',
   'LBL_NOMINA_RESPONSABILE' => 'Nominato Pick a responsabile il:',
   'LBL_CAUSA_DISDETTA' => 'Motivazione della disdetta',
+  'LBL_GDRP_NOMINA_RESPONSABILE' => 'Nominato Pick responsabile il',
 );

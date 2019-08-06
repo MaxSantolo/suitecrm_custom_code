@@ -1,5 +1,5 @@
 <?php
-// created: 2019-08-01 16:26:53
+// created: 2019-08-05 16:11:15
 $mod_strings = array (
   'LBL_LEAD_PIVA' => 'Partita IVA',
   'LBL_LEAD_CF' => 'Codice Fiscale',
@@ -73,12 +73,12 @@ $mod_strings = array (
   'LBL_ACS_URL' => 'ACS',
   'LBL_PRIVACY_A' => 'Adesione Marketing',
   'LBL_PRIVACY_A_DATE' => 'in data',
-  'LBL_PRIVACY_B' => 'Adesione B',
+  'LBL_PRIVACY_B' => 'Adesione Pick Club',
   'LBL_PRIVACY_C' => 'Adesione C',
   'LBL_PRIVACY_D' => 'Adesione D',
   'LBL_PRIVACY_E' => 'Adesione E',
   'LBL_PRIVACY_F' => 'Adesione F',
-  'LBL_PRIVACY_B_DATE' => 'Data Adesione B',
+  'LBL_PRIVACY_B_DATE' => 'in data (PC)',
   'LBL_PRIVACY_C_DATE' => 'Data Adesione C',
   'LBL_PRIVACY_D_DATE' => 'Data Adesione D',
   'LBL_PRIVACY_E_DATE' => 'Data Adesione E',
@@ -92,4 +92,5 @@ $mod_strings = array (
   'LBL_NOMINA_RESP' => 'Nominato Pick Responsabile il:',
   'LBL_EDITVIEW_PANEL5' => 'Privacy',
   'LBL_CAUSA_DISDETTA' => 'Motivazione della disdetta',
+  'LBL_SENDINBLUE_STATE' => 'Stato SendinBlue',
 );
