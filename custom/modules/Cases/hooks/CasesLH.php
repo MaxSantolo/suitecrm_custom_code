@@ -118,7 +118,7 @@ class CasesLH
                 <strong>Tipo: </strong>{$ticketType}<br>
                 <strong>Richiedente: </strong>{$current_user->name}<br>
                 <strong>Oggetto: </strong>{$bean->name}<br>
-                <strong>Descrizione: </strong>{$bean->description}<br>
+                <strong>Descrizione: </strong>{$bean->descrizione_c}<br>
                 <strong><a href='{$ticketURL}' target='_blank'>Vedi i dettagli </a></strong>
                 
             ";
@@ -243,7 +243,7 @@ class CasesLH
         $supplierBean = BeanFactory::getBean($parentType,$parentID);
 
         $subject = "Associato un ticket a " . $supplierBean->name;
-        $content = strip_tags(html_entity_decode($bean->description));
+        $content = strip_tags(html_entity_decode($bean->descrizione_c));
 
         $params = array(
             'app' => 'CRM',
@@ -304,7 +304,7 @@ class CasesLH
                 <strong>Richiedente: </strong>{$crName}<br>
                 <strong>Ultima modifica di: </strong>{$leName}<br>
                 <strong>Oggetto: </strong>{$bean->name}<br>
-                <strong>Descrizione: </strong>{$bean->description}<br>
+                <strong>Descrizione: </strong>{$bean->descrizione_c}<br>
                 <strong>Soluzione: </strong>{$bean->resolution}<br>
                 <strong><a href='{$ticketURL}' target='_blank'>Vedi i dettagli </a></strong>
                 

@@ -126,10 +126,10 @@ $GLOBALS['app_list_strings']['account_type_dom']=array (
   'Press' => 'Stampa',
   'conv_fornitore' => 'Convertito in fornitore',
 );
+
 $GLOBALS['app_list_strings']['lead_status_dom']=array (
   '' => '',
   'Recycled' => 'Arieccolo',
-  'Assigned' => 'Assegnato',
   'badclient' => 'Bad Client',
   'Converted' => 'Cliente',
   'clieforn' => 'Cliente/Fornitore',
@@ -140,7 +140,6 @@ $GLOBALS['app_list_strings']['lead_status_dom']=array (
   'DRZN' => 'Direzione',
   'exfornitore' => 'Ex Fornitore',
   'excliente' => 'Ex-Cliente',
-  'appuntamento' => 'Fissato Appuntamento',
   'FRNT' => 'Fornitore',
   'lead_status_dom_import' => 'Importato Dom2',
   'MNTN' => 'Manutentore',

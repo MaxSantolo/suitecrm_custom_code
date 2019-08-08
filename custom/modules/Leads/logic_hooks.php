@@ -11,6 +11,7 @@ $hook_array['before_save'][] = Array(3, 'maiuscole', 'custom/modules/Leads/hooks
 $hook_array['before_save'][] = Array(4, 'checkin', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'LeadCheckIn');
 $hook_array['before_save'][] = Array(5, 'checkout', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'LeadCheckOut');
 $hook_array['before_save'][] = Array(6, 'assegna CDU', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'CDU');
+$hook_array['before_save'][] = Array(7, 'Stato SendinBlue', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'changeListState');
 
 $hook_array['before_save'][] = Array(8, 'descrizione', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'removeAccountRel');
 $hook_array['before_save'][] = Array(9, 'aggiorna dati azienda', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'copyAccountData2Lead');

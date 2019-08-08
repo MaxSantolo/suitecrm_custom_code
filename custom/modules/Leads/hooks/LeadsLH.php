@@ -294,6 +294,7 @@ class LeadsLH {
 
     }
 
+    //compila i dati dell'azienda su lead
     function copyAccountData2Lead($bean) {
 
         if ($bean->account_id_c != '' && $bean->fetched_row['account_id_c'] != $bean->account_id_c) {
@@ -315,6 +316,32 @@ class LeadsLH {
 
         }
 
+    }
+
+    //cambia lo stato per SendinBlue->Agent->sito SendinBlue
+    function changeListState($bean) {
+
+        $status = $bean->status;
+
+        $array_18 = array("Recycled","contatto","new","direzione","social");
+        $array_17 = array("Converted","clieforn","ammin","excliente","autorizzato");
+
+        //stato locale della lista mailing
+        $list = "";
+        if (in_array($status,$array_18)) $list = 18;
+        if (in_array($status,$array_17)) $list = 17;
+
+        $bean->sendinblue_state_c = $list;
+
+
+        //stato newsletter marketing da remoto a locale
+        if ($bean->mailing_status_c == "optin") {
+            $bean->privacy_a_c = 1;
+        } else if ($bean->mailing_status_c == "optout") {
+            $bean->privacy_a_c = 0;
+        }
+
+        $bean->privacy_a_date_c = $bean->mailing_date_c;
 
     }
 
