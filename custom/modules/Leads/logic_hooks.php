@@ -22,7 +22,7 @@ $hook_array['before_save'][] = Array(77, 'updateGeocodeInfo', 'modules/Leads/Lea
 $hook_array['after_save'] = Array();
 $hook_array['after_save'][] = Array(77, 'updateRelatedMeetingsGeocodeInfo', 'modules/Leads/LeadsJjwg_MapsLogicHook.php','LeadsJjwg_MapsLogicHook', 'updateRelatedMeetingsGeocodeInfo');
 $hook_array['after_save'][] = Array(7, 'mail fatturazione elettronica', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'MailFE');
-
+$hook_array['after_save'][] = Array(4, 'checkin', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'LeadCheckIn');
 
 $hook_array['before_delete'] = Array();
 $hook_array['before_delete'][] = Array(1, 'delete', 'custom/modules/Leads/hooks/LeadsLH.php','LeadsLH', 'LeadDelete');

@@ -43,7 +43,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 
-class SugarWidgetSubPanelTopCreateLeadNameButton extends SugarWidgetSubPanelTopButtonQuickCreate
+class SugarWidgetSubPanelTopCreateQuoteNameButton extends SugarWidgetSubPanelTopButtonQuickCreate
 {
 
     public function getWidgetId($buttonSuffix = true)
@@ -59,7 +59,7 @@ class SugarWidgetSubPanelTopCreateLeadNameButton extends SugarWidgetSubPanelTopB
 		$title = $app_strings['LBL_NEW_BUTTON_TITLE'];
 		//$accesskey = $app_strings['LBL_NEW_BUTTON_KEY'];
 		$value = $app_strings['LBL_NEW_BUTTON_LABEL'];
-		$this->module = 'Leads';
+		$this->module = 'AOS_Quotes';
 		if( ACLController::moduleSupportsACL($defines['module'])  && !ACLController::checkAccess($defines['module'], 'edit', true)){
 			$button = "<input title='$title'class='button' type='button' name='button' value='  $value  ' disabled/>\n";
 			return $button;
@@ -69,7 +69,7 @@ class SugarWidgetSubPanelTopCreateLeadNameButton extends SugarWidgetSubPanelTopB
 		
 		//from accounts
 		if ($defines['focus']->object_name == 'Account') {
-			if(isset($defines['focus']->billing_address_street)) 
+/*			if(isset($defines['focus']->billing_address_street))
 				$additionalFormFields['primary_address_street'] = $defines['focus']->billing_address_street;
 			if(isset($defines['focus']->billing_address_city)) 
 				$additionalFormFields['primary_address_city'] = $defines['focus']->billing_address_city;						  		
@@ -80,12 +80,12 @@ class SugarWidgetSubPanelTopCreateLeadNameButton extends SugarWidgetSubPanelTopB
 			if(isset($defines['focus']->billing_address_postalcode)) 
 				$additionalFormFields['primary_address_postalcode'] = $defines['focus']->billing_address_postalcode;
 			if(isset($defines['focus']->phone_office)) 
-				$additionalFormFields['phone_work'] = $defines['focus']->phone_office;
-/*			//modifiche 05/09
+				$additionalFormFields['phone_work'] = $defines['focus']->phone_office;*/
+			//modifiche 05/09
 			if(isset($defines['focus']->id))
-				$additionalFormFields['lead_azienda_c'] = $defines['focus']->name;
+				$additionalFormFields['billing_account'] = $defines['focus']->name;
             if(isset($defines['focus']->id))
-                $additionalFormFields['account_id_c'] = $defines['focus']->id;*/
+                $additionalFormFields['billing_account_id'] = $defines['focus']->id;
 		}
 		//from contacts
 		if ($defines['focus']->object_name == 'Contact') {

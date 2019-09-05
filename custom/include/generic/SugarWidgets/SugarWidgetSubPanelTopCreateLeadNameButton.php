@@ -81,11 +81,11 @@ class SugarWidgetSubPanelTopCreateLeadNameButton extends SugarWidgetSubPanelTopB
 				$additionalFormFields['primary_address_postalcode'] = $defines['focus']->billing_address_postalcode;
 			if(isset($defines['focus']->phone_office)) 
 				$additionalFormFields['phone_work'] = $defines['focus']->phone_office;
-/*			//modifiche 05/09
+			//modifiche 05/09
 			if(isset($defines['focus']->id))
 				$additionalFormFields['lead_azienda_c'] = $defines['focus']->name;
             if(isset($defines['focus']->id))
-                $additionalFormFields['account_id_c'] = $defines['focus']->id;*/
+                $additionalFormFields['account_id_c'] = $defines['focus']->id;
 		}
 		//from contacts
 		if ($defines['focus']->object_name == 'Contact') {

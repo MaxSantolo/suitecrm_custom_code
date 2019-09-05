@@ -2,9 +2,12 @@
 
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
-    $id = $_GET['account_id'];
 
-    $account = BeanFactory::getBean("Accounts",$id);
+$id = $_GET['account_id'];
+$account = BeanFactory::getBean("Accounts",$id);
+
+if ($account->account_type == "fornitore") {
+
     $azn_frnt = BeanFactory::newBean("frnt_fornitori_azienda");
 
     $azn_frnt->name                         = $account->name;
@@ -21,13 +24,12 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
     $azn_frnt->phone_alternate              = $account->phone_alternate;
     $azn_frnt->cdu_c                        = $account->cdu_c;
     $azn_frnt->pec_c                        = $account->pec_c;
-
     $azn_frnt->save();
 
-    if ($account->account_type == "fornitore") {
-        $account->account_type = "conv_fornitore";
-        $account->save();
-    }
+    $account->account_type = "conv_fornitore";
+    $account->save();
+
+}
 
 
 SugarApplication::redirect("http://crm.pickcenter.com/index.php?action=ajaxui#ajaxUILoc=index.php%3Fmodule%3Dfrnt_fornitori_azienda%26offset%3D1%26stamp%3D1565086071053444100%26return_module%3Dfrnt_fornitori_azienda%26action%3DDetailView%26record%3D" . $azn_frnt->id);
