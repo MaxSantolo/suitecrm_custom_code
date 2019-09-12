@@ -57,16 +57,6 @@ $GLOBALS['app_list_strings']['tipo_fornitore_list']=array (
   'FRNT_lgs81' => 'L.g.s. 81',
   'FRNT_climatizzazione' => 'Climatizzazione',
 );
-$GLOBALS['app_list_strings']['case_status_dom']=array (
-  'Closed_Rejected' => 'Annullato',
-  'Open_Assigned' => 'Assegnato',
-  'Closed_Closed' => 'Chiuso',
-  'Closed_Duplicate' => 'Duplicato',
-  'Open_Pending Input' => 'In pending',
-  'Open_New' => 'Nuovo',
-  'Open_NewDate' => 'Rimandato',
-);
-
 $GLOBALS['app_list_strings']['causa_disdetta_lead_list']=array (
   'excliente_altro' => 'Altro',
   'excliente_altrobc' => 'Altro Business Center',
@@ -149,4 +139,13 @@ $GLOBALS['app_list_strings']['lead_status_dom']=array (
   'SWH' => 'SmartWorkingHub',
   'social' => 'Social',
   'conv_FRNT' => 'Convertito in fornitore',
+);
+$GLOBALS['app_list_strings']['case_status_dom']=array (
+  'Open_New' => 'Nuovo',
+  'Closed_Rejected' => 'Annullato',
+  'Open_Assigned' => 'Assegnato',
+  'Closed_Closed' => 'Chiuso',
+  'Closed_Duplicate' => 'Duplicato',
+  'Open_Pending Input' => 'In pending',
+  'Open_NewDate' => 'Rimandato',
 );

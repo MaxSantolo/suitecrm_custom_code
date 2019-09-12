@@ -31,7 +31,7 @@ array (
           ),
             4 =>
                 array (
-                    'customCode' => '<input type="submit" class="button" title="Converti in fornitore" onclick="alert(\'Bean ID: \' + \'{$bean->id}\');" name="genFile" value="genFile" />',
+                    'customCode' => '<input type="submit" class="button" title="Converti fornitore" onclick="alert(\'Bean ID: \' + \'{$bean->id}\');" name="genFile" value="genFile" />',
                     'sugar_html' =>
                         array (
                             'type' => 'submit',
@@ -41,31 +41,30 @@ array (
                                     'class' => 'button',
                                     'id' => 'genFile_button',
                                     'title' => 'Copia il contatto nei fornitori',
-                                    'onclick' => 'if(confirm(\'Il contatto verr&agrave; copiato nei fornitori. Procedo?\')) document.location = \'index.php?entryPoint=leads2FDipendenti&lead_id={$bean->id}\';',
-                                    'name' => 'leads2FDipendenti',
+                                    'onclick' => 'if(confirm(\'Il contatto verr&agrave; copiato nei fornitori come azienda. Procedo?\')) document.location = \'index.php?entryPoint=leads2Frnt&lead_id={$bean->id}\';',
+                                    'name' => 'leads2Frnt',
                                 ),
                         ),
                 ),
-          5 =>
+
+            5 =>
           array (
-            'customCode' => '{if $bean->aclAccess("edit") && !$DISABLE_CONVERT_ACTION}<input title="{$MOD.LBL_CONVERTLEAD_TITLE}" accessKey="{$MOD.LBL_CONVERTLEAD_BUTTON_KEY}" type="button" class="button" onClick="document.location=\'index.php?module=Leads&action=ConvertLead&record={$fields.id.value}\'" name="convert" value="{$MOD.LBL_CONVERTLEAD}">{/if}',
+            'customCode' => '<input type="submit" class="button" title="Converti in dipendente di un fornitore" onclick="alert(\'Bean ID: \' + \'{$bean->id}\');" name="genFile" value="genFile" />',
             'sugar_html' => 
             array (
-              'type' => 'button',
-              'value' => '{$MOD.LBL_CONVERTLEAD}',
+              'type' => 'submit',
+              'value' => 'Converti in dipendente di un fornitore',
               'htmlOptions' => 
               array (
-                'title' => '{$MOD.LBL_CONVERTLEAD_TITLE}',
-                'accessKey' => '{$MOD.LBL_CONVERTLEAD_BUTTON_KEY}',
                 'class' => 'button',
-                'onClick' => 'document.location=\'index.php?module=Leads&action=ConvertLead&record={$fields.id.value}\'',
-                'name' => 'convert',
-                'id' => 'convert_lead_button',
+                'id' => 'genFile_button',
+                'title' => 'Copia il contatto nei fornitori',
+                'onclick' => 'if(confirm(\'Il contatto verr&agrave; copiato nei fornitori. Procedo?\')) document.location = \'index.php?entryPoint=leads2FDipendenti&lead_id={$bean->id}\';',
+                'name' => 'leads2FDipendenti',
               ),
-              'template' => '{if $bean->aclAccess("edit") && !$DISABLE_CONVERT_ACTION}[CONTENT]{/if}',
             ),
           ),
-          5 => 'FIND_DUPLICATES',
+          6 => 'FIND_DUPLICATES',
           'AOS_GENLET' => 
           array (
             'customCode' => '<input type="button" class="button" onClick="showPopup();" value="{$APP.LBL_PRINT_AS_PDF}">',
@@ -171,9 +170,17 @@ array (
         ),
         3 => 
         array (
-          0 => 'email1',
+          0 => 
+          array (
+            'name' => 'cellulare_notifiche_c',
+            'label' => 'LBL_CELLULARE_NOTIFICHE',
+          ),
         ),
         4 => 
+        array (
+          0 => 'email1',
+        ),
+        5 => 
         array (
           0 => 'description',
         ),
@@ -237,8 +244,14 @@ array (
         array (
           0 => 
           array (
-            'name' => 'campaign_name',
-            'label' => 'LBL_CAMPAIGN',
+            'name' => 'mailing_status_c',
+            'studio' => 'visible',
+            'label' => 'LBL_MAILING_STATUS',
+          ),
+          1 => 
+          array (
+            'name' => 'mailing_date_c',
+            'label' => 'LBL_MAILING_DATE',
           ),
         ),
       ),
@@ -396,26 +409,12 @@ array (
         array (
           0 => 
           array (
-            'name' => 'mailing_status_c',
-            'studio' => 'visible',
-            'label' => 'LBL_MAILING_STATUS',
-          ),
-          1 => 
-          array (
-            'name' => 'mailing_date_c',
-            'label' => 'LBL_MAILING_DATE',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
             'name' => 'sendinblue_state_c',
             'studio' => 'visible',
             'label' => 'LBL_SENDINBLUE_STATE',
           ),
         ),
-        2 => 
+        1 => 
         array (
           0 => 
           array (
@@ -428,7 +427,7 @@ array (
             'label' => 'LBL_PRIVACY_A_DATE',
           ),
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (

@@ -188,7 +188,11 @@ class LeadsLH {
         require_once 'custom/Extension/application/PickLog.php';
 
         $mailbody = "";
-        if (!empty($bean->fetched_row) && ($bean->fetched_row['pec_c'] != $bean->pec_c || $bean->fetched_row['cdu_c'] != $bean->cdu_c) && $bean->status == 'Converted'
+        if  (!empty($bean->fetched_row)
+            &&
+            ($bean->fetched_row['pec_c'] != $bean->pec_c || $bean->fetched_row['cdu_c'] != $bean->cdu_c)
+            &&
+            $bean->status == 'Converted'
             &&
             in_array($bean->azienda_tipo_c, array("libero","persona"))
             &&
@@ -250,7 +254,7 @@ class LeadsLH {
     //mette a 0 il CDU nei casi opportuni
     function CDU($bean) {
 
-        if (($bean->azienda_tipo_c == 'persona' || $bean->lead_piva_c == '') && $bean->cdu_c == '' && $bean->status == 'Converted' ) {
+        if ($bean->azienda_tipo_c == 'persona' && $bean->cdu_c == '' && $bean->status == 'Converted' && $bean->account_id_c != '') {
             $bean->cdu_c = '0000000';
             SugarApplication::appendSuccessMessage('Ho settato automaticamente il CDU a 0000000');
        }

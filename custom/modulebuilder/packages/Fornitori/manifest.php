@@ -65,9 +65,9 @@ $manifest = array (
   'icon' => '',
   'is_uninstallable' => true,
   'name' => 'Fornitori',
-  'published_date' => '2019-08-01 11:23:43',
+  'published_date' => '2019-09-05 13:47:53',
   'type' => 'module',
-  'version' => 1564658623,
+  'version' => 1567691274,
   'remove_tables' => 'prompt',
 );
 

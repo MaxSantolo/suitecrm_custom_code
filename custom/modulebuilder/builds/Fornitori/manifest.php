@@ -65,9 +65,9 @@ $manifest = array (
   'icon' => '',
   'is_uninstallable' => true,
   'name' => 'Fornitori',
-  'published_date' => '2017-11-16 16:00:22',
+  'published_date' => '2019-09-05 13:47:54',
   'type' => 'module',
-  'version' => 1510848022,
+  'version' => 1567691274,
   'remove_tables' => 'prompt',
 );
 
@@ -83,12 +83,28 @@ $installdefs = array (
       'path' => 'modules/frnt_fornitori_azienda/frnt_fornitori_azienda.php',
       'tab' => true,
     ),
+    1 => 
+    array (
+      'module' => 'frnt_fornitori_documenti',
+      'class' => 'frnt_fornitori_documenti',
+      'path' => 'modules/frnt_fornitori_documenti/frnt_fornitori_documenti.php',
+      'tab' => true,
+    ),
   ),
   'layoutdefs' => 
   array (
+    0 => 
+    array (
+      'from' => '<basepath>/SugarModules/relationships/layoutdefs/frnt_fornitori_documenti_frnt_fornitori_azienda_frnt_fornitori_azienda.php',
+      'to_module' => 'frnt_fornitori_azienda',
+    ),
   ),
   'relationships' => 
   array (
+    0 => 
+    array (
+      'meta_data' => '<basepath>/SugarModules/relationships/relationships/frnt_fornitori_documenti_frnt_fornitori_aziendaMetaData.php',
+    ),
   ),
   'image_dir' => '<basepath>/icons',
   'copy' => 
@@ -98,20 +114,77 @@ $installdefs = array (
       'from' => '<basepath>/SugarModules/modules/frnt_fornitori_azienda',
       'to' => 'modules/frnt_fornitori_azienda',
     ),
+    1 => 
+    array (
+      'from' => '<basepath>/SugarModules/modules/frnt_fornitori_documenti',
+      'to' => 'modules/frnt_fornitori_documenti',
+    ),
   ),
   'language' => 
   array (
     0 => 
     array (
+      'from' => '<basepath>/SugarModules/relationships/language/frnt_fornitori_documenti.php',
+      'to_module' => 'frnt_fornitori_documenti',
+      'language' => 'it_IT',
+    ),
+    1 => 
+    array (
+      'from' => '<basepath>/SugarModules/relationships/language/frnt_fornitori_documenti.php',
+      'to_module' => 'frnt_fornitori_documenti',
+      'language' => 'en_us',
+    ),
+    2 => 
+    array (
+      'from' => '<basepath>/SugarModules/relationships/language/frnt_fornitori_azienda.php',
+      'to_module' => 'frnt_fornitori_azienda',
+      'language' => 'it_IT',
+    ),
+    3 => 
+    array (
+      'from' => '<basepath>/SugarModules/relationships/language/frnt_fornitori_azienda.php',
+      'to_module' => 'frnt_fornitori_azienda',
+      'language' => 'en_us',
+    ),
+    4 => 
+    array (
       'from' => '<basepath>/SugarModules/language/application/en_us.lang.php',
       'to_module' => 'application',
       'language' => 'en_us',
     ),
-    1 => 
+    5 => 
     array (
       'from' => '<basepath>/SugarModules/language/application/it_it.lang.php',
       'to_module' => 'application',
       'language' => 'it_it',
+    ),
+    6 => 
+    array (
+      'from' => '<basepath>/SugarModules/language/application/it_IT.lang.php',
+      'to_module' => 'application',
+      'language' => 'it_IT',
+    ),
+  ),
+  'vardefs' => 
+  array (
+    0 => 
+    array (
+      'from' => '<basepath>/SugarModules/relationships/vardefs/frnt_fornitori_documenti_frnt_fornitori_azienda_frnt_fornitori_documenti.php',
+      'to_module' => 'frnt_fornitori_documenti',
+    ),
+    1 => 
+    array (
+      'from' => '<basepath>/SugarModules/relationships/vardefs/frnt_fornitori_documenti_frnt_fornitori_azienda_frnt_fornitori_azienda.php',
+      'to_module' => 'frnt_fornitori_azienda',
+    ),
+  ),
+  'layoutfields' => 
+  array (
+    0 => 
+    array (
+      'additional_fields' => 
+      array (
+      ),
     ),
   ),
 );

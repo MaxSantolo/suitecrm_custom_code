@@ -20,4 +20,11 @@ $entry_point_registry['account2Frnt'] = array(
       'file' => 'custom/modules/Leads/leads2FDi_Dipendenti.php',
       'auth' => true
   );
+
+
+
+  $entry_point_registry['leads2Frnt'] = array(
+      'file' => 'custom/modules/Leads/leads2Frnt.php',
+      'auth' => true
+  );
 ?>

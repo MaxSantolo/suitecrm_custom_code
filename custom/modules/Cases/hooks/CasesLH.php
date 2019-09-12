@@ -174,7 +174,7 @@ class CasesLH
 
         require_once 'include/SugarPHPMailer.php';
 
-        $mail = new SugarPHPMailer();
+        $mail = new SugarPHphpPMailer();
         $mail->CharSet="UTF-8";
         $mail->isSMTP();
         $mail->From = 'info@pickcenter.com';

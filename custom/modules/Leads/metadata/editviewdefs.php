@@ -106,9 +106,17 @@ array (
         ),
         3 => 
         array (
-          0 => 'email1',
+          0 => 
+          array (
+            'name' => 'cellulare_notifiche_c',
+            'label' => 'LBL_CELLULARE_NOTIFICHE',
+          ),
         ),
         4 => 
+        array (
+          0 => 'email1',
+        ),
+        5 => 
         array (
           0 => 'description',
         ),
