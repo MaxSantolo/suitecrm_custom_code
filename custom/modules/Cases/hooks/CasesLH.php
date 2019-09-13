@@ -24,12 +24,49 @@ class CasesLH
 
         $dbID2Modify = (BeanFactory::getBean("db_eventi"))->retrieve_by_string_fields(array('parent_id_custom_c' => $bean->id,))->id;
 
-        if ($bean->intervento_c != '' && $bean->fetched_row['intervento_c'] != $bean->intervento_c && is_null($dbID2Modify)) {
+        if (
+            (
+                ($bean->intervento_c != ''
+                &&
+                $bean->fetched_row['intervento_c'] != $bean->intervento_c)
+                ||
+                ($bean->dr_notify_c == 1
+                &&
+                $bean->fetched_row['dr_notify_c'] != $bean->dr_notify_c)
+            )
+
+            &&
+            is_null($dbID2Modify)
+
+        )
+
+        {
 
             $reception = BeanFactory::newBean('db_eventi');
-            $parent = BeanFactory::getBean($bean->parent_type, $bean->parent_id);
 
-            $reception->name = "Intervento tecnico di " . $parent->name;
+            //genero il nome del ticket a seconda degli stati e del fornitore associato
+
+
+            //carico il bean relativo utilizzando il campo relazione (vd. database)
+            //todo: provare con il metodo query (hotexamples.com)
+            $frnt = BeanFactory::getBean("frnt_fornitori_azienda",$bean->frnt_fornitori_azienda_cases_1frnt_fornitori_azienda_ida);
+
+            if (!empty($frnt->id)) {
+
+                $name = "Intervento tecnico di {$frnt->name}";
+            }
+            else {
+
+                global $app_list_strings;
+                $name = $app_list_strings['case_type_dom'][$bean->type] . " - " . $bean->name;
+
+            }
+
+
+
+            //$parent = BeanFactory::getBean($bean->parent_type, $bean->parent_id);
+
+            $reception->name = $name;
             $reception->description = strip_tags(html_entity_decode($bean->descrizione_c)); //. $bean->leads_cases_1leads_ida . $bean->account_id;
             $reception->event_date = $bean->intervento_c;
             $reception->date_entered = $bean->intervento_c;
@@ -83,7 +120,8 @@ class CasesLH
             ($bean->fetched_row['assigned_user_id'] != $bean->assigned_user_id && $bean->assigned_user_id != "") || //caso 2 il ticket è stato assegnato a una persona diversa
             ($bean->fetched_row['sede_ticket_c'] != $bean->sede_ticket_c) || //caso 3 cambia la sede dell'intervento
             ($bean->fetched_row['intervento_c'] != $bean->intervento_c && $bean->intervento_c != "") || //caso 4 cambia la data d'intervento
-            ($bean->fetched_row['status'] != $bean->status) //caso 5 cambia lo status
+            ($bean->fetched_row['status'] != $bean->status) || //caso 5 cambia lo status
+            ($bean->fetched_row['resolution'] != $bean->resolution && $bean->resolution != "")//caso 6 cambia il campo soluzione
 
         ) {
 
@@ -119,6 +157,7 @@ class CasesLH
                 <strong>Richiedente: </strong>{$current_user->name}<br>
                 <strong>Oggetto: </strong>{$bean->name}<br>
                 <strong>Descrizione: </strong>{$bean->descrizione_c}<br>
+                <strong>Soluzione: </strong>{$bean->resolution}<br>
                 <strong><a href='{$ticketURL}' target='_blank'>Vedi i dettagli </a></strong>
                 
             ";

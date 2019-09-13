@@ -82,6 +82,12 @@ $dictionary['Case']['fields']['case_update_form']['reportable']=true;
 
  
 
+ // created: 2019-09-12 15:12:41
+$dictionary['Case']['fields']['dr_notify_c']['inline_edit']='1';
+$dictionary['Case']['fields']['dr_notify_c']['labelValue']='Notifica alle reception';
+
+ 
+
 $dictionary['Case']['fields']['account_id']['required'] = false;
 
 
@@ -196,4 +202,12 @@ $dictionary["Case"]["fields"]["cases_fd_documenti_1"] = array (
   'vname' => 'LBL_CASES_FD_DOCUMENTI_1_FROM_FD_DOCUMENTI_TITLE',
 );
 
+
+ // created: 2019-09-12 13:26:54
+$dictionary['Case']['fields']['type']['len']=100;
+$dictionary['Case']['fields']['type']['inline_edit']=true;
+$dictionary['Case']['fields']['type']['comments']='The type of issue (ex: issue, feature)';
+$dictionary['Case']['fields']['type']['merge_filter']='disabled';
+
+ 
 ?>

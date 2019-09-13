@@ -29,11 +29,6 @@ $GLOBALS['app_list_strings']['task_status_dom']=array (
   'nullaosta' => 'dato nulla osta per sede legale',
   'nonerogabile' => 'Servizio non erogabile per mancanza disp',
 );
-$GLOBALS['app_list_strings']['case_type_dom']=array (
-  'Administration' => 'Amministrazione',
-  'IT' => 'Assistenza IT',
-  'fornitore' => 'Intervento Fornitore',
-);
 $GLOBALS['app_list_strings']['tipo_fornitore_list']=array (
   'FRNT_no' => 'Nessuno',
   'FRNT_muratura' => 'Edile',
@@ -140,12 +135,17 @@ $GLOBALS['app_list_strings']['lead_status_dom']=array (
   'social' => 'Social',
   'conv_FRNT' => 'Convertito in fornitore',
 );
+
 $GLOBALS['app_list_strings']['case_status_dom']=array (
-  'Open_New' => 'Nuovo',
-  'Closed_Rejected' => 'Annullato',
   'Open_Assigned' => 'Assegnato',
-  'Closed_Closed' => 'Chiuso',
-  'Closed_Duplicate' => 'Duplicato',
-  'Open_Pending Input' => 'In pending',
+  'Open_Pending Input' => 'In lavorazione',
   'Open_NewDate' => 'Rimandato',
+  'Closed_Rejected' => 'Annullato',
+  'Closed_Closed' => 'Chiuso',
+);
+$GLOBALS['app_list_strings']['case_type_dom']=array (
+  'Administration' => 'Amministrazione',
+  'IT' => 'Assistenza IT',
+  'fornitore' => 'Intervento Fornitore',
+  'secr' => 'Segreterie',
 );

@@ -1,5 +1,5 @@
 <?php
-// created: 2019-08-07 16:07:59
+// created: 2019-09-12 15:12:41
 $mod_strings = array (
   'LBL_CONTACT_CREATED_BY_NAME' => 'Creato dal contatto',
   'LBL_CONTACT_CREATED_BY' => 'Creato da:',
@@ -40,4 +40,6 @@ $mod_strings = array (
   'LBL_AOP_CASE_UPDATES_THREADED' => 'Aggiornamento ticketThreaded',
   'LBL_CASE_ATTACHMENTS_DISPLAY' => 'Allegati ticket:',
   'LBL_CASE_NUMBER' => 'Numero ticket:',
+  'LBL_TYPE' => 'Tipo',
+  'LBL_DR_NOTIFY' => 'Notifica alle reception',
 );

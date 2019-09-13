@@ -92,6 +92,14 @@ array (
         array (
           0 => 
           array (
+            'name' => 'dr_notify_c',
+            'label' => 'LBL_DR_NOTIFY',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
             'name' => 'sede_ticket_c',
             'studio' => 'visible',
             'label' => 'LBL_SEDE_TICKET',
@@ -102,7 +110,7 @@ array (
             'label' => 'LBL_INTERVENTO',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -115,7 +123,7 @@ array (
             'label' => 'LBL_ASSIGNED_TO',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -125,7 +133,7 @@ array (
           ),
           1 => 'status',
         ),
-        7 => 
+        8 => 
         array (
           0 => 'resolution',
         ),
